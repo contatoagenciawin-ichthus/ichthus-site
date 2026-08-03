@@ -6,8 +6,15 @@ import "./globals.css";
 const _inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Ichthus | Marketing Estruturado',
-  description: 'Marketing estruturado com objetivos claros e resultados mensuraveis. Mais de 10 anos construindo cases de sucesso.',
+  metadataBase: new URL('https://ichthusmkt.com.br'),
+  title: 'Ichthus Marketing | Estratégia que chega até a execução',
+  description: 'Posicionamento, aquisição, conversão e relacionamento para empresas técnicas, especialistas e operações em crescimento.',
+  openGraph: {
+    title: 'Ichthus Marketing | Estratégia que chega até a execução',
+    description: 'Clareza para conectar comunicação, canais, dados e tecnologia ao crescimento do negócio.',
+    locale: 'pt_BR',
+    type: 'website',
+  },
 }
 
 export default function RootLayout({
@@ -21,4 +28,3 @@ export default function RootLayout({
     </html>
   )
 }
-
