@@ -1,119 +1,34 @@
 "use client"
 
-import { useState, useCallback, type FormEvent } from "react"
-import { ArrowRight, Loader2 } from "lucide-react"
+import { useState, type FormEvent } from "react"
+import { ArrowRight } from "lucide-react"
 
-const REVENUE_OPTIONS = [
-  { value: "ate-10k", label: "Até R$10k" },
-  { value: "10k-50k", label: "R$10k - R$50k" },
-  { value: "50k-100k", label: "R$50k - R$100k" },
-  { value: "acima-200k", label: "Acima de R$200k" },
-]
+const interests = ["Posicionamento e conteúdo", "Tráfego e aquisição", "Site ou funil", "Tecnologia / Proxy", "Livro / Editora"]
 
 export function LeadCapture() {
-  const [formData, setFormData] = useState({ name: "", email: "", phone: "", revenue: "", challenge: "" })
-  const [sending, setSending] = useState(false)
+  const [data, setData] = useState({ name: "", company: "", email: "", phone: "", interest: "", challenge: "" })
 
-  const handleSubmit = async (e: FormEvent) => {
-    e.preventDefault()
-    setSending(true)
-    // Simulação de envio
-    setTimeout(() => {
-      const message = encodeURIComponent(`Olá! Nome: ${formData.name}\nFaturamento: ${formData.revenue}`)
-      window.open(`https://wa.me/5519998363352?text=${message}`, "_blank")
-      setSending(false)
-    }, 1000)
+  function submit(event: FormEvent) {
+    event.preventDefault()
+    const message = ["Olá, Ichthus! Gostaria de conversar sobre um projeto.", `Nome: ${data.name}`, `Empresa: ${data.company || "Não informada"}`, `E-mail: ${data.email}`, `Telefone: ${data.phone || "Não informado"}`, `Interesse: ${data.interest || "A definir"}`, `Desafio: ${data.challenge || "Prefiro explicar na conversa"}`].join("\n")
+    window.open(`https://wa.me/5519998363352?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer")
   }
 
+  const field = "w-full border-b border-white/20 bg-transparent py-4 text-xl outline-none transition-colors placeholder:text-white/15 focus:border-[#e05c58] lg:text-2xl"
+
   return (
-    <section id="contato" className="bg-black text-white py-32 px-6 lg:px-12 font-sans overflow-hidden">
-      <div className="max-w-7xl mx-auto">
-        
-        {/* Header Estilo 1820 */}
-        <div className="mb-32 border-b border-white/10 pb-12">
-          <h2 className="text-[12vw] lg:text-[8vw] font-black leading-[0.85] tracking-tighter uppercase italic">
-            TEM UMA VISÃO? <br />
-            <span className="text-white/20">VAMOS ESCALAR JUNTOS.</span>
-          </h2>
-        </div>
-
-        <form onSubmit={handleSubmit} className="grid grid-cols-1 lg:grid-cols-2 gap-x-20 gap-y-16">
-          
-          {/* Nome */}
-          <div className="group relative">
-            <label className="text-[10px] uppercase tracking-[0.3em] text-white/40 group-focus-within:text-[#e05c58] transition-colors">Seu Nome</label>
-            <input
-              type="text"
-              required
-              className="w-full bg-transparent border-b border-white/20 py-4 text-2xl lg:text-4xl outline-none focus:border-white transition-all placeholder:text-white/5"
-              placeholder="Seu Nome"
-              onChange={e => setFormData({...formData, name: e.target.value})}
-            />
-          </div>
-
-          {/* Email */}
-          <div className="group relative">
-            <label className="text-[10px] uppercase tracking-[0.3em] text-white/40 group-focus-within:text-[#e05c58] transition-colors">Seu Melhor E-mail</label>
-            <input
-              type="email"
-              required
-              className="w-full bg-transparent border-b border-white/20 py-4 text-2xl lg:text-4xl outline-none focus:border-white transition-all placeholder:text-white/5"
-              placeholder="hello@world.com"
-              onChange={e => setFormData({...formData, email: e.target.value})}
-            />
-          </div>
-
-          {/* Faturamento (Select Customizado) */}
-          <div className="group relative lg:col-span-2">
-            <label className="text-[10px] uppercase tracking-[0.3em] text-white/40">Média de Faturamento</label>
-            <div className="flex flex-wrap gap-4 mt-6">
-              {REVENUE_OPTIONS.map((opt) => (
-                <button
-                  key={opt.value}
-                  type="button"
-                  onClick={() => setFormData({...formData, revenue: opt.value})}
-                  className={`px-8 py-3 border rounded-full text-sm font-bold uppercase tracking-widest transition-all ${
-                    formData.revenue === opt.value 
-                    ? "bg-white text-black border-white" 
-                    : "border-white/20 text-white/40 hover:border-white hover:text-white"
-                  }`}
-                >
-                  {opt.label}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Mensagem/Desafio */}
-          <div className="group relative lg:col-span-2">
-            <label className="text-[10px] uppercase tracking-[0.3em] text-white/40 group-focus-within:text-[#e05c58] transition-colors">Seu Desafio</label>
-            <textarea
-              rows={1}
-              className="w-full bg-transparent border-b border-white/20 py-8 text-2xl lg:text-5xl outline-none focus:border-white transition-all placeholder:text-white/5 resize-none overflow-hidden"
-              placeholder="Conte-nos sua meta..."
-              onChange={e => setFormData({...formData, challenge: e.target.value})}
-            />
-          </div>
-
-          {/* Submit Monumental */}
-          <div className="lg:col-span-2 pt-12">
-            <button
-              type="submit"
-              disabled={sending}
-              className="group flex items-center gap-8 text-4xl lg:text-7xl font-black uppercase italic tracking-tighter hover:italic-none transition-all"
-            >
-              <span className="relative">
-                {sending ? "Sending..." : "Falar com um Especialista"}
-                <div className="absolute bottom-0 left-0 w-full h-2 bg-[#e05c58] scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
-              </span>
-              {sending ? (
-                <Loader2 className="w-12 h-12 lg:w-20 lg:h-20 animate-spin text-white/20" />
-              ) : (
-                <ArrowRight className="w-12 h-12 lg:w-20 lg:h-20 group-hover:translate-x-4 transition-transform text-[#e05c58]" />
-              )}
-            </button>
-          </div>
-
+    <section id="contato" className="bg-black px-6 py-28 lg:px-12 lg:py-40">
+      <div className="mx-auto max-w-7xl">
+        <p className="mb-8 text-[10px] font-black uppercase tracking-[0.5em] text-[#e05c58]">// PRÓXIMA CONVERSA</p>
+        <h2 className="max-w-6xl text-5xl font-black uppercase italic leading-[0.86] tracking-tighter sm:text-7xl lg:text-8xl">O que seu negócio<br /><span className="text-white/20">precisa destravar?</span></h2>
+        <form onSubmit={submit} className="mt-20 grid gap-x-12 gap-y-10 lg:grid-cols-2">
+          <input required aria-label="Nome" placeholder="Seu nome *" className={field} value={data.name} onChange={(e) => setData({ ...data, name: e.target.value })} />
+          <input aria-label="Empresa" placeholder="Empresa ou projeto" className={field} value={data.company} onChange={(e) => setData({ ...data, company: e.target.value })} />
+          <input required type="email" aria-label="E-mail" placeholder="Seu melhor e-mail *" className={field} value={data.email} onChange={(e) => setData({ ...data, email: e.target.value })} />
+          <input type="tel" aria-label="Telefone" placeholder="Telefone / WhatsApp" className={field} value={data.phone} onChange={(e) => setData({ ...data, phone: e.target.value })} />
+          <div className="lg:col-span-2"><p className="mb-5 text-[9px] font-bold uppercase tracking-[0.3em] text-white/35">Assunto principal</p><div className="flex flex-wrap gap-3">{interests.map((interest) => <button key={interest} type="button" onClick={() => setData({ ...data, interest })} className={`border px-4 py-2 text-[9px] font-black uppercase tracking-widest transition-colors ${data.interest === interest ? "border-[#e05c58] bg-[#e05c58] text-white" : "border-white/20 text-white/45 hover:border-white"}`}>{interest}</button>)}</div></div>
+          <textarea aria-label="Desafio" placeholder="Conte brevemente o desafio" rows={2} className={`${field} resize-none lg:col-span-2`} value={data.challenge} onChange={(e) => setData({ ...data, challenge: e.target.value })} />
+          <button type="submit" className="group mt-6 flex items-center gap-5 text-left text-3xl font-black uppercase italic tracking-tighter lg:col-span-2 lg:text-5xl">Enviar pelo WhatsApp <ArrowRight className="h-10 w-10 text-[#e05c58] transition-transform group-hover:translate-x-3" /></button>
         </form>
       </div>
     </section>
