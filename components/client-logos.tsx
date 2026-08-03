@@ -14,15 +14,15 @@ export function ClientLogos() {
   const duplicatedLogos = [...logoIds, ...logoIds]
 
   return (
-    <section className="relative z-20 bg-black py-32 overflow-hidden border-t border-white/5">
+    <section id="clientes" className="relative z-20 bg-black py-32 overflow-hidden border-t border-white/5">
       
       {/* Título Monumental */}
       <div className="mb-24 px-6 text-center">
         <h2 className="text-4xl lg:text-7xl font-black text-white tracking-tighter uppercase leading-[0.85]">
-          MARCAS QUE <br /> CONFIARAM EM NÓS.
+          UMA DÉCADA <br /> CONSTRUINDO JUNTO.
         </h2>
         <p className="mt-8 text-[10px] font-bold tracking-[0.5em] text-white/40 uppercase">
-          [ Portfólio de Colaborações ]
+          [ Marcas e projetos atendidos desde 2014 ]
         </p>
       </div>
 
