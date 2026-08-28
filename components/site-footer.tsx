@@ -1,6 +1,6 @@
 import Link from "next/link"
 
-const nav = [["Sobre", "#sobre"], ["Serviços", "#servicos"], ["Cases", "#cases"], ["Ecossistema", "#ecossistema"], ["Contato", "#contato"]]
+const nav = [["Sobre", "/#sobre"], ["Serviços", "/#servicos"], ["Cases", "/#cases"], ["Sites & Landing Pages", "/sites"], ["Ecossistema", "/#ecossistema"], ["Contato", "/#contato"]]
 const social = [["Instagram", "https://www.instagram.com/ichthusmarketing/"], ["LinkedIn", "https://www.linkedin.com/company/ichthus-marketing"], ["WhatsApp", "https://wa.me/5519998363352"]]
 
 export function SiteFooter() {
@@ -9,7 +9,7 @@ export function SiteFooter() {
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-12 border-b border-white/10 pb-20 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
           <h2 className="text-5xl font-black uppercase italic leading-[0.86] tracking-tighter sm:text-7xl lg:text-8xl">Estratégia.<br /><span className="text-white/20">Execução.</span><br />Evolução.</h2>
-          <div className="lg:justify-self-end lg:text-right"><p className="text-lg leading-relaxed text-white/45">Americana, São Paulo<br />Atendimento em todo o Brasil.</p><Link href="#contato" className="mt-6 inline-block text-sm font-black uppercase tracking-[0.2em] text-[#e05c58]">Iniciar conversa →</Link></div>
+          <div className="lg:justify-self-end lg:text-right"><p className="text-lg leading-relaxed text-white/45">Americana, São Paulo<br />Atendimento em todo o Brasil.</p><Link href="/#contato" className="mt-6 inline-block text-sm font-black uppercase tracking-[0.2em] text-[#e05c58]">Iniciar conversa →</Link></div>
         </div>
         <div className="grid gap-12 py-14 sm:grid-cols-2 lg:grid-cols-4">
           <div><p className="text-[9px] font-black uppercase tracking-[0.35em] text-white/25">Navegação</p><nav className="mt-5 flex flex-col gap-2">{nav.map(([label, href]) => <Link key={href} href={href} className="text-sm font-bold uppercase tracking-wider hover:text-[#e05c58]">{label}</Link>)}</nav></div>
