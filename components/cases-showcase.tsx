@@ -2,12 +2,60 @@ import Link from "next/link"
 import { ArrowRight, ArrowUpRight } from "lucide-react"
 
 const cases = [
-  { client: "Dr. Juliano Plastina", sector: "Saúde / Infoproduto", title: "Um funil que aprende com o tráfego.", description: "Landing pages, régua de e-mails, mapa de calor e suporte à operação de mídia para transformar atenção em diagnóstico e evolução contínua.", tags: ["Funil", "Landing pages", "E-mail", "Dados"] },
-  { client: "Eduardo Brasil", sector: "Jurídico", title: "Conteúdo transformado em canal próprio.", description: "Sistema de newsletter com estúdio editorial, aquisição via Brevo e dashboard próprio para organizar publicação, distribuição e leitura da operação.", tags: ["Newsletter", "Aquisição", "Dashboard", "Relacionamento"] },
-  { client: "Pet Endoscopia", sector: "Saúde animal", title: "Autoridade técnica orientada à captação.", description: "Revisão de posicionamento, reconstrução do site e páginas de campanha para tutores, veterinários, clínicas e hospitais.", tags: ["Estratégia", "Site", "Funil", "Tráfego"] },
-  { client: "Veritas Medi", sector: "Saúde", title: "Dez ofertas, uma estrutura de aquisição.", description: "Organização de um sistema de captação e criação de dez landing pages para kits, preservando clareza comercial e capacidade de mensuração.", tags: ["Arquitetura", "Landing pages", "Captação"] },
-  { client: "Kone Máquinas", sector: "Indústria B2B", title: "Complexidade técnica apresentada com clareza.", description: "Presença digital para máquinas operatrizes e centros de usinagem, estruturada para apoiar credibilidade e oportunidades comerciais.", tags: ["B2B", "Site", "Posicionamento"] },
-  { client: "Sucos Vem Viver", sector: "Marca própria", title: "Uma nova marca pronta para ganhar mercado.", description: "Construção de presença e estrutura digital para a marca própria de sucos do Empório Liasch, conectando identidade, produto e lançamento.", tags: ["Marca", "Digital", "Lançamento"] },
+  {
+    client: "Dr. Juliano Plastina",
+    sector: "Saúde / Infoproduto",
+    title: "Um funil que aprende com o tráfego.",
+    description: "Landing pages, régua de e-mails, mapa de calor e suporte à operação de mídia para transformar atenção em diagnóstico e evolução contínua.",
+    tags: ["Funil", "Landing pages", "E-mail", "Dados"],
+    href: "https://metodoppe.com.br",
+    linkLabel: "Abrir landing page",
+  },
+  {
+    client: "Eduardo Brasil",
+    sector: "Jurídico",
+    title: "Conteúdo transformado em canal próprio.",
+    description: "Sistema de newsletter com estúdio editorial, aquisição via Brevo e dashboard próprio para organizar publicação, distribuição e leitura da operação.",
+    tags: ["Newsletter", "Aquisição", "Dashboard", "Relacionamento"],
+    href: "https://eduardobrasil.fonsecabrasilserrao.com",
+    linkLabel: "Abrir projeto",
+  },
+  {
+    client: "Pet Endoscopia",
+    sector: "Saúde animal",
+    title: "Autoridade técnica orientada à captação.",
+    description: "Revisão de posicionamento, reconstrução do site e páginas de campanha para tutores, veterinários, clínicas e hospitais.",
+    tags: ["Estratégia", "Site", "Funil", "Tráfego"],
+    href: "https://www.petendoscopia.com",
+    linkLabel: "Abrir site",
+  },
+  {
+    client: "Veritas Medi",
+    sector: "Saúde",
+    title: "Dez ofertas, uma estrutura de aquisição.",
+    description: "Organização de um sistema de captação e criação de dez landing pages para kits, preservando clareza comercial e capacidade de mensuração.",
+    tags: ["Arquitetura", "Landing pages", "Captação"],
+    href: "https://kits.veritasmedi.com.br",
+    linkLabel: "Abrir projeto",
+  },
+  {
+    client: "Kone Máquinas",
+    sector: "Indústria B2B",
+    title: "Complexidade técnica apresentada com clareza.",
+    description: "Presença digital para máquinas operatrizes e centros de usinagem, estruturada para apoiar credibilidade e oportunidades comerciais.",
+    tags: ["B2B", "Site", "Posicionamento"],
+    href: "https://www.kone.ind.br",
+    linkLabel: "Abrir site",
+  },
+  {
+    client: "Sucos Vem Viver",
+    sector: "Marca própria",
+    title: "Uma nova marca pronta para ganhar mercado.",
+    description: "Construção de presença e estrutura digital para a marca própria de sucos do Empório Liasch, conectando identidade, produto e lançamento.",
+    tags: ["Marca", "Digital", "Lançamento"],
+    href: "https://vemviver.vercel.app",
+    linkLabel: "Abrir projeto",
+  },
 ]
 
 export function CasesShowcase() {
@@ -28,7 +76,14 @@ export function CasesShowcase() {
         </div>
         <div>
           {cases.map((item, index) => (
-            <article key={item.client} className="group grid gap-8 border-b border-white/15 py-12 transition-colors lg:grid-cols-[80px_0.65fr_1.35fr_36px] lg:items-start lg:gap-10 lg:py-16">
+            <a
+              key={item.client}
+              href={item.href}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={`${item.linkLabel}: ${item.client}`}
+              className="group grid gap-8 border-b border-white/15 py-12 transition-colors hover:bg-white/[0.025] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#e05c58] lg:grid-cols-[80px_0.65fr_1.35fr_150px] lg:items-start lg:gap-10 lg:px-4 lg:py-16"
+            >
               <span className="font-mono text-xs text-white/20">0{index + 1}</span>
               <div>
                 <p className="text-xs font-black uppercase tracking-[0.2em] text-[#e05c58]">{item.sector}</p>
@@ -41,8 +96,11 @@ export function CasesShowcase() {
                   {item.tags.map((tag) => <span key={tag} className="border border-white/15 px-3 py-1 text-[9px] font-bold uppercase tracking-widest text-white/45">{tag}</span>)}
                 </div>
               </div>
-              <ArrowUpRight className="hidden h-6 w-6 text-white/20 transition-all group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-[#e05c58] lg:block" />
-            </article>
+              <div className="flex items-center gap-3 text-[9px] font-black uppercase tracking-[0.18em] text-white/35 transition-colors group-hover:text-[#e05c58] lg:justify-end">
+                <span>{item.linkLabel}</span>
+                <ArrowUpRight className="h-5 w-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+              </div>
+            </a>
           ))}
         </div>
         <div className="mt-12 grid gap-6 border border-white/15 p-8 lg:grid-cols-[1fr_auto] lg:items-center lg:p-12">
