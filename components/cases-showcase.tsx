@@ -48,13 +48,13 @@ const cases = [
     linkLabel: "Abrir site",
   },
   {
-    client: "Sucos Vem Viver",
-    sector: "Marca própria",
-    title: "Uma nova marca pronta para ganhar mercado.",
-    description: "Construção de presença e estrutura digital para a marca própria de sucos do Empório Liasch, conectando identidade, produto e lançamento.",
-    tags: ["Marca", "Digital", "Lançamento"],
-    href: "https://vemviver.vercel.app",
-    linkLabel: "Abrir projeto",
+    client: "Empório Liasch",
+    sector: "Vinhos / Experiências",
+    title: "Uma experiência física traduzida para o digital.",
+    description: "Site estruturado para apresentar o Empório, sua curadoria, experiências e viagens, combinando posicionamento, prova social, conteúdo e caminhos de reserva e contato.",
+    tags: ["Site", "Experiência", "Conteúdo", "Conversão"],
+    href: "https://www.emporioliasch.com.br",
+    linkLabel: "Abrir site",
   },
 ]
 
@@ -105,11 +105,11 @@ export function CasesShowcase() {
         </div>
         <div className="mt-12 grid gap-6 border border-white/15 p-8 lg:grid-cols-[1fr_auto] lg:items-center lg:p-12">
           <div>
-            <p className="text-xs font-black uppercase tracking-[0.25em] text-[#e05c58]">Aquisição regional</p>
-            <h3 className="mt-4 text-2xl font-black uppercase tracking-tight lg:text-3xl">Estratégias locais para André Ávila e Dra. Amanda Fialho</h3>
-            <p className="mt-4 max-w-3xl leading-relaxed text-white/50">Campanhas desenhadas para realidades geográficas e jornadas distintas: atuação odontológica em Americana e Caconde, e captação médica regional em São Caetano do Sul.</p>
+            <p className="text-xs font-black uppercase tracking-[0.25em] text-[#e05c58]">Tráfego em operação</p>
+            <h3 className="mt-4 text-2xl font-black uppercase tracking-tight lg:text-3xl">André Ávila, Dra. Amanda Fialho e Pet Endoscopia</h3>
+            <p className="mt-4 max-w-3xl leading-relaxed text-white/50">Estratégias de aquisição em andamento para operações com jornadas e públicos distintos, conectando segmentação, campanha, página de destino e leitura de conversão.</p>
           </div>
-          <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/30">Google Ads / Estratégia</span>
+          <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/30">Google Ads / Meta Ads / Estratégia</span>
         </div>
       </div>
     </section>
