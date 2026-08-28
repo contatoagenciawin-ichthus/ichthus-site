@@ -1,4 +1,5 @@
-import { ArrowUpRight } from "lucide-react"
+import Link from "next/link"
+import { ArrowRight, ArrowUpRight } from "lucide-react"
 
 const cases = [
   { client: "Dr. Juliano Plastina", sector: "Saúde / Infoproduto", title: "Um funil que aprende com o tráfego.", description: "Landing pages, régua de e-mails, mapa de calor e suporte à operação de mídia para transformar atenção em diagnóstico e evolução contínua.", tags: ["Funil", "Landing pages", "E-mail", "Dados"] },
@@ -18,7 +19,12 @@ export function CasesShowcase() {
             <p className="mb-8 text-[10px] font-black uppercase tracking-[0.5em] text-[#e05c58]">// TRABALHOS SELECIONADOS</p>
             <h2 className="text-5xl font-black uppercase italic leading-[0.85] tracking-tighter sm:text-7xl lg:text-8xl">Problemas reais.<br /><span className="text-white/20">Estruturas próprias.</span></h2>
           </div>
-          <p className="max-w-md text-sm leading-relaxed text-white/45">Uma seleção de projetos recentes em que estratégia, comunicação e tecnologia precisaram trabalhar juntas.</p>
+          <div className="max-w-md">
+            <p className="text-sm leading-relaxed text-white/45">Uma seleção de projetos recentes em que estratégia, comunicação e tecnologia precisaram trabalhar juntas.</p>
+            <Link href="/sites" className="mt-7 inline-flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.22em] text-white transition-colors hover:text-[#e05c58]">
+              Ver sites & landing pages <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
         </div>
         <div>
           {cases.map((item, index) => (
