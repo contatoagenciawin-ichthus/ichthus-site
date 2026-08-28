@@ -5,7 +5,12 @@ import Link from "next/link"
 import { ArrowUpRight, Menu, X } from "lucide-react"
 
 const links = [
-  ["Sobre", "#sobre"], ["Serviços", "#servicos"], ["Cases", "#cases"], ["Abordagem", "#abordagem"], ["Ecossistema", "#ecossistema"],
+  ["Sobre", "/#sobre"],
+  ["Serviços", "/#servicos"],
+  ["Cases", "/#cases"],
+  ["Sites & LPs", "/sites"],
+  ["Abordagem", "/#abordagem"],
+  ["Ecossistema", "/#ecossistema"],
 ]
 
 export function Navigation() {
@@ -14,7 +19,7 @@ export function Navigation() {
     <nav className="fixed inset-x-0 top-0 z-50 px-6 py-6 lg:px-12 lg:py-8">
       <div className="flex items-center justify-between">
         <button onClick={() => setOpen(true)} className="flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.3em] text-white"><Menu className="h-5 w-5" /> Menu</button>
-        <Link href="#contato" className="flex items-center gap-2 bg-white px-5 py-3 text-[9px] font-black uppercase tracking-[0.25em] text-black transition-colors hover:bg-[#e05c58] hover:text-white">Iniciar conversa <ArrowUpRight className="h-3 w-3" /></Link>
+        <Link href="/#contato" className="flex items-center gap-2 bg-white px-5 py-3 text-[9px] font-black uppercase tracking-[0.25em] text-black transition-colors hover:bg-[#e05c58] hover:text-white">Iniciar conversa <ArrowUpRight className="h-3 w-3" /></Link>
       </div>
       <div className={`fixed inset-0 z-[100] bg-black transition-all duration-500 ${open ? "translate-y-0 opacity-100" : "pointer-events-none -translate-y-full opacity-0"}`}>
         <div className="mx-auto flex min-h-full max-w-7xl flex-col px-6 py-8 lg:px-12 lg:py-12">
