@@ -34,6 +34,18 @@ const projects = [
   },
   {
     number: "02",
+    client: "Monise Ribeiro — Redescobrindo-se",
+    sector: "Produto digital / E-book",
+    type: "Landing page de venda",
+    title: "Uma rota própria para transformar conteúdo autoral em produto digital.",
+    description:
+      "Landing page dedicada à venda do e-book Redescobrindo-se, reunindo narrativa da oferta, benefícios, preço, FAQ de entrega e checkout para aquisição imediata.",
+    tags: ["Landing page", "E-book", "Checkout", "Produto digital"],
+    url: "https://www.moniseribeiro.com.br/redescobrindo-se",
+    displayUrl: "moniseribeiro.com.br/redescobrindo-se",
+  },
+  {
+    number: "03",
     client: "Pet Endoscopia",
     sector: "Saúde animal",
     type: "Site institucional + comercial",
@@ -45,7 +57,7 @@ const projects = [
     displayUrl: "petendoscopia.com",
   },
   {
-    number: "03",
+    number: "04",
     client: "SF Sistemas Construtivos",
     sector: "Engenharia / B2B",
     type: "Site institucional",
@@ -57,7 +69,7 @@ const projects = [
     displayUrl: "sfsistemasconstrutivos.com.br",
   },
   {
-    number: "04",
+    number: "05",
     client: "Peludinhos Dermatologia Veterinária",
     sector: "Saúde animal",
     type: "Site de serviço especializado",
@@ -69,7 +81,7 @@ const projects = [
     displayUrl: "peludinhosdermatologia.com.br",
   },
   {
-    number: "05",
+    number: "06",
     client: "Empório Liasch",
     sector: "Vinhos / Experiências",
     type: "Site institucional + experiência",
