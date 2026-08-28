@@ -68,6 +68,18 @@ const projects = [
     url: "https://peludinhosdermatologia.com.br",
     displayUrl: "peludinhosdermatologia.com.br",
   },
+  {
+    number: "05",
+    client: "Empório Liasch",
+    sector: "Vinhos / Experiências",
+    type: "Site institucional + experiência",
+    title: "Uma experiência física traduzida para o digital.",
+    description:
+      "Site construído para apresentar o Empório, sua curadoria de vinhos, experiências e viagens, organizando posicionamento, prova social, conteúdo e caminhos de reserva e contato.",
+    tags: ["Site", "Experiência", "Conteúdo", "Conversão"],
+    url: "https://www.emporioliasch.com.br",
+    displayUrl: "emporioliasch.com.br",
+  },
 ]
 
 const capabilities = [
