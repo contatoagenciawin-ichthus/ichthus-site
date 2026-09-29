@@ -1,6 +1,7 @@
 "use client"
 
-import { FormEvent, useState } from "react"
+import { FormEvent, useRef, useState } from "react"
+import { motion, useScroll, useTransform } from "framer-motion"
 import { ArrowUpRight, Menu, X } from "lucide-react"
 
 const services = [
@@ -25,6 +26,39 @@ const steps = [
   ["03", "Construção", "Colocar conteúdo, campanhas, páginas e automações no mundo."],
   ["04", "Evolução", "Ler os dados, aprender e otimizar continuamente."],
 ]
+
+function Hero({ locale }: { locale: "EN" | "PT" }) {
+  const heroRef = useRef<HTMLElement>(null)
+  const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] })
+  const titleY = useTransform(scrollYProgress, [0, 1], [0, -90])
+  const titleOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0])
+  const isPortuguese = locale === "PT"
+  const title = isPortuguese ? ["Clareza", "antes de", "escala."] : ["Clarity", "before", "scale."]
+  const caption = isPortuguese ? "Clareza antes de escala." : "Clarity before scale."
+
+  return (
+    <section ref={heroRef} className="hero" id="top">
+      <motion.p className="eyebrow hero-kicker" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.2 }}>
+        Strategy / Marketing / Growth
+      </motion.p>
+      <motion.h1 style={{ y: titleY, opacity: titleOpacity }} aria-label={title.join(" ")}>
+        {title.map((line, lineIndex) => (
+          <span className="hero-line" key={line}>
+            {line.split(" ").map((word, wordIndex) => (
+              <motion.span className="hero-word" key={word} initial={{ opacity: 0, y: "0.8em" }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, delay: 0.2 + (lineIndex * 2 + wordIndex) * 0.18, ease: [0.22, 1, 0.36, 1] }}>
+                {word}
+              </motion.span>
+            ))}
+          </span>
+        ))}
+      </motion.h1>
+      <motion.div className="hero-bottom" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4, delay: 1 }}>
+        <p>{caption}</p>
+        <a className="hero-link" href="#work">View work →</a>
+      </motion.div>
+    </section>
+  )
+}
 
 export default function Page() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -53,11 +87,7 @@ export default function Page() {
         <div className="announcement"><div className="shell">A decade of clarity-first marketing. <span>Since 2014.</span></div></div>
       </header>
 
-      <section className="hero shell" id="top">
-        <p className="eyebrow">Independent marketing studio / Brazil → US</p>
-        <h1>ICHTHUS<span className="signal">.</span></h1>
-        <div className="hero-bottom"><p>Clarity before scale. Brand, acquisition, conversion and relationship, connected to what your business actually needs to achieve.</p><a className="circle-link" href="#work" aria-label="Ver trabalhos selecionados">↓</a></div>
-      </section>
+      <Hero locale={locale} />
 
       <section className="manifesto" id="about"><div className="shell manifesto-inner"><p className="eyebrow">01 / A point of view</p><h2>Hi. We&apos;re <em>Ichthus.</em></h2><p className="manifesto-copy">We bring the parts of marketing that are usually kept apart into one clear direction. So good work has somewhere useful to go.</p></div><div className="ticker" aria-label="Áreas de atuação"><span>Strategy&nbsp; / &nbsp;Production&nbsp; / &nbsp;Delivery&nbsp; — &nbsp;since 2014&nbsp;&nbsp;&nbsp;&nbsp;Strategy&nbsp; / &nbsp;Production&nbsp; / &nbsp;Delivery&nbsp; — &nbsp;since 2014</span></div></section>
 

@@ -20,14 +20,16 @@ button, a { -webkit-tap-highlight-color:transparent; }
 .announcement { border-block:1px solid var(--rule); padding:10px 0; color:var(--mute); font:10px 'JetBrains Mono', monospace; letter-spacing:.04em; text-transform:uppercase; }
 .announcement span { color:var(--signal); }
 .menu-toggle { display:none; }
-.hero { min-height:calc(100vh - 120px); padding-top:clamp(100px, 18vh, 220px); padding-bottom:60px; display:flex; flex-direction:column; justify-content:space-between; }
+.hero { min-height:88vh; padding:clamp(40px, 8vw, 144px) clamp(20px, 4vw, 64px); display:flex; flex-direction:column; justify-content:space-between; }
 .eyebrow { margin:0; color:var(--mute); font:10px 'JetBrains Mono', monospace; letter-spacing:.08em; text-transform:uppercase; }
-.hero h1 { margin:clamp(50px, 11vh, 140px) 0 0; font:900 italic clamp(72px, 16vw, 246px)/.75 Fraunces, serif; letter-spacing:-.09em; }
-.signal { color:var(--signal); }
-.hero-bottom { display:flex; align-items:flex-end; justify-content:space-between; gap:32px; margin-top:80px; }
-.hero-bottom p { max-width:620px; margin:0; color:var(--mute); font-size:18px; line-height:1.55; }
-.circle-link { display:grid; place-items:center; width:58px; height:58px; border:1px solid var(--ink); border-radius:50%; font-size:24px; transition:.25s ease; }
-.circle-link:hover { background:var(--ink); color:var(--paper); transform:rotate(-45deg); }
+.hero-kicker { color:var(--ink); }
+.hero h1 { max-width:1100px; margin:clamp(80px, 13vh, 180px) 0; font:900 italic clamp(68px, 13vw, 210px)/.82 Fraunces, serif; letter-spacing:-.085em; }
+.hero-line { display:block; overflow:hidden; }
+.hero-word { display:inline-block; margin-right:.18em; transform-origin:left bottom; }
+.hero-bottom { display:flex; align-items:flex-end; justify-content:space-between; gap:32px; }
+.hero-bottom p { max-width:760px; margin:0; color:var(--mute); font:italic clamp(18px, 2vw, 22px)/1.2 Fraunces, serif; }
+.hero-link { border-bottom:1px solid var(--ink); padding-bottom:6px; font:11px 'JetBrains Mono', monospace; text-transform:uppercase; white-space:nowrap; }
+.hero-link:hover { color:var(--signal); border-color:var(--signal); }
 .manifesto { background:var(--ink); color:var(--paper); min-height:680px; display:flex; flex-direction:column; justify-content:space-between; }
 .manifesto-inner { padding-top:120px; }
 .manifesto .eyebrow { color:#aaa; }
