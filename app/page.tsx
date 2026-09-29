@@ -2,7 +2,8 @@
 
 import { FormEvent, useRef, useState } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
-import { ArrowUpRight, Menu, X } from "lucide-react"
+import { ArrowUpRight } from "lucide-react"
+import { TopBar } from "@/components/top-bar"
 
 const services = [
   ["01", "Estratégia", "Clareza para decidir o que comunicar, para quem e por quê.", "Diagnóstico, posicionamento e direção comercial."],
@@ -61,7 +62,6 @@ function Hero({ locale }: { locale: "EN" | "PT" }) {
 }
 
 export default function Page() {
-  const [menuOpen, setMenuOpen] = useState(false)
   const [locale, setLocale] = useState<"EN" | "PT">("EN")
   const [sent, setSent] = useState(false)
 
@@ -72,20 +72,8 @@ export default function Page() {
 
   return (
     <main>
-      <header className="site-header">
-        <div className="topbar shell">
-          <a href="#top" className="wordmark" aria-label="Ichthus, início">ICHTHUS</a>
-          <nav className={`nav-links ${menuOpen ? "is-open" : ""}`} aria-label="Navegação principal">
-            {[["Work", "#work"], ["Services", "#services"], ["Process", "#process"], ["About", "#about"], ["Contact", "#contact"]].map(([label, href]) => <a key={href} href={href} onClick={() => setMenuOpen(false)}>{label}</a>)}
-          </nav>
-          <div className="header-actions">
-            <button className="locale" onClick={() => setLocale(locale === "EN" ? "PT" : "EN")} aria-label="Alternar idioma">{locale} / {locale === "EN" ? "PT" : "EN"}</button>
-            <a className="header-cta" href="#contact">Start a conversation <ArrowUpRight aria-hidden="true" /></a>
-            <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen} aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}>{menuOpen ? <X /> : <Menu />}</button>
-          </div>
-        </div>
-        <div className="announcement"><div className="shell">A decade of clarity-first marketing. <span>Since 2014.</span></div></div>
-      </header>
+      <TopBar locale={locale} onLocaleChange={setLocale} />
+
 
       <Hero locale={locale} />
 
