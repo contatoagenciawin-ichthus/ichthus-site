@@ -62,7 +62,7 @@ export default function Home() {
     <main className="min-h-screen bg-[#f2f2ef] text-black">
       <header className="sticky top-0 z-50 border-b border-black/15 bg-[#f2f2ef]/95 backdrop-blur">
         <div className="mx-auto flex h-[70px] max-w-[1600px] items-center justify-between px-5 sm:px-8 lg:px-12">
-          <Link href="/" className="text-lg font-bold tracking-[-0.04em] sm:text-xl">
+          <Link href="/pt" className="text-lg font-bold tracking-[-0.04em] sm:text-xl">
             ICHTHUS
           </Link>
 
@@ -75,8 +75,8 @@ export default function Home() {
           </nav>
 
           <div className="flex items-center gap-4 text-[10px] font-medium uppercase tracking-[0.1em]">
-            <span className="text-black/35">PT</span>
-            <span className="border-b border-black pb-0.5">EN</span>
+            <span className="border-b border-black pb-0.5">PT</span>
+            <Link href="/en" className="text-black/35 transition hover:text-black">EN</Link>
           </div>
         </div>
       </header>
