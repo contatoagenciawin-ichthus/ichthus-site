@@ -381,9 +381,12 @@ export default function VemViverCasePage() {
             <p className="text-[10px] font-medium uppercase tracking-[0.14em] text-black/35">
               Next case
             </p>
-            <p className="mt-2 text-2xl font-bold tracking-[-0.04em] text-black">
+            <Link
+              href="/work/la-marcia"
+              className="mt-2 block text-2xl font-bold tracking-[-0.04em] text-black"
+            >
               LA / Marc.I.A. →
-            </p>
+            </Link>
           </div>
         </div>
       </footer>
