@@ -374,20 +374,20 @@ export default function Home() {
           </p>
           <div>
             <p className="max-w-6xl text-4xl font-bold leading-[0.98] tracking-[-0.055em] sm:text-6xl lg:text-8xl">
-              Ichthus is an independent strategy, brand and digital company working at
-              the intersection of growth and technology.
+              A Ichthus é uma empresa independente de estratégia, marca e digital que atua
+              na interseção entre crescimento e tecnologia.
             </p>
 
             <div className="mt-14 grid gap-10 border-t border-black/15 pt-7 sm:grid-cols-2">
               <p className="max-w-xl text-lg leading-8 text-black/60">
-                We work with companies in motion: growing, repositioning, modernising or
-                building new capabilities. Our role can begin with strategy and continue
-                through design, acquisition, software and operation.
+                Trabalhamos com empresas em movimento: crescendo, se reposicionando, se
+                modernizando ou construindo novas capacidades. Nosso trabalho pode começar
+                na estratégia e continuar por design, aquisição, software e operação.
               </p>
               <div className="sm:justify-self-end">
                 <p className="max-w-sm text-sm leading-6 text-black/45">
-                  Independent and based in Brazil. Working with companies here and
-                  abroad.
+                  Independente e baseada no Brasil. Trabalhando com empresas daqui e
+                  de outros mercados.
                 </p>
               </div>
             </div>
@@ -488,9 +488,9 @@ export default function Home() {
             </p>
             <div>
               <h2 className="max-w-6xl text-[clamp(3.7rem,8vw,8.5rem)] font-bold leading-[0.86] tracking-[-0.075em]">
-                Have something
+                Tem algo
                 <br />
-                important to build?
+                importante para construir?
               </h2>
               <div className="mt-14 flex flex-col gap-6 border-t border-black/15 pt-7 sm:flex-row sm:items-end sm:justify-between">
                 <a
@@ -500,7 +500,7 @@ export default function Home() {
                   contato@ichthusmkt.com.br
                 </a>
                 <p className="text-sm leading-6 text-black/45 sm:text-right">
-                  Brazil
+                  Brasil
                   <br />
                   Atuação internacional
                 </p>
