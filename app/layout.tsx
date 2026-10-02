@@ -1,5 +1,6 @@
 import React from "react"
 import type { Metadata } from "next"
+import { headers } from "next/headers"
 import { Inter } from "next/font/google"
 import "./globals.css"
 
@@ -21,18 +22,21 @@ export const metadata: Metadata = {
     title: "Ichthus",
     description:
       "Strategy, brand, digital, growth and technology for companies in motion.",
-    locale: "pt_BR",
+    locale: "en",
     type: "website",
   },
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const requestHeaders = await headers()
+  const lang = requestHeaders.get("x-ichthus-locale") ?? "pt-BR"
+
   return (
-    <html lang="pt-BR">
+    <html lang={lang}>
       <body className={`${inter.className} antialiased`}>{children}</body>
     </html>
   )
