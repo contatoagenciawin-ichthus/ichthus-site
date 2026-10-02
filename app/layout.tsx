@@ -1,19 +1,28 @@
 import React from "react"
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import "./globals.css";
+import type { Metadata } from "next"
+import { Inter } from "next/font/google"
+import "./globals.css"
 
-const _inter = Inter({ subsets: ['latin'] })
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+})
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://ichthusmkt.com.br'),
-  title: 'Ichthus Marketing | Estratégia que chega até a execução',
-  description: 'Posicionamento, aquisição, conversão e relacionamento para empresas técnicas, especialistas e operações em crescimento.',
+  metadataBase: new URL("https://ichthusmkt.com.br"),
+  title: {
+    default: "Ichthus",
+    template: "%s — Ichthus",
+  },
+  description:
+    "Strategy, brand, digital, growth and technology for companies in motion.",
   openGraph: {
-    title: 'Ichthus Marketing | Estratégia que chega até a execução',
-    description: 'Clareza para conectar comunicação, canais, dados e tecnologia ao crescimento do negócio.',
-    locale: 'pt_BR',
-    type: 'website',
+    title: "Ichthus",
+    description:
+      "Strategy, brand, digital, growth and technology for companies in motion.",
+    locale: "pt_BR",
+    type: "website",
   },
 }
 
@@ -24,7 +33,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className="font-sans antialiased">{children}</body>
+      <body className={`${inter.className} antialiased`}>{children}</body>
     </html>
   )
 }
