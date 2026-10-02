@@ -72,9 +72,21 @@ const capabilities = [
 ]
 
 const thinking = [
-  "Marketing is not a department. It is an operating system.",
-  "What AI changes — and what it does not — in customer experience.",
-  "Brand and performance should not live in separate rooms.",
+  {
+    title: "Marketing is not a department. It is an operating system.",
+    eyebrow: "Growth / Operations",
+    href: "/en/thinking/marketing-operating-system",
+  },
+  {
+    title: "What AI changes — and what it doesn’t — in customer experience.",
+    eyebrow: "AI / Customer Experience",
+    href: "/en/thinking/ai-customer-experience",
+  },
+  {
+    title: "Brand and performance should not live in separate rooms.",
+    eyebrow: "Brand / Performance",
+    href: "/en/thinking/brand-and-performance",
+  },
 ]
 
 export default function Home() {
@@ -430,19 +442,32 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="border-t border-black/15">
-            {thinking.map((title, index) => (
-              <article
-                key={title}
-                className="group grid gap-5 border-b border-black/15 py-8 sm:grid-cols-[70px_1fr_auto] sm:items-center"
-              >
-                <span className="text-sm text-black/30">0{index + 1}</span>
-                <h2 className="max-w-4xl text-3xl font-bold leading-[1.02] tracking-[-0.045em] sm:text-4xl">
-                  {title}
-                </h2>
-                <ArrowUpRight className="hidden h-5 w-5 text-black/30 sm:block" />
-              </article>
-            ))}
+          <div>
+            <div className="border-t border-black/15">
+              {thinking.map((item, index) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="group grid gap-5 border-b border-black/15 py-8 sm:grid-cols-[70px_1fr_auto] sm:items-center"
+                >
+                  <span className="text-sm text-black/30">0{index + 1}</span>
+                  <div>
+                    <p className="text-[10px] font-medium uppercase tracking-[0.12em] text-black/35">
+                      {item.eyebrow}
+                    </p>
+                    <h2 className="mt-2 max-w-4xl text-3xl font-bold leading-[1.02] tracking-[-0.045em] sm:text-4xl">
+                      {item.title}
+                    </h2>
+                  </div>
+                  <ArrowUpRight className="hidden h-5 w-5 text-black/30 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 sm:block" />
+                </Link>
+              ))}
+            </div>
+            <div className="mt-6 text-right">
+              <Link href="/en/thinking" className="inline-flex items-center gap-2 border-b border-black pb-1 text-sm font-semibold">
+                All Thinking <ArrowUpRight className="h-4 w-4" />
+              </Link>
+            </div>
           </div>
         </div>
       </section>
