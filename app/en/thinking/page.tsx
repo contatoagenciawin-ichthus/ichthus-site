@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
-import { thinkingEn } from "@/lib/thinking-content"
+import { thinkingEn, thinkingImages } from "@/lib/thinking-content"
 
 export const metadata: Metadata = {
   title: "Thinking",
@@ -45,25 +45,52 @@ export default function ThinkingIndex() {
       <section className="border-t border-black/15 bg-white">
         <div className="mx-auto max-w-[1600px] px-5 py-16 sm:px-8 sm:py-24 lg:px-12 lg:py-28">
           <div className="grid gap-12 lg:grid-cols-[0.25fr_0.75fr] lg:gap-16">
-            <p className="text-[11px] font-medium uppercase tracking-[0.12em] text-black/45">Current essays</p>
-            <div className="border-t border-black/15">
-              {thinkingEn.map((article) => (
-                <Link
-                  key={article.slug}
-                  href={`/en/thinking/${article.slug}`}
-                  className="group grid gap-5 border-b border-black/15 py-8 sm:grid-cols-[70px_1fr_auto] sm:items-center"
-                >
-                  <span className="text-sm text-black/30">{article.number}</span>
-                  <div>
-                    <p className="text-[10px] font-medium uppercase tracking-[0.12em] text-black/35">{article.eyebrow}</p>
-                    <h2 className="mt-2 max-w-4xl text-3xl font-bold leading-[1.02] tracking-[-0.045em] sm:text-4xl">
-                      {article.title}
-                    </h2>
-                    <p className="mt-3 max-w-2xl text-sm leading-6 text-black/45">{article.dek}</p>
-                  </div>
-                  <ArrowUpRight className="hidden h-5 w-5 text-black/30 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 sm:block" />
-                </Link>
-              ))}
+            <div>
+              <p className="text-[11px] font-medium uppercase tracking-[0.12em] text-black/45">Current essays</p>
+              <p className="mt-3 max-w-[190px] text-sm leading-6 text-black/40">
+                Three ideas, each approached as an editorial piece rather than a blog post.
+              </p>
+            </div>
+
+            <div className="grid gap-x-6 gap-y-16 lg:grid-cols-2">
+              {thinkingEn.map((article, index) => {
+                const image = thinkingImages[article.number]
+                const featured = index === 0
+
+                return (
+                  <Link
+                    key={article.slug}
+                    href={`/en/thinking/${article.slug}`}
+                    className={`group block ${featured ? "lg:col-span-2" : ""}`}
+                  >
+                    <div className="overflow-hidden bg-[#e6e6e2]">
+                      <img
+                        src={image.src}
+                        alt={image.altEn}
+                        className={`w-full object-cover transition-transform duration-[900ms] group-hover:scale-[1.012] ${
+                          featured ? "aspect-[16/8]" : "aspect-[16/10]"
+                        }`}
+                      />
+                    </div>
+
+                    <div className="mt-5 grid gap-4 border-t border-black/15 pt-5 sm:grid-cols-[64px_1fr_auto]">
+                      <span className="text-sm text-black/30">{article.number}</span>
+                      <div>
+                        <p className="text-[10px] font-medium uppercase tracking-[0.12em] text-black/35">
+                          {article.eyebrow} / {article.readTime}
+                        </p>
+                        <h2 className={`mt-2 font-bold leading-[1.02] tracking-[-0.05em] ${
+                          featured ? "max-w-5xl text-4xl sm:text-6xl" : "max-w-2xl text-3xl sm:text-4xl"
+                        }`}>
+                          {article.title}
+                        </h2>
+                        <p className="mt-4 max-w-2xl text-sm leading-6 text-black/45">{article.dek}</p>
+                      </div>
+                      <ArrowUpRight className="hidden h-5 w-5 text-black/30 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 sm:block" />
+                    </div>
+                  </Link>
+                )
+              })}
             </div>
           </div>
         </div>
