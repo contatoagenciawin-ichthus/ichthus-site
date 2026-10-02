@@ -319,7 +319,9 @@ export default function KoneCasePage() {
             <p className="text-[10px] font-medium uppercase tracking-[0.14em] text-black/35">
               Next case
             </p>
-            <p className="mt-2 text-2xl font-bold tracking-[-0.04em]">Vem Viver →</p>
+            <Link href="/work/innovclean" className="mt-2 block text-2xl font-bold tracking-[-0.04em]">
+              InnovClean →
+            </Link>
           </div>
         </div>
       </footer>
