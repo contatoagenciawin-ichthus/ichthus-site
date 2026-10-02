@@ -53,6 +53,10 @@ export default function LaMarciaCasePage() {
           </Link>
           <div className="flex items-center gap-6 text-[11px] font-medium uppercase tracking-[0.12em] sm:gap-8">
             <span className="hidden text-black/45 sm:inline">Projeto / LA + Marc.I.A.</span>
+            <span className="flex items-center gap-2">
+              <span className="border-b border-black pb-0.5">PT</span>
+              <Link href="/en/work/la-marcia" className="text-black/35 transition hover:text-black">EN</Link>
+            </span>
             <span className="border-b border-black pb-0.5">Crescimento / Tecnologia / IA</span>
           </div>
         </div>
