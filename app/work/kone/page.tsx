@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { ArrowUpRight } from "lucide-react"\nimport { KoneMachineMotion } from "@/components/work/kone-machine-motion"
+import { ArrowUpRight } from "lucide-react"
+import { KoneMachineMotion } from "@/components/work/kone-machine-motion"
 
 export const metadata: Metadata = {
   title: "Kone Máquinas — Work — Ichthus",
