@@ -5,8 +5,21 @@ import { thinkingEn } from "@/lib/thinking-content"
 const article = thinkingEn[2]
 
 export const metadata: Metadata = {
-  title: `${article.title} — Thinking — Ichthus`,
+  title: `${article.title} — Thinking`,
   description: article.dek,
+  alternates: {
+    canonical: "/en/thinking/brand-and-performance",
+    languages: {
+      en: "/en/thinking/brand-and-performance",
+      "pt-BR": "/pt/thinking/marca-e-performance",
+    },
+  },
+  openGraph: {
+    title: article.title,
+    description: article.dek,
+    locale: "en",
+    type: "article",
+  },
 }
 
 export default function Page() {
