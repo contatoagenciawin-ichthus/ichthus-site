@@ -129,7 +129,7 @@ export default function Home() {
           </div>
         </div>
 
-        <Link href="/work/kone" className="group block border-t border-black/15">
+        <Link href="/en/work/kone" className="group block border-t border-black/15">
           <article className="mx-auto grid max-w-[1600px] lg:grid-cols-[0.38fr_0.62fr]">
             <div className="flex min-h-[430px] flex-col justify-between p-5 sm:p-8 lg:min-h-[72vh] lg:p-12">
               <div className="flex items-start justify-between gap-6">
@@ -164,7 +164,7 @@ export default function Home() {
           </article>
         </Link>
 
-        <Link href="/work/innovclean" className="group block border-t border-black/15">
+        <Link href="/en/work/innovclean" className="group block border-t border-black/15">
           <article className="mx-auto grid max-w-[1600px] lg:grid-cols-[0.62fr_0.38fr]">
             <div className="relative min-h-[58vh] overflow-hidden bg-[#183c34] lg:min-h-[72vh]">
               <img
@@ -210,7 +210,7 @@ export default function Home() {
           </article>
         </Link>
 
-        <Link href="/work/vem-viver" className="group block border-t border-black/15">
+        <Link href="/en/work/vem-viver" className="group block border-t border-black/15">
           <article className="mx-auto grid max-w-[1600px] lg:grid-cols-[0.38fr_0.62fr]">
             <div className="flex min-h-[430px] flex-col justify-between bg-[#f2eee5] p-5 text-[#172119] sm:p-8 lg:min-h-[72vh] lg:p-12">
               <div className="flex items-start justify-between gap-6">
@@ -249,7 +249,7 @@ export default function Home() {
           </article>
         </Link>
 
-        <Link href="/work/la-marcia" className="group block border-y border-black/15">
+        <Link href="/en/work/la-marcia" className="group block border-y border-black/15">
           <article className="mx-auto grid max-w-[1600px] lg:grid-cols-[0.62fr_0.38fr]">
             <div className="relative min-h-[62vh] overflow-hidden bg-[#0f3548] p-5 text-white sm:p-8 lg:min-h-[72vh] lg:p-12">
               <div className="flex h-full min-h-[54vh] flex-col justify-between border border-white/15 bg-[#0a2938] p-5 sm:min-h-[60vh] sm:p-7">
