@@ -4,7 +4,7 @@ import { ArrowUpRight } from "lucide-react"
 import { thinkingPt } from "@/lib/thinking-content"
 
 export const metadata: Metadata = {
-  title: "Ideias — Ichthus",
+  title: "Ideias",
   description: "Ideias sobre negócios, marca, crescimento, experiência do cliente e tecnologia.",
 }
 
