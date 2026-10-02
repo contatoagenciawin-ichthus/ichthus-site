@@ -284,7 +284,7 @@ export default function Home() {
                 </div>
 
                 <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
-                  {["Lead", "Chat", "Quote", "Job"].map((item, index) => (
+                  {["Lead", "Conversa", "Orçamento", "Serviço"].map((item, index) => (
                     <div key={item} className="border border-white/15 bg-white/[0.04] p-4">
                       <p className="text-[9px] text-white/25">0{index + 1}</p>
                       <p className="mt-6 text-lg font-semibold">{item}</p>
@@ -294,7 +294,7 @@ export default function Home() {
 
                 <div className="border-t border-white/15 pt-5">
                   <p className="max-w-2xl text-2xl font-semibold leading-tight tracking-[-0.04em] sm:text-4xl">
-                    Demand → conversation → quote → work order → history.
+                    Demanda → conversa → orçamento → ordem de serviço → histórico.
                   </p>
                 </div>
               </div>
@@ -310,9 +310,9 @@ export default function Home() {
 
               <div>
                 <h2 className="text-5xl font-bold leading-[0.9] tracking-[-0.065em] sm:text-6xl lg:text-7xl">
-                  One thread,
+                  Um só fluxo,
                   <br />
-                  end to end.
+                  de ponta a ponta.
                 </h2>
                 <p className="mt-6 max-w-sm text-sm leading-6 text-black/60">
                   Connecting acquisition, customer service, CRM, quoting, operations
