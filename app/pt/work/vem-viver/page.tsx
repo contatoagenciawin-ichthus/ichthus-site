@@ -65,6 +65,10 @@ export default function VemViverCasePage() {
           </Link>
           <div className="flex items-center gap-6 text-[11px] font-medium uppercase tracking-[0.12em] sm:gap-8">
             <span className="hidden text-black/45 sm:inline">Projeto / Vem Viver</span>
+            <span className="flex items-center gap-2">
+              <span className="border-b border-black pb-0.5">PT</span>
+              <Link href="/en/work/vem-viver" className="text-black/35 transition hover:text-black">EN</Link>
+            </span>
             <span className="border-b border-black pb-0.5">Estratégia & Marca</span>
           </div>
         </div>
