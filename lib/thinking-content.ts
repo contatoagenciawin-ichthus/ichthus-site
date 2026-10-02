@@ -14,6 +14,24 @@ export type ThinkingArticle = {
   closing: string
 }
 
+export const thinkingImages: Record<string, { src: string; altEn: string; altPt: string }> = {
+  "01": {
+    src: "https://res.cloudinary.com/iqlvzhdw/image/upload/f_auto,q_auto/ichthus/thinking/marketing-operating-system.webp",
+    altEn: "Layered industrial infrastructure with curved pipes and architectural structures",
+    altPt: "Infraestrutura industrial em camadas com tubulações e estruturas arquitetônicas curvas",
+  },
+  "02": {
+    src: "https://res.cloudinary.com/iqlvzhdw/image/upload/f_auto,q_auto/ichthus/thinking/ai-customer-experience.webp",
+    altEn: "Minimal glass service partition with an intercom and a distant human silhouette",
+    altPt: "Divisória minimalista de vidro com interfone e uma silhueta humana ao fundo",
+  },
+  "03": {
+    src: "https://res.cloudinary.com/iqlvzhdw/image/upload/f_auto,q_auto/ichthus/thinking/brand-and-performance.webp",
+    altEn: "Two sweeping concrete architectural forms converging in light and shadow",
+    altPt: "Duas formas arquitetônicas de concreto convergindo entre luz e sombra",
+  },
+}
+
 export const thinkingEn: ThinkingArticle[] = [
   {
     slug: "marketing-operating-system",
