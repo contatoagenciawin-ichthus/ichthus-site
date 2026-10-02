@@ -29,6 +29,25 @@ const innovRaw =
 const vemRaw =
   "https://raw.githubusercontent.com/contatoagenciawin-ichthus/vem-viver-brandbook/main/src/assets"
 
+const relationships = [
+  ["Kone Máquinas", "Indústria", "Brasil / Internacional"],
+  ["InnovClean Services", "Serviços comerciais", "Reino Unido"],
+  ["Vem Viver", "Alimentos & bebidas", "Brasil"],
+  ["LA Climatização", "Serviços técnicos / Climatização", "Brasil"],
+  ["Instituto Fontes", "Educação / Impacto social", "Brasil"],
+  ["Pet Endoscopia", "Saúde veterinária", "Brasil"],
+  ["Eduardo Brasil", "Serviços profissionais", "Brasil"],
+  ["El Kadri & Cia", "Jurídico / B2B", "Brasil"],
+  ["Instituto BellaVida", "Saúde", "Brasil"],
+]
+
+const proof = [
+  ["Desde 2014", "Operação independente"],
+  ["Brasil + Reino Unido", "Projetos e relações contínuas"],
+  ["Estratégia → Tecnologia", "Um sistema integrado de capacidades"],
+  ["Clientes + ventures", "Pensamos e construímos"],
+]
+
 const capabilities = [
   {
     number: "01",
@@ -306,6 +325,46 @@ export default function Home() {
             </div>
           </article>
         </Link>
+      </section>
+
+      <section className="bg-[#111] text-white">
+        <div className="mx-auto max-w-[1600px] px-5 py-20 sm:px-8 sm:py-28 lg:px-12 lg:py-36">
+          <div className="grid gap-12 lg:grid-cols-[0.25fr_0.75fr] lg:gap-16">
+            <div>
+              <p className="text-[11px] font-medium uppercase tracking-[0.12em] text-white/40">
+                Relações selecionadas
+              </p>
+              <p className="mt-3 max-w-[220px] text-sm leading-6 text-white/35">
+                Uma pequena seleção de empresas e projetos em diferentes setores e mercados.
+              </p>
+            </div>
+
+            <div>
+              <div className="border-t border-white/15">
+                {relationships.map(([name, sector, market], index) => (
+                  <div
+                    key={name}
+                    className="grid gap-3 border-b border-white/15 py-6 sm:grid-cols-[56px_1.25fr_0.9fr_0.7fr] sm:items-center sm:gap-6 sm:py-7"
+                  >
+                    <span className="text-xs text-white/25">{String(index + 1).padStart(2, "0")}</span>
+                    <p className="text-2xl font-semibold tracking-[-0.035em] sm:text-3xl">{name}</p>
+                    <p className="text-sm text-white/45">{sector}</p>
+                    <p className="text-sm text-white/45 sm:text-right">{market}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-16 grid border-l border-t border-white/15 sm:grid-cols-2 lg:grid-cols-4">
+                {proof.map(([value, label]) => (
+                  <div key={value} className="min-h-[170px] border-b border-r border-white/15 p-5 sm:p-6">
+                    <p className="text-2xl font-semibold tracking-[-0.04em] sm:text-3xl">{value}</p>
+                    <p className="mt-3 max-w-[180px] text-xs leading-5 text-white/40">{label}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section id="about" className="mx-auto max-w-[1600px] px-5 py-24 sm:px-8 sm:py-32 lg:px-12 lg:py-44">
