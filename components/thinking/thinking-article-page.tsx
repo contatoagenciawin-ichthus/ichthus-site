@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { ArrowLeft, ArrowUpRight } from "lucide-react"
-import type { ThinkingArticle } from "@/lib/thinking-content"
+import { thinkingImages, type ThinkingArticle } from "@/lib/thinking-content"
 
 type ThinkingArticlePageProps = {
   article: ThinkingArticle
@@ -34,6 +34,7 @@ export function ThinkingArticlePage({
 
   const homeHref = `/${locale}`
   const thinkingHref = `/${locale}/thinking`
+  const editorialImage = thinkingImages[article.number]
 
   return (
     <main className="min-h-screen bg-[#f2f2ef] text-black">
@@ -74,6 +75,20 @@ export function ThinkingArticlePage({
             </div>
           </div>
         </section>
+
+        {editorialImage && (
+          <section className="border-y border-black/15 bg-[#111]">
+            <div className="mx-auto max-w-[1600px] px-5 py-5 sm:px-8 sm:py-8 lg:px-12 lg:py-12">
+              <div className="overflow-hidden">
+                <img
+                  src={editorialImage.src}
+                  alt={locale === "en" ? editorialImage.altEn : editorialImage.altPt}
+                  className="aspect-[16/9] w-full object-cover"
+                />
+              </div>
+            </div>
+          </section>
+        )}
 
         <section className="border-y border-black/15 bg-white">
           <div className="mx-auto max-w-[1600px] px-5 py-16 sm:px-8 sm:py-24 lg:px-12 lg:py-32">
