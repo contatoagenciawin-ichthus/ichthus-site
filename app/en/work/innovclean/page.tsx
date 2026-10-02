@@ -49,6 +49,10 @@ export default function InnovCleanCasePage() {
           </Link>
           <div className="flex items-center gap-6 text-[11px] font-medium uppercase tracking-[0.12em] sm:gap-8">
             <span className="hidden text-black/45 sm:inline">Work / InnovClean</span>
+            <span className="flex items-center gap-2">
+              <Link href="/pt/work/innovclean" className="text-black/35 transition hover:text-black">PT</Link>
+              <span className="border-b border-black pb-0.5">EN</span>
+            </span>
             <a
               href="https://innovclean.co.uk"
               target="_blank"
