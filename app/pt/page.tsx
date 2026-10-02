@@ -1,6 +1,25 @@
-import Link from "next/link"
+import type { Metadata } from "next"\nimport Link from "next/link"
 import { ArrowDownRight, ArrowUpRight } from "lucide-react"
 import { KoneMachineMotion } from "@/components/work/kone-machine-motion"
+
+export const metadata: Metadata = {
+  title: "Ichthus — Estratégia, Marca, Digital, Crescimento & Tecnologia",
+  description:
+    "Empresa independente de estratégia, marca e digital atuando na interseção entre crescimento e tecnologia.",
+  alternates: {
+    canonical: "/pt",
+    languages: {
+      en: "/en",
+      "pt-BR": "/pt",
+    },
+  },
+  openGraph: {
+    title: "Ichthus",
+    description:
+      "Estratégia, marca, digital, crescimento e tecnologia para empresas em movimento.",
+    locale: "pt_BR",
+  },
+}
 
 const koneRaw =
   "https://raw.githubusercontent.com/contatoagenciawin-ichthus/kone/main/public"
