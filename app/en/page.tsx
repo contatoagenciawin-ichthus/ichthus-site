@@ -1,4 +1,5 @@
-import type { Metadata } from "next"\nimport Link from "next/link"
+import type { Metadata } from "next"
+import Link from "next/link"
 import { ArrowDownRight, ArrowUpRight } from "lucide-react"
 import { KoneMachineMotion } from "@/components/work/kone-machine-motion"
 
