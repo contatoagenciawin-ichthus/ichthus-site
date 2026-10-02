@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { ArrowUpRight } from "lucide-react"
+import { ArrowUpRight } from "lucide-react"\nimport { KoneMachineMotion } from "@/components/work/kone-machine-motion"
 
 export const metadata: Metadata = {
   title: "Kone Máquinas — Work — Ichthus",
@@ -96,10 +96,9 @@ export default function KoneCasePage() {
             <div className="absolute left-5 top-5 z-10 text-[10px] font-medium uppercase tracking-[0.16em] text-black/50 sm:left-8 sm:top-8">
               Kone / KA-70
             </div>
-            <img
+            <KoneMachineMotion
               src={`${raw}/machines/hero-ka-70.png`}
               alt="Kone KA-70 industrial drilling machine"
-              className="absolute inset-0 h-full w-full object-contain p-[7vw] sm:p-[5vw]"
             />
             <div className="absolute bottom-5 right-5 z-10 text-right text-[10px] font-medium uppercase leading-5 tracking-[0.16em] text-black/50 sm:bottom-8 sm:right-8">
               Brazilian engineering
