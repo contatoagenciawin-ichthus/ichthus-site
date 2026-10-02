@@ -109,7 +109,7 @@ export default function LaMarciaCasePage() {
               {flow.map(([number, title, text], index) => (
                 <article
                   key={title}
-                  className="relative min-h-[210px] border border-white/15 bg-white/[0.035] p-5"
+                  className="relative min-h-[210px] min-w-0 border border-white/15 bg-white/[0.035] p-5 xl:p-4 2xl:p-5"
                 >
                   <div className="flex items-center justify-between">
                     <span className="text-[10px] font-medium tracking-[0.14em] text-white/30">
@@ -119,7 +119,7 @@ export default function LaMarciaCasePage() {
                       <span className="hidden text-white/25 xl:block">→</span>
                     )}
                   </div>
-                  <h2 className="mt-10 text-2xl font-semibold tracking-[-0.04em]">{title}</h2>
+                  <h2 className="mt-10 max-w-full break-words text-xl font-semibold leading-[1.02] tracking-[-0.045em] 2xl:text-2xl">{title}</h2>
                   <p className="mt-3 text-sm leading-6 text-white/50">{text}</p>
                 </article>
               ))}
@@ -199,28 +199,28 @@ export default function LaMarciaCasePage() {
               <div className="flex flex-col justify-end gap-4 bg-[#efece4] p-5 sm:p-8">
                 <div className="max-w-[78%] rounded-[20px_20px_20px_5px] bg-white px-4 py-3 shadow-sm">
                   <p className="text-sm leading-6">
-                    Bom dia. Gostaria de cotar uma nova instalação de ar-condicionado.
+                    Good morning. I'd like a quote for a new air conditioning installation.
                   </p>
                   <p className="mt-1 text-right text-[9px] text-black/35">10:32</p>
                 </div>
 
                 <div className="ml-auto max-w-[84%] rounded-[20px_20px_5px_20px] bg-[#d9fdd3] px-4 py-3 shadow-sm">
                   <p className="text-sm leading-6">
-                    Claro. Posso organizar a cotação. Para começar, qual é a capacidade
-                    do equipamento e em qual cidade será a instalação?
+                    Of course. I can help with the quote. To start, what is the unit
+                    capacity and which city is the installation in?
                   </p>
                   <p className="mt-1 text-right text-[9px] text-black/35">10:32</p>
                 </div>
 
                 <div className="max-w-[74%] rounded-[20px_20px_20px_5px] bg-white px-4 py-3 shadow-sm">
-                  <p className="text-sm leading-6">12 mil BTUs, em Hortolândia.</p>
+                  <p className="text-sm leading-6">12,000 BTU, in Hortolândia.</p>
                   <p className="mt-1 text-right text-[9px] text-black/35">10:33</p>
                 </div>
 
                 <div className="ml-auto max-w-[84%] rounded-[20px_20px_5px_20px] bg-[#d9fdd3] px-4 py-3 shadow-sm">
                   <p className="text-sm leading-6">
-                    Perfeito. Vou registrar esses dados e preparar o próximo passo para
-                    o orçamento.
+                    Perfect. I'll register those details and prepare the next step for
+                    the quote.
                   </p>
                   <p className="mt-1 text-right text-[9px] text-black/35">10:33</p>
                 </div>
