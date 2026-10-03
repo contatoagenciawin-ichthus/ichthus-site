@@ -6,7 +6,19 @@ import { KoneMachineMotion } from "@/components/work/kone-machine-motion"
 export const metadata: Metadata = {
   title: "Kone Máquinas — Work — Ichthus",
   description:
-    "A digital experience for a Brazilian industrial manufacturer with more than five decades of engineering history.",
+    "A digital experience for a Brazilian industrial manufacturer with more than five decades of engineering history.",,
+  alternates: {
+    canonical: "/en/work/kone",
+    languages: {
+      en: "/en/work/kone",
+      "pt-BR": "/pt/work/kone",
+    },
+  },
+  openGraph: {
+    description: "A digital experience for a Brazilian industrial manufacturer with more than five decades of engineering history.",
+    locale: "en",
+    type: "website",
+  }
 }
 
 const raw = "https://raw.githubusercontent.com/contatoagenciawin-ichthus/kone/main/public"
