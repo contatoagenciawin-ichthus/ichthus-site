@@ -4,7 +4,7 @@ import { ArrowUpRight } from "lucide-react"
 import { KoneMachineMotion } from "@/components/work/kone-machine-motion"
 
 export const metadata: Metadata = {
-  title: "Kone Máquinas — Work — Ichthus",
+  title: "Kone Máquinas — Work",
   description:
     "A digital experience for a Brazilian industrial manufacturer with more than five decades of engineering history.",
   alternates: {
