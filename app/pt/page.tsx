@@ -4,6 +4,8 @@ import { ArrowDownRight, ArrowUpRight } from "lucide-react"
 import { KoneMachineMotion } from "@/components/work/kone-machine-motion"
 import { MobileHomeMenu } from "@/components/site/mobile-home-menu"
 import { MobileEditorialMotion } from "@/components/site/mobile-editorial-motion"
+import { MobileSelectedWork } from "@/components/site/mobile-selected-work"
+import { MobileRelationships } from "@/components/site/mobile-relationships"
 
 export const metadata: Metadata = {
   title: { absolute: "Ichthus — Estratégia, Marca, Digital, Crescimento & Tecnologia" },
@@ -161,7 +163,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="work" className="border-t border-black/15 bg-white">
+      <div id="work">
+        <MobileSelectedWork locale="pt" />
+
+        <section className="hidden border-t border-black/15 bg-white lg:block">
         <div className="mx-auto max-w-[1600px] px-5 pb-12 pt-7 sm:px-8 lg:px-12">
           <div className="flex items-end justify-between gap-8">
             <p className="text-[11px] font-medium uppercase tracking-[0.12em] text-black/45">
@@ -356,8 +361,11 @@ export default function Home() {
           </article>
         </Link>
       </section>
+      </div>
 
-      <section className="bg-[#111] text-white">
+      <MobileRelationships locale="pt" />
+
+      <section className="hidden bg-[#111] text-white lg:block">
         <div className="mx-auto max-w-[1600px] px-5 py-20 sm:px-8 sm:py-28 lg:px-12 lg:py-36">
           <div className="grid gap-12 lg:grid-cols-[0.25fr_0.75fr] lg:gap-16">
             <div>
