@@ -11,7 +11,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://ichthusmkt.com.br"),
+  metadataBase: new URL("https://www.ichthusmkt.com.br"),
   title: {
     default: "Ichthus",
     template: "%s — Ichthus",
