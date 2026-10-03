@@ -6,6 +6,19 @@ import { thinkingEn, thinkingImages } from "@/lib/thinking-content"
 export const metadata: Metadata = {
   title: "Thinking",
   description: "Ideas on business, brand, growth, customer experience and technology.",
+  alternates: {
+    canonical: "/en/thinking",
+    languages: {
+      en: "/en/thinking",
+      "pt-BR": "/pt/thinking",
+    },
+  },
+  openGraph: {
+    title: "Thinking — Ichthus",
+    description: "Ideas on business, brand, growth, customer experience and technology.",
+    locale: "en",
+    type: "website",
+  },
 }
 
 export default function ThinkingIndex() {
