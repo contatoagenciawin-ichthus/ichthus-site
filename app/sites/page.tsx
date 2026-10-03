@@ -17,6 +17,10 @@ export const metadata: Metadata = {
   title: "Sites & Landing Pages | Ichthus Marketing",
   description:
     "Projetos de sites, landing pages e estruturas digitais desenvolvidos pela Ichthus Marketing para aquisição, posicionamento e conversão.",
+  robots: {
+    index: false,
+    follow: true,
+  },
 }
 
 const projects = [
