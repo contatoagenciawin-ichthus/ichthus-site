@@ -406,7 +406,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="about" className="mx-auto max-w-[1600px] px-5 py-14 sm:px-8 sm:py-20 lg:px-12 lg:py-44">
+      <section id="about" className="mobile-section-reveal mx-auto max-w-[1600px] px-5 py-14 sm:px-8 sm:py-20 lg:px-12 lg:py-44">
         <div className="grid gap-7 border-t border-black/15 pt-6 sm:gap-10 sm:pt-8 lg:grid-cols-[0.25fr_0.75fr] lg:gap-16">
           <p className="text-[11px] font-medium uppercase tracking-[0.12em] text-black/45">
             Quem somos
@@ -434,7 +434,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="capabilities" className="border-y border-black/15 bg-white">
+      <section id="capabilities" className="mobile-section-reveal border-y border-black/15 bg-white">
         <div className="mx-auto max-w-[1600px] px-5 py-14 sm:px-8 sm:py-20 lg:px-12 lg:py-36">
           <div className="grid gap-12 lg:grid-cols-[0.25fr_0.75fr] lg:gap-16">
             <p className="text-[11px] font-medium uppercase tracking-[0.12em] text-black/45">
@@ -458,7 +458,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="thinking" className="mx-auto max-w-[1600px] px-5 py-14 sm:px-8 sm:py-20 lg:px-12 lg:py-36">
+      <section id="thinking" className="mobile-section-reveal mx-auto max-w-[1600px] px-5 py-14 sm:px-8 sm:py-20 lg:px-12 lg:py-36">
         <div className="grid gap-7 sm:gap-10 lg:grid-cols-[0.25fr_0.75fr] lg:gap-16">
           <div>
             <p className="text-[11px] font-medium uppercase tracking-[0.12em] text-black/45">
