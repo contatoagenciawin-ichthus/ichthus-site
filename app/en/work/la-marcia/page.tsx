@@ -4,7 +4,7 @@ import Link from "next/link"
 export const metadata: Metadata = {
   title: "LA / Marc.I.A. — Work — Ichthus",
   description:
-    "A connected customer operation for a service business, linking demand, conversations, quoting, scheduling, CRM and AI-assisted workflows.",,
+    "A connected customer operation for a service business, linking demand, conversations, quoting, scheduling, CRM and AI-assisted workflows.",
   alternates: {
     canonical: "/en/work/la-marcia",
     languages: {
