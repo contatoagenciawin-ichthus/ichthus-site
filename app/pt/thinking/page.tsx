@@ -6,6 +6,13 @@ import { thinkingPt, thinkingImages } from "@/lib/thinking-content"
 export const metadata: Metadata = {
   title: "Ideias",
   description: "Ideias sobre negócios, marca, crescimento, experiência do cliente e tecnologia.",
+  alternates: {
+    canonical: "/pt/thinking",
+    languages: {
+      en: "/en/thinking",
+      "pt-BR": "/pt/thinking",
+    },
+  },
 }
 
 export default function ThinkingIndex() {
