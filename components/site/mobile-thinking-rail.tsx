@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { useRef } from "react"
+import { useRef, useState } from "react"
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react"
 
 type Locale = "en" | "pt"
@@ -13,7 +13,9 @@ const images = [
 ]
 
 export function MobileThinkingRail({ locale }: { locale: Locale }) {
-  const railRef = useRef<HTMLDivElement>(null)
+  const [index, setIndex] = useState(0)
+  const touchStartX = useRef<number | null>(null)
+  const touchStartY = useRef<number | null>(null)
 
   const items =
     locale === "en"
@@ -52,78 +54,114 @@ export function MobileThinkingRail({ locale }: { locale: Locale }) {
           },
         ]
 
-  function move(direction: -1 | 1) {
-    const rail = railRef.current
-    if (!rail) return
+  function go(next: number) {
+    setIndex(Math.max(0, Math.min(items.length - 1, next)))
+  }
 
-    rail.scrollBy({
-      left: direction * rail.clientWidth * 0.82,
-      behavior: "smooth",
-    })
+  function handleTouchStart(event: React.TouchEvent<HTMLDivElement>) {
+    const touch = event.touches[0]
+    touchStartX.current = touch.clientX
+    touchStartY.current = touch.clientY
+  }
+
+  function handleTouchEnd(event: React.TouchEvent<HTMLDivElement>) {
+    if (touchStartX.current === null || touchStartY.current === null) return
+
+    const touch = event.changedTouches[0]
+    const deltaX = touch.clientX - touchStartX.current
+    const deltaY = touch.clientY - touchStartY.current
+
+    touchStartX.current = null
+    touchStartY.current = null
+
+    if (Math.abs(deltaX) < 45 || Math.abs(deltaX) <= Math.abs(deltaY)) return
+
+    if (deltaX < 0) go(index + 1)
+    else go(index - 1)
   }
 
   return (
     <div className="min-w-0 max-w-full sm:hidden">
       <div
-        ref={railRef}
-        className="thinking-mobile-rail flex w-full max-w-full snap-x snap-mandatory gap-3 overflow-x-scroll overflow-y-hidden pb-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        className="relative w-full overflow-hidden"
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
       >
-        {items.map((item, index) => (
-          <Link
-            key={item.href}
-            href={item.href}
-            className="group block w-[78vw] max-w-[330px] shrink-0 snap-start last:mr-1"
-          >
-            <article className="overflow-hidden border border-black/15 bg-white">
-              <div className="relative aspect-[4/3] overflow-hidden bg-[#e7e7e2]">
-                <img
-                  loading="lazy"
-                  decoding="async"
-                  src={images[index]}
-                  alt=""
-                  aria-hidden="true"
-                  className="h-full w-full object-cover transition-transform duration-700 group-active:scale-[1.015]"
-                />
-                <span className="absolute left-3 top-3 bg-[#f2f2ef]/92 px-2 py-1 text-[8px] font-medium uppercase tracking-[0.12em]">
-                  0{index + 1}
-                </span>
-              </div>
+        <div
+          className="flex transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
+          style={{ transform: `translateX(-${index * 100}%)` }}
+        >
+          {items.map((item, itemIndex) => (
+            <div key={item.href} className="w-full shrink-0">
+              <Link href={item.href} className="group block">
+                <article className="overflow-hidden border border-black/15 bg-white">
+                  <div className="relative aspect-[4/3] overflow-hidden bg-[#e7e7e2]">
+                    <img
+                      loading="lazy"
+                      decoding="async"
+                      src={images[itemIndex]}
+                      alt=""
+                      aria-hidden="true"
+                      className="h-full w-full object-cover transition-transform duration-700 group-active:scale-[1.015]"
+                    />
+                    <span className="absolute left-3 top-3 bg-[#f2f2ef]/92 px-2 py-1 text-[8px] font-medium uppercase tracking-[0.12em]">
+                      0{itemIndex + 1}
+                    </span>
+                  </div>
 
-              <div className="min-h-[186px] p-4">
-                <div className="flex items-start justify-between gap-5">
-                  <p className="text-[9px] font-medium uppercase leading-4 tracking-[0.11em] text-black/40">
-                    {item.eyebrow}
-                  </p>
-                  <ArrowUpRight className="h-4 w-4 shrink-0 text-black/35" />
-                </div>
-                <h2 className="mt-4 text-[1.72rem] font-bold leading-[0.98] tracking-[-0.045em]">
-                  {item.title}
-                </h2>
-              </div>
-            </article>
-          </Link>
-        ))}
+                  <div className="min-h-[186px] p-4">
+                    <div className="flex items-start justify-between gap-5">
+                      <p className="text-[9px] font-medium uppercase leading-4 tracking-[0.11em] text-black/40">
+                        {item.eyebrow}
+                      </p>
+                      <ArrowUpRight className="h-4 w-4 shrink-0 text-black/35" />
+                    </div>
+                    <h2 className="mt-4 text-[1.72rem] font-bold leading-[0.98] tracking-[-0.045em]">
+                      {item.title}
+                    </h2>
+                  </div>
+                </article>
+              </Link>
+            </div>
+          ))}
+        </div>
       </div>
 
       <div className="mt-3 flex items-center justify-between gap-4">
-        <p className="text-[9px] uppercase tracking-[0.12em] text-black/30">
-          {locale === "en" ? "Swipe to explore" : "Deslize para explorar"}
-        </p>
+        <div className="flex items-center gap-1.5">
+          {items.map((item, itemIndex) => (
+            <button
+              key={item.href}
+              type="button"
+              onClick={() => go(itemIndex)}
+              aria-label={
+                locale === "en"
+                  ? `Go to idea ${itemIndex + 1}`
+                  : `Ir para ideia ${itemIndex + 1}`
+              }
+              className={`h-1.5 transition-all ${
+                itemIndex === index ? "w-6 bg-black" : "w-1.5 bg-black/20"
+              }`}
+            />
+          ))}
+        </div>
 
         <div className="flex items-center gap-2">
           <button
             type="button"
-            onClick={() => move(-1)}
+            onClick={() => go(index - 1)}
+            disabled={index === 0}
             aria-label={locale === "en" ? "Previous idea" : "Ideia anterior"}
-            className="grid h-9 w-9 place-items-center border border-black/15 bg-transparent"
+            className="grid h-9 w-9 place-items-center border border-black/15 bg-transparent disabled:opacity-25"
           >
             <ArrowLeft className="h-3.5 w-3.5" />
           </button>
           <button
             type="button"
-            onClick={() => move(1)}
+            onClick={() => go(index + 1)}
+            disabled={index === items.length - 1}
             aria-label={locale === "en" ? "Next idea" : "Próxima ideia"}
-            className="grid h-9 w-9 place-items-center border border-black/15 bg-transparent"
+            className="grid h-9 w-9 place-items-center border border-black/15 bg-transparent disabled:opacity-25"
           >
             <ArrowRight className="h-3.5 w-3.5" />
           </button>
@@ -136,6 +174,10 @@ export function MobileThinkingRail({ locale }: { locale: Locale }) {
           </Link>
         </div>
       </div>
+
+      <p className="mt-3 text-[9px] uppercase tracking-[0.12em] text-black/30">
+        {locale === "en" ? "Swipe left or right" : "Deslize para a esquerda ou direita"}
+      </p>
     </div>
   )
 }
