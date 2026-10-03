@@ -4,7 +4,7 @@ import { ArrowDownRight, ArrowUpRight } from "lucide-react"
 import { KoneMachineMotion } from "@/components/work/kone-machine-motion"
 
 export const metadata: Metadata = {
-  title: "Ichthus — Strategy, Brand, Digital, Growth & Technology",
+  title: { absolute: "Ichthus — Strategy, Brand, Digital, Growth & Technology" },
   description:
     "Independent strategy, brand and digital company working at the intersection of growth and technology.",
   alternates: {
