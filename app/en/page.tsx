@@ -3,6 +3,10 @@ import Link from "next/link"
 import { ArrowDownRight, ArrowUpRight } from "lucide-react"
 import { KoneMachineMotion } from "@/components/work/kone-machine-motion"
 import { MobileHomeMenu } from "@/components/site/mobile-home-menu"
+import { MobileEditorialMotion } from "@/components/site/mobile-editorial-motion"
+import { MobileSelectedWork } from "@/components/site/mobile-selected-work"
+import { MobileRelationships } from "@/components/site/mobile-relationships"
+import { MobileThinkingRail } from "@/components/site/mobile-thinking-rail"
 
 export const metadata: Metadata = {
   title: { absolute: "Ichthus — Strategy, Brand, Digital, Growth & Technology" },
@@ -92,7 +96,7 @@ const thinking = [
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#f2f2ef] text-black">
+    <main className="min-h-screen max-w-full overflow-x-hidden bg-[#f2f2ef] text-black">
       <header className="sticky top-0 z-50 border-b border-black/15 bg-[#f2f2ef]/95 backdrop-blur">
         <div className="mx-auto flex h-[70px] max-w-[1600px] items-center justify-between px-5 sm:px-8 lg:px-12">
           <Link href="/en" className="text-lg font-bold tracking-[-0.04em] sm:text-xl">
@@ -117,9 +121,15 @@ export default function Home() {
         </div>
       </header>
 
-      <section className="mx-auto max-w-[1600px] px-5 pb-20 pt-16 sm:px-8 sm:pb-28 sm:pt-24 lg:px-12 lg:pb-36 lg:pt-28">
-        <div className="grid gap-14 lg:grid-cols-[0.25fr_0.75fr] lg:gap-16">
-          <div className="pt-2 text-[11px] font-medium uppercase leading-6 tracking-[0.12em] text-black/45">
+      <section className="mx-auto max-w-[1600px] bg-[#111] px-5 pb-5 pt-8 text-white sm:px-8 sm:pb-8 sm:pt-12 lg:bg-transparent lg:px-12 lg:pb-36 lg:pt-28 lg:text-black">
+        <div className="grid gap-8 lg:grid-cols-[0.25fr_0.75fr] lg:gap-16">
+          <div className="lg:hidden">
+            <p className="text-[10px] font-medium uppercase tracking-[0.13em] text-white/40">
+              Independent / Brazil / International
+            </p>
+          </div>
+
+          <div className="hidden pt-2 text-[11px] font-medium uppercase leading-6 tracking-[0.12em] text-black/45 lg:block">
             <p>Independent</p>
             <p>Strategy / Brand</p>
             <p>Digital / Growth</p>
@@ -127,7 +137,7 @@ export default function Home() {
           </div>
 
           <div>
-            <h1 className="max-w-[1220px] text-[clamp(4rem,8.6vw,9.3rem)] font-bold leading-[0.84] tracking-[-0.08em]">
+            <h1 className="max-w-[1220px] text-[clamp(2.85rem,10.7vw,4rem)] font-bold leading-[0.87] tracking-[-0.068em] sm:text-[clamp(3.5rem,8.5vw,5.4rem)] lg:text-[clamp(4rem,8.6vw,9.3rem)] lg:leading-[0.84] lg:tracking-[-0.08em]">
               We build brands,
               <br />
               digital experiences
@@ -135,25 +145,29 @@ export default function Home() {
               and growth systems.
             </h1>
 
-            <div className="mt-14 grid gap-8 border-t border-black/15 pt-7 sm:grid-cols-2 lg:mt-20 lg:grid-cols-[1.1fr_0.9fr]">
-              <p className="max-w-2xl text-xl leading-[1.35] tracking-[-0.025em] sm:text-2xl lg:text-3xl">
-                Strategy, design, acquisition and technology connected from thinking
-                through execution.
+            <div className="mt-8 grid gap-5 border-t border-white/20 pt-5 sm:grid-cols-2 lg:mt-20 lg:gap-8 lg:border-black/15 lg:pt-7">
+              <p className="max-w-2xl text-base leading-[1.45] tracking-[-0.02em] text-white/72 sm:text-xl lg:text-3xl lg:leading-[1.35] lg:text-black">
+                Strategy, design, acquisition and technology connected from thinking through execution.
               </p>
               <div className="sm:justify-self-end">
                 <a
                   href="#work"
-                  className="inline-flex items-center gap-2 border-b border-black pb-1 text-sm font-semibold"
+                  className="inline-flex items-center gap-2 border-b border-white/70 pb-1 text-sm font-semibold lg:border-black"
                 >
                   View selected work <ArrowDownRight className="h-4 w-4" />
                 </a>
               </div>
             </div>
+
+            <MobileEditorialMotion locale="en" />
           </div>
         </div>
       </section>
 
-      <section id="work" className="border-t border-black/15 bg-white">
+      <div id="work">
+        <MobileSelectedWork locale="en" />
+
+        <section className="hidden border-t border-black/15 bg-white lg:block">
         <div className="mx-auto max-w-[1600px] px-5 pb-12 pt-7 sm:px-8 lg:px-12">
           <div className="flex items-end justify-between gap-8">
             <p className="text-[11px] font-medium uppercase tracking-[0.12em] text-black/45">
@@ -348,10 +362,13 @@ export default function Home() {
           </article>
         </Link>
       </section>
+      </div>
 
-      <section className="bg-[#111] text-white">
+      <MobileRelationships locale="en" />
+
+      <section className="hidden bg-[#111] text-white lg:block">
         <div className="mx-auto max-w-[1600px] px-5 py-20 sm:px-8 sm:py-28 lg:px-12 lg:py-36">
-          <div className="grid gap-12 lg:grid-cols-[0.25fr_0.75fr] lg:gap-16">
+          <div className="grid gap-7 sm:gap-10 lg:grid-cols-[0.25fr_0.75fr] lg:gap-16">
             <div>
               <p className="text-[11px] font-medium uppercase tracking-[0.12em] text-white/40">
                 Selected relationships
@@ -389,19 +406,19 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="about" className="mx-auto max-w-[1600px] px-5 py-24 sm:px-8 sm:py-32 lg:px-12 lg:py-44">
-        <div className="grid gap-12 border-t border-black/15 pt-8 lg:grid-cols-[0.25fr_0.75fr] lg:gap-16">
+      <section id="about" className="mobile-section-reveal mx-auto max-w-[1600px] px-5 py-14 sm:px-8 sm:py-20 lg:px-12 lg:py-44">
+        <div className="grid gap-7 border-t border-black/15 pt-6 sm:gap-10 sm:pt-8 lg:grid-cols-[0.25fr_0.75fr] lg:gap-16">
           <p className="text-[11px] font-medium uppercase tracking-[0.12em] text-black/45">
             Who we are
           </p>
           <div>
-            <p className="max-w-6xl text-4xl font-bold leading-[0.98] tracking-[-0.055em] sm:text-6xl lg:text-8xl">
+            <p className="max-w-6xl text-[2.65rem] font-bold leading-[0.94] tracking-[-0.055em] sm:text-5xl lg:text-8xl lg:leading-[0.98]">
               Ichthus is an independent strategy, brand and digital company working at
               the intersection of growth and technology.
             </p>
 
-            <div className="mt-14 grid gap-10 border-t border-black/15 pt-7 sm:grid-cols-2">
-              <p className="max-w-xl text-lg leading-8 text-black/60">
+            <div className="mt-8 grid gap-5 border-t border-black/15 pt-5 sm:mt-10 sm:grid-cols-2 sm:gap-8 sm:pt-7 lg:mt-14 lg:gap-10">
+              <p className="max-w-xl text-base leading-7 text-black/60 sm:text-lg sm:leading-8">
                 We work with companies in motion: growing, repositioning, modernising or
                 building new capabilities. Our role can begin with strategy and continue
                 through design, acquisition, software and operation.
@@ -417,8 +434,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="capabilities" className="border-y border-black/15 bg-white">
-        <div className="mx-auto max-w-[1600px] px-5 py-20 sm:px-8 sm:py-28 lg:px-12 lg:py-36">
+      <section id="capabilities" className="mobile-section-reveal border-y border-black/15 bg-white">
+        <div className="mx-auto max-w-[1600px] px-5 py-14 sm:px-8 sm:py-20 lg:px-12 lg:py-36">
           <div className="grid gap-12 lg:grid-cols-[0.25fr_0.75fr] lg:gap-16">
             <p className="text-[11px] font-medium uppercase tracking-[0.12em] text-black/45">
               Capabilities
@@ -427,13 +444,13 @@ export default function Home() {
               {capabilities.map((item) => (
                 <article
                   key={item.number}
-                  className="grid gap-5 border-b border-black/15 py-9 sm:grid-cols-[70px_0.9fr_1.1fr] sm:gap-8 sm:py-11"
+                  className="grid grid-cols-[34px_1fr] gap-x-4 gap-y-2 border-b border-black/15 py-5 md:grid-cols-[70px_0.9fr_1.1fr] md:gap-8 md:py-11"
                 >
-                  <span className="text-sm text-black/30">{item.number}</span>
-                  <h2 className="text-3xl font-bold leading-tight tracking-[-0.04em] sm:text-4xl">
+                  <span className="pt-1 text-xs text-black/30 md:pt-0 md:text-sm">{item.number}</span>
+                  <h2 className="text-2xl font-bold leading-tight tracking-[-0.04em] md:text-4xl">
                     {item.title}
                   </h2>
-                  <p className="max-w-xl text-base leading-7 text-black/50">{item.text}</p>
+                  <p className="col-start-2 max-w-xl text-sm leading-5 text-black/50 md:col-start-auto md:text-base md:leading-7">{item.text}</p>
                 </article>
               ))}
             </div>
@@ -441,8 +458,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="thinking" className="mx-auto max-w-[1600px] px-5 py-20 sm:px-8 sm:py-28 lg:px-12 lg:py-36">
-        <div className="grid gap-12 lg:grid-cols-[0.25fr_0.75fr] lg:gap-16">
+      <section id="thinking" className="mobile-section-reveal mx-auto max-w-[1600px] px-5 py-14 sm:px-8 sm:py-20 lg:px-12 lg:py-36">
+        <div className="grid gap-7 sm:gap-10 lg:grid-cols-[0.25fr_0.75fr] lg:gap-16">
           <div>
             <p className="text-[11px] font-medium uppercase tracking-[0.12em] text-black/45">
               Thinking
@@ -453,7 +470,9 @@ export default function Home() {
           </div>
 
           <div>
-            <div className="border-t border-black/15">
+            <MobileThinkingRail locale="en" />
+
+            <div className="hidden border-t border-black/15 sm:block">
               {thinking.map((item, index) => (
                 <Link
                   key={item.href}
@@ -473,7 +492,7 @@ export default function Home() {
                 </Link>
               ))}
             </div>
-            <div className="mt-6 text-right">
+            <div className="mt-6 hidden text-right sm:block">
               <Link href="/en/thinking" className="inline-flex items-center gap-2 border-b border-black pb-1 text-sm font-semibold">
                 All Thinking <ArrowUpRight className="h-4 w-4" />
               </Link>
@@ -496,19 +515,28 @@ export default function Home() {
 
             <div className="grid border-l border-t border-white/15 sm:grid-cols-3">
               {[
-                ["Proxy", "Technology and AI systems."],
-                ["ScribMed", "Clinical AI and medical documentation."],
-                ["Editora Ichthus", "Publishing and intellectual property."],
-              ].map(([name, text]) => (
-                <article key={name} className="min-h-[300px] border-b border-r border-white/15 p-6 sm:p-8">
-                  <p className="text-[10px] font-medium uppercase tracking-[0.12em] text-white/30">
-                    Venture
-                  </p>
+                ["Proxy", "Technology and AI systems.", "https://proxy.ichthusmkt.com.br/"],
+                ["ScribMed", "Clinical AI and medical documentation.", "https://www.scribmed.app/"],
+                ["Editora Ichthus", "Publishing and intellectual property.", "https://www.editoraichthus.com.br/"],
+              ].map(([name, text, href]) => (
+                <a
+                  key={name}
+                  href={href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group min-h-[300px] border-b border-r border-white/15 p-6 transition-colors hover:bg-white hover:text-black sm:p-8"
+                >
+                  <div className="flex items-start justify-between gap-5">
+                    <p className="text-[10px] font-medium uppercase tracking-[0.12em] text-white/30 transition-colors group-hover:text-black/35">
+                      Venture
+                    </p>
+                    <ArrowUpRight className="h-4 w-4 text-white/35 transition group-hover:text-black/45" />
+                  </div>
                   <div className="mt-24">
                     <h2 className="text-3xl font-bold tracking-[-0.045em]">{name}</h2>
-                    <p className="mt-3 max-w-xs text-sm leading-6 text-white/45">{text}</p>
+                    <p className="mt-3 max-w-xs text-sm leading-6 text-white/45 transition-colors group-hover:text-black/50">{text}</p>
                   </div>
-                </article>
+                </a>
               ))}
             </div>
           </div>
