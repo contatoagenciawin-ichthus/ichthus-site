@@ -11,6 +11,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/en/thinking", priority: 0.8, changeFrequency: "weekly" as const },
     { path: "/pt/thinking", priority: 0.8, changeFrequency: "weekly" as const },
 
+    { path: "/guyana/hospitality", priority: 0.9, changeFrequency: "weekly" as const },
+
     { path: "/en/work/kone", priority: 0.85, changeFrequency: "monthly" as const },
     { path: "/pt/work/kone", priority: 0.85, changeFrequency: "monthly" as const },
     { path: "/en/work/innovclean", priority: 0.85, changeFrequency: "monthly" as const },
