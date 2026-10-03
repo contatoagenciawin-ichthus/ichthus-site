@@ -1,6 +1,14 @@
+import type { Metadata } from "next"
 import { ArrowRight, BarChart3, Users, Target, Sparkles } from "lucide-react"
 import { Navigation } from "@/components/navigation"
 import { SiteFooter } from "@/components/site-footer"
+
+export const metadata: Metadata = {
+  robots: {
+    index: false,
+    follow: true,
+  },
+}
 
 const whatsappLink =
   "https://wa.me/5519998363352?text=Olá,%20vim%20pela%20página%20da%20Ichthus%20e%20quero%20entender%20como%20vocês%20podem%20nos%20ajudar%20a%20gerar%20mais%20oportunidades."
