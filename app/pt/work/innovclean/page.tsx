@@ -3,7 +3,7 @@ import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "InnovClean Services — Projeto — Ichthus",
+  title: "InnovClean Services — Projeto",
   description:
     "Uma parceria digital contínua apoiando uma empresa britânica de serviços com marca, site e infraestrutura digital.",
   alternates: {
