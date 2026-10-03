@@ -8,7 +8,8 @@ export function proxy(request: NextRequest) {
   const isEnglish =
     pathname === "/en" ||
     pathname.startsWith("/en/") ||
-    pathname.startsWith("/work/")
+    pathname.startsWith("/work/") ||
+    pathname.startsWith("/guyana/")
 
   requestHeaders.set("x-ichthus-locale", isEnglish ? "en" : "pt-BR")
 
