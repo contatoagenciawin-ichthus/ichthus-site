@@ -96,7 +96,7 @@ const thinking = [
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#f2f2ef] text-black">
+    <main className="min-h-screen max-w-full overflow-x-clip bg-[#f2f2ef] text-black">
       <header className="sticky top-0 z-50 border-b border-black/15 bg-[#f2f2ef]/95 backdrop-blur">
         <div className="mx-auto flex h-[70px] max-w-[1600px] items-center justify-between px-5 sm:px-8 lg:px-12">
           <Link href="/pt" className="text-lg font-bold tracking-[-0.04em] sm:text-xl">
