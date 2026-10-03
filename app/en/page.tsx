@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { ArrowDownRight, ArrowUpRight } from "lucide-react"
 import { KoneMachineMotion } from "@/components/work/kone-machine-motion"
+import { MobileHomeMenu } from "@/components/site/mobile-home-menu"
 
 export const metadata: Metadata = {
   title: { absolute: "Ichthus — Strategy, Brand, Digital, Growth & Technology" },
@@ -106,9 +107,12 @@ export default function Home() {
             <Link href="/en/contact">Contact</Link>
           </nav>
 
-          <div className="flex items-center gap-4 text-[10px] font-medium uppercase tracking-[0.1em]">
-            <Link href="/pt" className="text-black/35 transition hover:text-black">PT</Link>
-            <span className="border-b border-black pb-0.5">EN</span>
+          <div className="flex items-center gap-4">
+            <MobileHomeMenu locale="en" />
+            <div className="flex items-center gap-4 text-[10px] font-medium uppercase tracking-[0.1em]">
+              <Link href="/pt" className="text-black/35 transition hover:text-black">PT</Link>
+              <span className="border-b border-black pb-0.5">EN</span>
+            </div>
           </div>
         </div>
       </header>
