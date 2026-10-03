@@ -70,7 +70,7 @@ export default function InnovCleanCasePage() {
           <div className="pt-2 text-[11px] font-medium uppercase leading-6 tracking-[0.12em] text-black/55">
             <p>InnovClean Services Ltd</p>
             <p>Serviços comerciais</p>
-            <p>London / Reino Unido</p>
+            <p>Londres / Reino Unido</p>
             <p>Parceria contínua</p>
           </div>
 
@@ -90,8 +90,8 @@ export default function InnovCleanCasePage() {
               </p>
               <div className="text-sm leading-6 text-black/55 sm:max-w-sm sm:justify-self-end">
                 <p>
-                  Direção de marca, website strategy, content, responsive development,
-                  Fundação de SEO, email infrastructure and ongoing support.
+                  Direção de marca, estratégia de site, conteúdo, desenvolvimento responsivo,
+                  fundação de SEO, infraestrutura de e-mail e suporte contínuo.
                 </p>
               </div>
             </div>
@@ -104,7 +104,7 @@ export default function InnovCleanCasePage() {
           <div className="relative min-h-[72vh] overflow-hidden bg-[#d9ddd8]">
             <img
               src={`${raw}/london-aerial.jpg`}
-              alt="London commercial district"
+              alt="Distrito comercial de Londres"
               className="absolute inset-0 h-full w-full object-cover"
             />
             <div className="absolute inset-0 bg-black/10" />
@@ -143,7 +143,7 @@ export default function InnovCleanCasePage() {
             <div className="max-w-md text-base leading-7 text-black/60 lg:justify-self-end lg:pt-2">
               <p>
                 A InnovClean é uma empresa familiar de limpeza comercial que atende Londres
-                and the Reino Unido. Our role has extended beyond a single website
+                e o Reino Unido. Nosso papel foi além de uma única entrega de site,
                 apoiando a presença digital da empresa e sua
                 infraestrutura de negócio ao longo do tempo.
               </p>
@@ -185,7 +185,7 @@ export default function InnovCleanCasePage() {
                   className="h-7 w-auto object-contain"
                 />
                 <span className="text-[9px] font-medium uppercase tracking-[0.12em] text-black/40">
-                  London / UK
+                  Londres / Reino Unido
                 </span>
               </div>
               <div className="grid min-h-[580px] lg:grid-cols-[0.9fr_1.1fr]">
@@ -210,7 +210,7 @@ export default function InnovCleanCasePage() {
                 <div className="relative min-h-[400px] overflow-hidden">
                   <img
                     src={`${raw}/london-skyline.jpg`}
-                    alt="London office skyline"
+                    alt="Skyline de escritórios em Londres"
                     className="absolute inset-0 h-full w-full object-cover"
                   />
                   <div className="absolute inset-0 bg-[#183c34]/15" />
@@ -235,7 +235,7 @@ export default function InnovCleanCasePage() {
             </div>
             <div>
               <h2 className="max-w-5xl text-4xl font-bold leading-[0.94] tracking-[-0.055em] sm:text-6xl lg:text-8xl">
-                A digital internacional, not a list of isolated deliverables.
+                Uma parceria digital internacional, não uma lista de entregas isoladas.
               </h2>
 
               <div className="mt-16 grid border-l border-t border-white/15 sm:grid-cols-2 lg:mt-24">
@@ -283,7 +283,7 @@ export default function InnovCleanCasePage() {
       <section className="relative min-h-[72vh] overflow-hidden bg-[#183c34] text-white">
         <img
           src={`${raw}/sustainability-forest.jpg`}
-          alt="Forest representing environmental responsibility"
+          alt="Floresta representando responsabilidade ambiental"
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-[#102b24]/65" />
