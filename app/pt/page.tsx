@@ -517,7 +517,7 @@ export default function Home() {
               {[
                 ["Proxy", "Sistemas de tecnologia e IA.", "https://proxy.ichthusmkt.com.br/"],
                 ["ScribMed", "IA clínica e documentação médica.", "https://www.scribmed.app/"],
-                ["Editora Ichthus", "Publicação e propriedade intelectual.", "https://www.amazon.com.br/s?k=editora+ichthus"],
+                ["Editora Ichthus", "Publicação e propriedade intelectual.", "https://www.editoraichthus.com.br/"],
               ].map(([name, text, href]) => (
                 <a
                   key={name}
