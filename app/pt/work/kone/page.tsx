@@ -6,7 +6,7 @@ import { KoneMachineMotion } from "@/components/work/kone-machine-motion"
 export const metadata: Metadata = {
   title: "Kone Máquinas — Projeto — Ichthus",
   description:
-    "Uma experiência digital para uma fabricante industrial brasileira com mais de cinco décadas de história em engenharia.",,
+    "Uma experiência digital para uma fabricante industrial brasileira com mais de cinco décadas de história em engenharia.",
   alternates: {
     canonical: "/pt/work/kone",
     languages: {
