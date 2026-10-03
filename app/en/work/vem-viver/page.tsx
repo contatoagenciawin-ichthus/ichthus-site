@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 
 export const metadata: Metadata = {
-  title: "Vem Viver — Work — Ichthus",
+  title: "Vem Viver — Work",
   description:
     "A brand strategy case turning a story that began in 1992 into a new consumer proposition built around quality, trust and consistency.",
   alternates: {
