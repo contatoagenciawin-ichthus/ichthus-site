@@ -89,7 +89,7 @@ const fits = [
 ]
 
 const whatsappAuditUrl =
-  "https://wa.me/5519998363352?text=Hi%2C%20I%27d%20like%20to%20request%20the%20free%20Guest%20Booking%20Audit%20for%20my%20property."
+  "https://wa.me/5519998056642?text=Hi%2C%20I%27d%20like%20to%20request%20the%20free%20Guest%20Booking%20Audit%20for%20my%20property."
 
 const faqs = [
   {
