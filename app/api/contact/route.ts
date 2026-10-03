@@ -19,7 +19,7 @@ function textValue(value: unknown, max: number) {
 }
 
 function validEmail(email: string) {
-  return /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email)
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
 }
 
 function jsonError(message: string, status: number) {
@@ -161,7 +161,7 @@ export async function POST(request: Request) {
             "",
             "Project context:",
             message,
-          ].join("\\n"),
+          ].join("\n"),
         }),
       })
 
