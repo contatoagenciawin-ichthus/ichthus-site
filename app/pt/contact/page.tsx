@@ -12,6 +12,12 @@ export const metadata: Metadata = {
       "pt-BR": "/pt/contact",
     },
   },
+  openGraph: {
+    title: "Contato — Ichthus",
+    description: "Inicie uma conversa com a Ichthus sobre estratégia, marca, digital, crescimento ou tecnologia.",
+    locale: "pt_BR",
+    type: "website",
+  },
 }
 
 export default function ContactPage() {
