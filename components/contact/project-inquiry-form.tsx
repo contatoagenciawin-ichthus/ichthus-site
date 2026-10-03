@@ -1,12 +1,14 @@
 "use client"
 
 import { FormEvent, useState } from "react"
-import { ArrowUpRight } from "lucide-react"
+import { ArrowUpRight, Check } from "lucide-react"
 
 type Locale = "en" | "pt"
+type SubmitState = "idle" | "submitting" | "success" | "error"
 
 export function ProjectInquiryForm({ locale }: { locale: Locale }) {
-  const [isPreparing, setIsPreparing] = useState(false)
+  const [state, setState] = useState<SubmitState>("idle")
+  const [feedback, setFeedback] = useState("")
 
   const copy =
     locale === "en"
@@ -23,8 +25,10 @@ export function ProjectInquiryForm({ locale }: { locale: Locale }) {
           messagePlaceholder:
             "Tell us what is changing, what you need to build, and what a useful outcome would look like.",
           submit: "Start a conversation",
-          preparing: "Preparing your message…",
-          note: "A short note is enough. Your email app will open with the message prepared.",
+          submitting: "Sending…",
+          note: "A short note is enough. We’ll receive your message directly.",
+          success: "Message received. We’ll be in touch soon.",
+          fallback: "If you prefer, email contato@ichthusmkt.com.br.",
         }
       : {
           name: "Nome",
@@ -39,64 +43,54 @@ export function ProjectInquiryForm({ locale }: { locale: Locale }) {
           messagePlaceholder:
             "Conte o que está mudando, o que precisa ser construído e como seria um bom resultado.",
           submit: "Iniciar uma conversa",
-          preparing: "Preparando sua mensagem…",
-          note: "Uma nota curta é suficiente. Seu aplicativo de e-mail abrirá com a mensagem preparada.",
+          submitting: "Enviando…",
+          note: "Uma nota curta é suficiente. Receberemos sua mensagem diretamente.",
+          success: "Mensagem recebida. Entraremos em contato em breve.",
+          fallback: "Se preferir, escreva para contato@ichthusmkt.com.br.",
         }
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
-    setIsPreparing(true)
 
-    const data = new FormData(event.currentTarget)
-    const name = String(data.get("name") || "").trim()
-    const company = String(data.get("company") || "").trim()
-    const email = String(data.get("email") || "").trim()
-    const market = String(data.get("market") || "").trim()
-    const message = String(data.get("message") || "").trim()
+    const form = event.currentTarget
+    const data = new FormData(form)
 
-    const subject =
-      locale === "en"
-        ? `Ichthus website inquiry — ${company || name}`
-        : `Contato pelo site Ichthus — ${company || name}`
+    setState("submitting")
+    setFeedback("")
 
-    const body =
-      locale === "en"
-        ? [
-            "Hello Ichthus,",
-            "",
-            "I'd like to start a conversation.",
-            "",
-            `Name: ${name}`,
-            `Company: ${company}`,
-            `Email: ${email}`,
-            `Market / location: ${market}`,
-            "",
-            "What we're looking to build:",
-            message,
-            "",
-            "Sent from the Ichthus website.",
-          ].join("\n")
-        : [
-            "Olá, Ichthus.",
-            "",
-            "Gostaria de iniciar uma conversa.",
-            "",
-            `Nome: ${name}`,
-            `Empresa: ${company}`,
-            `E-mail: ${email}`,
-            `Mercado / localização: ${market}`,
-            "",
-            "O que queremos construir:",
-            message,
-            "",
-            "Enviado pelo site da Ichthus.",
-          ].join("\n")
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          locale,
+          name: String(data.get("name") || ""),
+          company: String(data.get("company") || ""),
+          email: String(data.get("email") || ""),
+          market: String(data.get("market") || ""),
+          message: String(data.get("message") || ""),
+          website: String(data.get("website") || ""),
+          sourcePath: window.location.pathname,
+        }),
+      })
 
-    window.location.href = `mailto:contato@ichthusmkt.com.br?subject=${encodeURIComponent(
-      subject,
-    )}&body=${encodeURIComponent(body)}`
+      const result = (await response.json().catch(() => null)) as
+        | { ok?: boolean; message?: string }
+        | null
 
-    window.setTimeout(() => setIsPreparing(false), 800)
+      if (!response.ok || !result?.ok) {
+        throw new Error(result?.message || copy.fallback)
+      }
+
+      form.reset()
+      setState("success")
+      setFeedback(result.message || copy.success)
+    } catch (error) {
+      setState("error")
+      setFeedback(error instanceof Error ? error.message : copy.fallback)
+    }
   }
 
   const inputClass =
@@ -104,6 +98,13 @@ export function ProjectInquiryForm({ locale }: { locale: Locale }) {
 
   return (
     <form onSubmit={handleSubmit} className="border-t border-black/15">
+      <div className="sr-only" aria-hidden="true">
+        <label>
+          Website
+          <input type="text" name="website" tabIndex={-1} autoComplete="off" />
+        </label>
+      </div>
+
       <div className="grid gap-x-8 sm:grid-cols-2">
         <label className="block border-b border-black/10 py-6">
           <span className="text-[10px] font-medium uppercase tracking-[0.12em] text-black/40">
@@ -114,6 +115,7 @@ export function ProjectInquiryForm({ locale }: { locale: Locale }) {
             type="text"
             name="name"
             required
+            maxLength={160}
             autoComplete="name"
             placeholder={copy.namePlaceholder}
           />
@@ -128,6 +130,7 @@ export function ProjectInquiryForm({ locale }: { locale: Locale }) {
             type="text"
             name="company"
             required
+            maxLength={200}
             autoComplete="organization"
             placeholder={copy.companyPlaceholder}
           />
@@ -142,6 +145,7 @@ export function ProjectInquiryForm({ locale }: { locale: Locale }) {
             type="email"
             name="email"
             required
+            maxLength={320}
             autoComplete="email"
             placeholder={copy.emailPlaceholder}
           />
@@ -156,6 +160,7 @@ export function ProjectInquiryForm({ locale }: { locale: Locale }) {
             type="text"
             name="market"
             required
+            maxLength={200}
             autoComplete="country-name"
             placeholder={copy.marketPlaceholder}
           />
@@ -170,18 +175,43 @@ export function ProjectInquiryForm({ locale }: { locale: Locale }) {
           className="mt-4 min-h-[180px] w-full resize-y border-0 bg-transparent p-0 text-xl leading-8 text-black outline-none placeholder:text-black/25 sm:text-2xl"
           name="message"
           required
+          maxLength={5000}
           placeholder={copy.messagePlaceholder}
         />
       </label>
 
-      <div className="flex flex-col gap-6 pt-7 sm:flex-row sm:items-center sm:justify-between">
-        <p className="max-w-md text-xs leading-5 text-black/40">{copy.note}</p>
+      <div className="flex flex-col gap-6 pt-7 sm:flex-row sm:items-end sm:justify-between">
+        <div className="max-w-lg">
+          <p className="text-xs leading-5 text-black/40">{copy.note}</p>
+
+          <div aria-live="polite" className="mt-3 min-h-5">
+            {state === "success" && (
+              <p className="flex items-center gap-2 text-sm font-medium text-black">
+                <Check className="h-4 w-4" />
+                {feedback}
+              </p>
+            )}
+
+            {state === "error" && (
+              <p className="text-sm leading-6 text-black">
+                {feedback}{" "}
+                <a
+                  href="mailto:contato@ichthusmkt.com.br"
+                  className="border-b border-black/40 pb-0.5"
+                >
+                  contato@ichthusmkt.com.br
+                </a>
+              </p>
+            )}
+          </div>
+        </div>
+
         <button
           type="submit"
-          disabled={isPreparing}
-          className="group inline-flex w-fit items-center gap-3 bg-black px-6 py-4 text-sm font-semibold text-white transition hover:bg-black/85 disabled:opacity-60"
+          disabled={state === "submitting"}
+          className="group inline-flex w-fit items-center gap-3 bg-black px-6 py-4 text-sm font-semibold text-white transition hover:bg-black/85 disabled:cursor-wait disabled:opacity-60"
         >
-          {isPreparing ? copy.preparing : copy.submit}
+          {state === "submitting" ? copy.submitting : copy.submit}
           <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
         </button>
       </div>
