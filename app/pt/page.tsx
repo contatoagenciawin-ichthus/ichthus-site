@@ -96,7 +96,7 @@ const thinking = [
 
 export default function Home() {
   return (
-    <main className="min-h-screen max-w-full overflow-x-clip bg-[#f2f2ef] text-black">
+    <main className="min-h-screen max-w-full overflow-x-hidden bg-[#f2f2ef] text-black">
       <header className="sticky top-0 z-50 border-b border-black/15 bg-[#f2f2ef]/95 backdrop-blur">
         <div className="mx-auto flex h-[70px] max-w-[1600px] items-center justify-between px-5 sm:px-8 lg:px-12">
           <Link href="/pt" className="text-lg font-bold tracking-[-0.04em] sm:text-xl">
@@ -515,19 +515,28 @@ export default function Home() {
 
             <div className="grid border-l border-t border-white/15 sm:grid-cols-3">
               {[
-                ["Proxy", "Sistemas de tecnologia e IA."],
-                ["ScribMed", "IA clínica e documentação médica."],
-                ["Editora Ichthus", "Publicação e propriedade intelectual."],
-              ].map(([name, text]) => (
-                <article key={name} className="min-h-[300px] border-b border-r border-white/15 p-6 sm:p-8">
-                  <p className="text-[10px] font-medium uppercase tracking-[0.12em] text-white/30">
-                    Venture
-                  </p>
+                ["Proxy", "Sistemas de tecnologia e IA.", "https://proxy.ichthusmkt.com.br/"],
+                ["ScribMed", "IA clínica e documentação médica.", "https://www.scribmed.app/"],
+                ["Editora Ichthus", "Publicação e propriedade intelectual.", "https://www.amazon.com.br/s?k=editora+ichthus"],
+              ].map(([name, text, href]) => (
+                <a
+                  key={name}
+                  href={href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group min-h-[300px] border-b border-r border-white/15 p-6 transition-colors hover:bg-white hover:text-black sm:p-8"
+                >
+                  <div className="flex items-start justify-between gap-5">
+                    <p className="text-[10px] font-medium uppercase tracking-[0.12em] text-white/30 transition-colors group-hover:text-black/35">
+                      Venture
+                    </p>
+                    <ArrowUpRight className="h-4 w-4 text-white/35 transition group-hover:text-black/45" />
+                  </div>
                   <div className="mt-24">
                     <h2 className="text-3xl font-bold tracking-[-0.045em]">{name}</h2>
-                    <p className="mt-3 max-w-xs text-sm leading-6 text-white/45">{text}</p>
+                    <p className="mt-3 max-w-xs text-sm leading-6 text-white/45 transition-colors group-hover:text-black/50">{text}</p>
                   </div>
-                </article>
+                </a>
               ))}
             </div>
           </div>
