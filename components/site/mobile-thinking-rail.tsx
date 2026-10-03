@@ -14,8 +14,11 @@ const images = [
 
 export function MobileThinkingRail({ locale }: { locale: Locale }) {
   const [index, setIndex] = useState(0)
+  const [dragX, setDragX] = useState(0)
+  const [dragging, setDragging] = useState(false)
   const touchStartX = useRef<number | null>(null)
   const touchStartY = useRef<number | null>(null)
+  const didSwipe = useRef(false)
 
   const items =
     locale === "en"
@@ -62,10 +65,38 @@ export function MobileThinkingRail({ locale }: { locale: Locale }) {
     const touch = event.touches[0]
     touchStartX.current = touch.clientX
     touchStartY.current = touch.clientY
+    didSwipe.current = false
+    setDragging(true)
+  }
+
+  function handleTouchMove(event: React.TouchEvent<HTMLDivElement>) {
+    if (touchStartX.current === null || touchStartY.current === null) return
+
+    const touch = event.touches[0]
+    const deltaX = touch.clientX - touchStartX.current
+    const deltaY = touch.clientY - touchStartY.current
+
+    if (Math.abs(deltaY) > Math.abs(deltaX)) return
+
+    let nextDrag = deltaX
+
+    if ((index === 0 && deltaX > 0) || (index === items.length - 1 && deltaX < 0)) {
+      nextDrag *= 0.28
+    }
+
+    setDragX(nextDrag)
+
+    if (Math.abs(deltaX) > 10) {
+      didSwipe.current = true
+    }
   }
 
   function handleTouchEnd(event: React.TouchEvent<HTMLDivElement>) {
-    if (touchStartX.current === null || touchStartY.current === null) return
+    if (touchStartX.current === null || touchStartY.current === null) {
+      setDragging(false)
+      setDragX(0)
+      return
+    }
 
     const touch = event.changedTouches[0]
     const deltaX = touch.clientX - touchStartX.current
@@ -73,8 +104,12 @@ export function MobileThinkingRail({ locale }: { locale: Locale }) {
 
     touchStartX.current = null
     touchStartY.current = null
+    setDragging(false)
+    setDragX(0)
 
     if (Math.abs(deltaX) < 45 || Math.abs(deltaX) <= Math.abs(deltaY)) return
+
+    didSwipe.current = true
 
     if (deltaX < 0) go(index + 1)
     else go(index - 1)
@@ -84,16 +119,39 @@ export function MobileThinkingRail({ locale }: { locale: Locale }) {
     <div className="min-w-0 max-w-full sm:hidden">
       <div
         className="relative w-full overflow-hidden"
+        style={{ touchAction: "pan-y" }}
         onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
+        onTouchCancel={() => {
+          setDragging(false)
+          setDragX(0)
+          touchStartX.current = null
+          touchStartY.current = null
+        }}
       >
         <div
-          className="flex transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
-          style={{ transform: `translateX(-${index * 100}%)` }}
+          className={`flex ${
+            dragging
+              ? ""
+              : "transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
+          }`}
+          style={{
+            transform: `translate3d(calc(-${index * 100}% + ${dragX}px), 0, 0)`,
+          }}
         >
           {items.map((item, itemIndex) => (
             <div key={item.href} className="w-full shrink-0">
-              <Link href={item.href} className="group block">
+              <Link
+                href={item.href}
+                className="group block"
+                onClick={(event) => {
+                  if (didSwipe.current) {
+                    event.preventDefault()
+                    didSwipe.current = false
+                  }
+                }}
+              >
                 <article className="overflow-hidden border border-black/15 bg-white">
                   <div className="relative aspect-[4/3] overflow-hidden bg-[#e7e7e2]">
                     <img
