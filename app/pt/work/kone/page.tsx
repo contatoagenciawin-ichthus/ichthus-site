@@ -168,6 +168,8 @@ export default function KoneCasePage() {
               <article key={machine.model} className="border-b border-r border-black/15">
                 <div className="relative aspect-[4/5] overflow-hidden bg-[#f1f1ed]">
                   <img
+                    loading="lazy"
+                    decoding="async"
                     src={machine.image}
                     alt={machine.model}
                     className="h-full w-full object-contain p-[12%] transition-transform duration-700 hover:scale-[1.025]"
@@ -227,6 +229,8 @@ export default function KoneCasePage() {
                   </div>
                   <div className="relative min-h-[420px] bg-[#e9e9e4]">
                     <img
+                      loading="lazy"
+                      decoding="async"
                       src={`${raw}/machines/kfu-3.png`}
                       alt="Kone milling machine"
                       className="absolute inset-0 h-full w-full object-contain p-[9%]"
