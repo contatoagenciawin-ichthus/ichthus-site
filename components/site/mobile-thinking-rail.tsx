@@ -15,7 +15,6 @@ const images = [
 export function MobileThinkingRail({ locale }: { locale: Locale }) {
   const [index, setIndex] = useState(0)
   const [dragX, setDragX] = useState(0)
-  const [dragging, setDragging] = useState(false)
   const touchStartX = useRef<number | null>(null)
   const touchStartY = useRef<number | null>(null)
   const didSwipe = useRef(false)
@@ -57,6 +56,8 @@ export function MobileThinkingRail({ locale }: { locale: Locale }) {
           },
         ]
 
+  const active = items[index]
+
   function go(next: number) {
     setIndex(Math.max(0, Math.min(items.length - 1, next)))
   }
@@ -66,7 +67,6 @@ export function MobileThinkingRail({ locale }: { locale: Locale }) {
     touchStartX.current = touch.clientX
     touchStartY.current = touch.clientY
     didSwipe.current = false
-    setDragging(true)
   }
 
   function handleTouchMove(event: React.TouchEvent<HTMLDivElement>) {
@@ -78,10 +78,10 @@ export function MobileThinkingRail({ locale }: { locale: Locale }) {
 
     if (Math.abs(deltaY) > Math.abs(deltaX)) return
 
-    let nextDrag = deltaX
+    let nextDrag = Math.max(-72, Math.min(72, deltaX * 0.55))
 
     if ((index === 0 && deltaX > 0) || (index === items.length - 1 && deltaX < 0)) {
-      nextDrag *= 0.28
+      nextDrag *= 0.3
     }
 
     setDragX(nextDrag)
@@ -93,7 +93,6 @@ export function MobileThinkingRail({ locale }: { locale: Locale }) {
 
   function handleTouchEnd(event: React.TouchEvent<HTMLDivElement>) {
     if (touchStartX.current === null || touchStartY.current === null) {
-      setDragging(false)
       setDragX(0)
       return
     }
@@ -104,7 +103,6 @@ export function MobileThinkingRail({ locale }: { locale: Locale }) {
 
     touchStartX.current = null
     touchStartY.current = null
-    setDragging(false)
     setDragX(0)
 
     if (Math.abs(deltaX) < 45 || Math.abs(deltaX) <= Math.abs(deltaY)) return
@@ -116,77 +114,75 @@ export function MobileThinkingRail({ locale }: { locale: Locale }) {
   }
 
   return (
-    <div className="min-w-0 max-w-full sm:hidden">
+    <div className="w-full min-w-0 max-w-full overflow-hidden sm:hidden">
       <div
-        className="relative w-full overflow-hidden"
+        className="w-full max-w-full overflow-hidden"
         style={{ touchAction: "pan-y" }}
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
         onTouchCancel={() => {
-          setDragging(false)
           setDragX(0)
           touchStartX.current = null
           touchStartY.current = null
         }}
       >
         <div
-          className={`flex ${
-            dragging
-              ? ""
-              : "transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
-          }`}
+          key={active.href}
+          className="thinking-active-card w-full max-w-full"
           style={{
-            transform: `translate3d(calc(-${index * 100}% + ${dragX}px), 0, 0)`,
+            transform: `translate3d(${dragX}px, 0, 0)`,
+            opacity: Math.max(0.82, 1 - Math.abs(dragX) / 420),
           }}
         >
-          {items.map((item, itemIndex) => (
-            <div key={item.href} className="w-full shrink-0">
-              <Link
-                href={item.href}
-                className="group block"
-                onClick={(event) => {
-                  if (didSwipe.current) {
-                    event.preventDefault()
-                    didSwipe.current = false
-                  }
-                }}
-              >
-                <article className="overflow-hidden border border-black/15 bg-white">
-                  <div className="relative aspect-[4/3] overflow-hidden bg-[#e7e7e2]">
-                    <img
-                      loading="lazy"
-                      decoding="async"
-                      src={images[itemIndex]}
-                      alt=""
-                      aria-hidden="true"
-                      className="h-full w-full object-cover transition-transform duration-700 group-active:scale-[1.015]"
-                    />
-                    <span className="absolute left-3 top-3 bg-[#f2f2ef]/92 px-2 py-1 text-[8px] font-medium uppercase tracking-[0.12em]">
-                      0{itemIndex + 1}
-                    </span>
-                  </div>
+          <Link
+            href={active.href}
+            className="group block w-full max-w-full"
+            onClick={(event) => {
+              if (didSwipe.current) {
+                event.preventDefault()
+                didSwipe.current = false
+              }
+            }}
+          >
+            <article className="w-full max-w-full overflow-hidden border border-black/15 bg-white">
+              <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#e7e7e2]">
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src={images[index]}
+                  alt=""
+                  aria-hidden="true"
+                  className="h-full w-full object-cover transition-transform duration-700 group-active:scale-[1.015]"
+                />
+                <span className="absolute left-3 top-3 bg-[#f2f2ef]/92 px-2 py-1 text-[8px] font-medium uppercase tracking-[0.12em]">
+                  0{index + 1}
+                </span>
+              </div>
 
-                  <div className="min-h-[186px] p-4">
-                    <div className="flex items-start justify-between gap-5">
-                      <p className="text-[9px] font-medium uppercase leading-4 tracking-[0.11em] text-black/40">
-                        {item.eyebrow}
-                      </p>
-                      <ArrowUpRight className="h-4 w-4 shrink-0 text-black/35" />
-                    </div>
-                    <h2 className="mt-4 text-[1.72rem] font-bold leading-[0.98] tracking-[-0.045em]">
-                      {item.title}
-                    </h2>
-                  </div>
-                </article>
-              </Link>
-            </div>
-          ))}
+              <div className="w-full max-w-full p-4 pb-5">
+                <div className="flex min-w-0 items-start justify-between gap-4">
+                  <p className="min-w-0 text-[9px] font-medium uppercase leading-4 tracking-[0.11em] text-black/40">
+                    {active.eyebrow}
+                  </p>
+                  <ArrowUpRight className="h-4 w-4 shrink-0 text-black/35" />
+                </div>
+
+                <h2 className="mt-4 max-w-full break-words text-[clamp(1.45rem,6.5vw,1.8rem)] font-bold leading-[1.02] tracking-[-0.042em]">
+                  {active.title}
+                </h2>
+
+                <p className="mt-5 text-[10px] font-medium uppercase tracking-[0.12em] text-black/30">
+                  {locale === "en" ? "Open article" : "Abrir artigo"}
+                </p>
+              </div>
+            </article>
+          </Link>
         </div>
       </div>
 
-      <div className="mt-3 flex items-center justify-between gap-4">
-        <div className="flex items-center gap-1.5">
+      <div className="mt-4 flex w-full max-w-full items-center justify-between gap-3">
+        <div className="flex min-w-0 items-center gap-1.5">
           {items.map((item, itemIndex) => (
             <button
               key={item.href}
@@ -197,14 +193,17 @@ export function MobileThinkingRail({ locale }: { locale: Locale }) {
                   ? `Go to idea ${itemIndex + 1}`
                   : `Ir para ideia ${itemIndex + 1}`
               }
-              className={`h-1.5 transition-all ${
+              className={`h-1.5 shrink-0 transition-all ${
                 itemIndex === index ? "w-6 bg-black" : "w-1.5 bg-black/20"
               }`}
             />
           ))}
+          <span className="ml-2 whitespace-nowrap text-[9px] text-black/30">
+            {index + 1} / {items.length}
+          </span>
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="flex shrink-0 items-center gap-1.5">
           <button
             type="button"
             onClick={() => go(index - 1)}
@@ -223,19 +222,21 @@ export function MobileThinkingRail({ locale }: { locale: Locale }) {
           >
             <ArrowRight className="h-3.5 w-3.5" />
           </button>
-          <Link
-            href={locale === "en" ? "/en/thinking" : "/pt/thinking"}
-            className="ml-1 inline-flex items-center gap-1.5 border-b border-black pb-0.5 text-xs font-semibold"
-          >
-            {locale === "en" ? "All" : "Todas"}
-            <ArrowUpRight className="h-3.5 w-3.5" />
-          </Link>
         </div>
       </div>
 
-      <p className="mt-3 text-[9px] uppercase tracking-[0.12em] text-black/30">
-        {locale === "en" ? "Swipe left or right" : "Deslize para a esquerda ou direita"}
-      </p>
+      <div className="mt-4 flex w-full max-w-full items-center justify-between gap-3 border-t border-black/10 pt-3">
+        <p className="min-w-0 text-[9px] uppercase tracking-[0.12em] text-black/30">
+          {locale === "en" ? "Swipe left or right" : "Deslize para a esquerda ou direita"}
+        </p>
+        <Link
+          href={locale === "en" ? "/en/thinking" : "/pt/thinking"}
+          className="inline-flex shrink-0 items-center gap-1.5 border-b border-black pb-0.5 text-xs font-semibold"
+        >
+          {locale === "en" ? "All ideas" : "Todas"}
+          <ArrowUpRight className="h-3.5 w-3.5" />
+        </Link>
+      </div>
     </div>
   )
 }
