@@ -81,6 +81,8 @@ export function ThinkingArticlePage({
             <div className="mx-auto max-w-[1600px] px-5 py-5 sm:px-8 sm:py-8 lg:px-12 lg:py-12">
               <div className="overflow-hidden">
                 <img
+                  loading="lazy"
+                  decoding="async"
                   src={editorialImage.src}
                   alt={locale === "en" ? editorialImage.altEn : editorialImage.altPt}
                   className="aspect-[16/9] w-full object-cover"
