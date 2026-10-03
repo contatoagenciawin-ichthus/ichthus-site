@@ -204,12 +204,16 @@ export default function Home() {
           <article className="mx-auto grid max-w-[1600px] lg:grid-cols-[0.62fr_0.38fr]">
             <div className="relative min-h-[58vh] overflow-hidden bg-[#183c34] lg:min-h-[72vh]">
               <img
+                loading="lazy"
+                decoding="async"
                 src={`${innovRaw}/london-aerial.jpg`}
                 alt="London aerial view"
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1200ms] group-hover:scale-[1.018]"
               />
               <div className="absolute inset-0 bg-[#183c34]/18" />
               <img
+                loading="lazy"
+                decoding="async"
                 src={`${innovRaw}/mark-construction-light.png`}
                 alt=""
                 aria-hidden="true"
@@ -276,6 +280,8 @@ export default function Home() {
 
             <div className="relative min-h-[58vh] overflow-hidden bg-[#173d2d] lg:min-h-[72vh]">
               <img
+                loading="lazy"
+                decoding="async"
                 src={`${vemRaw}/hero-grapes.jpg`}
                 alt="Vem Viver brand composition"
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1200ms] group-hover:scale-[1.018]"
