@@ -26,6 +26,23 @@ function jsonError(message: string, status: number) {
   return NextResponse.json({ ok: false, message }, { status })
 }
 
+export async function GET() {
+  const databaseUrl = process.env.ICHTHUS_DATABASE_URL
+
+  if (!databaseUrl) {
+    return NextResponse.json({ ok: false }, { status: 503 })
+  }
+
+  try {
+    const sql = neon(databaseUrl)
+    await sql`select 1 from contact_leads limit 1`
+    return NextResponse.json({ ok: true })
+  } catch (error) {
+    console.error("Contact API health check failed", error)
+    return NextResponse.json({ ok: false }, { status: 503 })
+  }
+}
+
 export async function POST(request: Request) {
   let body: ContactPayload
 
