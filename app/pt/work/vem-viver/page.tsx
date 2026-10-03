@@ -113,12 +113,12 @@ export default function VemViverCasePage() {
           <div className="relative min-h-[74vh] overflow-hidden bg-[#d9c7a3]">
             <img
               src={`${raw}/hero-grapes.jpg`}
-              alt="Grapes and juice composition for Vem Viver"
+              alt="Composição com uvas e suco da Vem Viver"
               className="absolute inset-0 h-full w-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#102b20]/70 via-transparent to-black/10" />
             <div className="absolute left-5 top-5 text-[10px] font-medium uppercase tracking-[0.16em] text-white/80 sm:left-8 sm:top-8">
-              Vem Viver / Brand Platform
+              Vem Viver / Plataforma de Marca
             </div>
             <div className="absolute bottom-6 left-5 max-w-4xl text-4xl font-bold leading-[0.92] tracking-[-0.055em] text-white sm:bottom-8 sm:left-8 sm:text-6xl lg:text-8xl">
               Uma marca construída
@@ -130,7 +130,7 @@ export default function VemViverCasePage() {
             <div className="absolute bottom-5 right-5 text-right text-[10px] font-medium uppercase leading-5 tracking-[0.16em] text-white/75 sm:bottom-8 sm:right-8">
               Desde 1992
               <br />
-              Americana / Brazil
+              Americana / Brasil
             </div>
           </div>
         </div>
@@ -165,7 +165,7 @@ export default function VemViverCasePage() {
       <section className="relative min-h-[70vh] overflow-hidden bg-[#1b3b2f] text-white">
         <img
           src={`${raw}/history-vineyard.jpg`}
-          alt="Vineyard representing the history behind Vem Viver"
+          alt="Vinhedo representando a história por trás da Vem Viver"
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-[#102b20]/68" />
@@ -302,7 +302,7 @@ export default function VemViverCasePage() {
         <div className="relative min-h-[52vh] overflow-hidden bg-[#d7cdbb] lg:min-h-[76vh]">
           <img
             src={`${raw}/table-setting.jpg`}
-            alt="Vem Viver table setting"
+            alt="Mesa posta da Vem Viver"
             className="absolute inset-0 h-full w-full object-cover"
           />
         </div>
@@ -328,7 +328,7 @@ export default function VemViverCasePage() {
       <section className="relative min-h-[72vh] overflow-hidden bg-[#183528] text-white">
         <img
           src={`${raw}/care-hands.jpg`}
-          alt="Hands representing care in product selection"
+          alt="Mãos representando cuidado na seleção de produtos"
           className="absolute inset-0 h-full w-full object-cover opacity-35"
         />
         <div className="absolute inset-0 bg-[#102b20]/75" />
@@ -339,7 +339,7 @@ export default function VemViverCasePage() {
             </p>
             <div>
               <h2 className="max-w-5xl text-4xl font-bold leading-[0.94] tracking-[-0.055em] sm:text-6xl lg:text-8xl">
-                Products chosen with judgement, ready to be served with confiança.
+                Produtos escolhidos com critério, prontos para serem servidos com confiança.
               </h2>
             </div>
           </div>
