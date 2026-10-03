@@ -72,6 +72,8 @@ export default function ThinkingIndex() {
                   >
                     <div className="overflow-hidden bg-[#e6e6e2]">
                       <img
+                        loading="lazy"
+                        decoding="async"
                         src={image.src}
                         alt={image.altPt}
                         className={`w-full object-cover transition-transform duration-[900ms] group-hover:scale-[1.012] ${
