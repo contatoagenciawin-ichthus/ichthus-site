@@ -33,28 +33,28 @@ export function MobileThinkingRail({ locale }: { locale: Locale }) {
           {
             eyebrow: "Crescimento / Operações",
             title: "Marketing não é um departamento. É um sistema operacional.",
-            href: "/pt/thinking/marketing-operating-system",
+            href: "/pt/thinking/marketing-como-sistema-operacional",
           },
           {
             eyebrow: "IA / Experiência do Cliente",
             title: "O que a IA muda — e o que não muda — na experiência do cliente.",
-            href: "/pt/thinking/ai-customer-experience",
+            href: "/pt/thinking/ia-e-experiencia-do-cliente",
           },
           {
             eyebrow: "Marca / Performance",
             title: "Marca e performance não deveriam viver em salas separadas.",
-            href: "/pt/thinking/brand-and-performance",
+            href: "/pt/thinking/marca-e-performance",
           },
         ]
 
   return (
-    <div className="sm:hidden">
-      <div className="-mx-5 flex snap-x snap-mandatory gap-3 overflow-x-auto px-5 pb-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+    <div className="min-w-0 max-w-full overflow-hidden sm:hidden">
+      <div className="thinking-mobile-rail flex w-full max-w-full snap-x snap-mandatory gap-3 overflow-x-auto pb-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         {items.map((item, index) => (
           <Link
             key={item.href}
             href={item.href}
-            className="group block w-[82vw] max-w-[340px] shrink-0 snap-start"
+            className="group block w-[78vw] max-w-[330px] shrink-0 snap-start first:ml-0 last:mr-1"
           >
             <article className="overflow-hidden border border-black/15 bg-white">
               <div className="relative aspect-[4/3] overflow-hidden bg-[#e7e7e2]">
