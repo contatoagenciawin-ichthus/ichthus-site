@@ -5,7 +5,7 @@ import { ArrowUpRight } from "lucide-react"
 export const metadata: Metadata = {
   title: "InnovClean Services — Work — Ichthus",
   description:
-    "An ongoing digital partnership supporting a UK commercial services company with brand, website and digital infrastructure.",,
+    "An ongoing digital partnership supporting a UK commercial services company with brand, website and digital infrastructure.",
   alternates: {
     canonical: "/en/work/innovclean",
     languages: {
