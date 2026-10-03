@@ -88,6 +88,9 @@ const fits = [
   "Eco-lodges",
 ]
 
+const whatsappAuditUrl =
+  "https://wa.me/5519998363352?text=Hi%2C%20I%27d%20like%20to%20request%20the%20free%20Guest%20Booking%20Audit%20for%20my%20property."
+
 const faqs = [
   {
     question: "Do we need to replace our website?",
@@ -146,7 +149,7 @@ export default function GuyanaHospitalityPage() {
             href="#audit"
             className="inline-flex items-center gap-2 border-b border-black pb-1 text-xs font-semibold"
           >
-            Request audit <ArrowDownRight className="h-3.5 w-3.5" />
+            Free audit <ArrowDownRight className="h-3.5 w-3.5" />
           </a>
         </div>
       </header>
@@ -183,13 +186,26 @@ export default function GuyanaHospitalityPage() {
                   Built around your current operation. No forced rebuild. No
                   unnecessary software migration.
                 </p>
-                <a
-                  href="#audit"
-                  className="group mt-6 inline-flex items-center gap-3 bg-black px-6 py-4 text-sm font-semibold text-white transition hover:bg-black/85"
-                >
-                  Request a Guest Booking Audit
-                  <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
-                </a>
+                <div className="mt-6 flex flex-col items-start gap-4">
+                  <a
+                    href="#audit"
+                    className="group inline-flex items-center gap-3 bg-black px-6 py-4 text-sm font-semibold text-white transition hover:bg-black/85"
+                  >
+                    Get a Free Guest Booking Audit
+                    <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+                  </a>
+                  <a
+                    href={whatsappAuditUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 border-b border-black pb-1 text-sm font-semibold"
+                  >
+                    Talk to us on WhatsApp <ArrowUpRight className="h-4 w-4" />
+                  </a>
+                  <p className="text-xs leading-5 text-black/35">
+                    Free. No obligation. Available for selected independent hospitality businesses in Guyana.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -239,6 +255,67 @@ export default function GuyanaHospitalityPage() {
                   </div>
                 ))}
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-b border-black/15 bg-[#f2f2ef]">
+        <div className="mx-auto max-w-[1600px] px-5 py-16 sm:px-8 sm:py-24 lg:px-12 lg:py-28">
+          <div className="grid gap-12 lg:grid-cols-[0.25fr_0.75fr] lg:gap-16">
+            <p className="text-[11px] font-medium uppercase tracking-[0.12em] text-black/45">
+              What changes
+            </p>
+
+            <div>
+              <h2 className="max-w-5xl text-4xl font-bold leading-[0.95] tracking-[-0.055em] sm:text-5xl lg:text-7xl">
+                From scattered guest intent to a connected booking journey.
+              </h2>
+
+              <div className="mt-12 grid gap-8 lg:grid-cols-2">
+                <div className="border border-black/15 bg-white p-6 sm:p-8">
+                  <p className="text-[10px] font-medium uppercase tracking-[0.12em] text-black/35">
+                    Current journey
+                  </p>
+                  <div className="mt-8 space-y-5">
+                    {[
+                      "Google / Meta / OTA",
+                      "Website / WhatsApp / Phone / Email",
+                      "Front desk",
+                      "Manual follow-up / limited visibility",
+                    ].map((item, index) => (
+                      <div key={item}>
+                        <p className="text-xl font-semibold tracking-[-0.04em]">{item}</p>
+                        {index < 3 && <p className="mt-4 text-black/25">↓</p>}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="border border-black/15 bg-black p-6 text-white sm:p-8">
+                  <p className="text-[10px] font-medium uppercase tracking-[0.12em] text-white/35">
+                    Connected journey
+                  </p>
+                  <div className="mt-8 space-y-5">
+                    {[
+                      "Google / Meta / Direct / Referral",
+                      "Conversion layer",
+                      "Response & qualification",
+                      "Booking / human handoff",
+                      "Follow-up & measurement",
+                    ].map((item, index) => (
+                      <div key={item}>
+                        <p className="text-xl font-semibold tracking-[-0.04em]">{item}</p>
+                        {index < 4 && <p className="mt-4 text-white/25">↓</p>}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <p className="mt-7 max-w-3xl text-sm leading-6 text-black/45">
+                The audit maps the current journey first. Only then do we recommend what should be kept, fixed, connected or built.
+              </p>
             </div>
           </div>
         </div>
@@ -540,19 +617,44 @@ export default function GuyanaHospitalityPage() {
           <div className="grid gap-12 lg:grid-cols-[0.25fr_0.75fr] lg:gap-16">
             <div>
               <p className="text-[11px] font-medium uppercase tracking-[0.12em] text-black/45">
-                Guest Booking Audit
+                Free Guest Booking Audit
               </p>
-              <p className="mt-4 max-w-[220px] text-sm leading-6 text-black/40">
-                Give us enough context to review the current path from guest interest
-                to reservation.
+              <p className="mt-4 max-w-[240px] text-sm leading-6 text-black/40">
+                Free. No obligation. Available for selected independent hospitality businesses in Guyana.
               </p>
             </div>
 
             <div>
-              <h2 className="mb-12 max-w-5xl text-4xl font-bold leading-[0.95] tracking-[-0.055em] sm:text-5xl lg:text-7xl">
+              <h2 className="max-w-5xl text-4xl font-bold leading-[0.95] tracking-[-0.055em] sm:text-5xl lg:text-7xl">
                 Where could your next direct booking be getting lost?
               </h2>
-              <HospitalityAuditForm />
+
+              <div className="my-10 border-y border-black/15 py-8 sm:flex sm:items-center sm:justify-between sm:gap-8">
+                <div>
+                  <p className="text-xl font-semibold tracking-[-0.035em]">
+                    Prefer to start with a conversation?
+                  </p>
+                  <p className="mt-2 max-w-xl text-sm leading-6 text-black/45">
+                    No form required. Tell us which property you manage and we can start from there.
+                  </p>
+                </div>
+                <a
+                  href={whatsappAuditUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group mt-6 inline-flex shrink-0 items-center gap-3 bg-black px-6 py-4 text-sm font-semibold text-white transition hover:bg-black/85 sm:mt-0"
+                >
+                  Talk to us on WhatsApp
+                  <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+                </a>
+              </div>
+
+              <div>
+                <p className="mb-5 text-[10px] font-medium uppercase tracking-[0.12em] text-black/35">
+                  Prefer email? Three fields are enough.
+                </p>
+                <HospitalityAuditForm />
+              </div>
             </div>
           </div>
         </div>
