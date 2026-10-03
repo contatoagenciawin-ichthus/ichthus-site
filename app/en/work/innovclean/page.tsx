@@ -115,12 +115,16 @@ export default function InnovCleanCasePage() {
         <div className="mx-auto max-w-[1600px]">
           <div className="relative min-h-[72vh] overflow-hidden bg-[#d9ddd8]">
             <img
+              loading="lazy"
+              decoding="async"
               src={`${raw}/london-aerial.jpg`}
               alt="London commercial district"
               className="absolute inset-0 h-full w-full object-cover"
             />
             <div className="absolute inset-0 bg-black/10" />
             <img
+              loading="lazy"
+              decoding="async"
               src={`${raw}/mark-construction-light.png`}
               alt=""
               aria-hidden="true"
@@ -192,6 +196,8 @@ export default function InnovCleanCasePage() {
             <div className="overflow-hidden border border-black/15 bg-[#f0f1ed]">
               <div className="flex items-center justify-between border-b border-black/10 px-5 py-4">
                 <img
+                  loading="lazy"
+                  decoding="async"
                   src={`${raw}/logo-250x100-para-fundo-claro.png`}
                   alt="InnovClean Services"
                   className="h-7 w-auto object-contain"
@@ -221,12 +227,16 @@ export default function InnovCleanCasePage() {
                 </div>
                 <div className="relative min-h-[400px] overflow-hidden">
                   <img
+                    loading="lazy"
+                    decoding="async"
                     src={`${raw}/london-skyline.jpg`}
                     alt="London office skyline"
                     className="absolute inset-0 h-full w-full object-cover"
                   />
                   <div className="absolute inset-0 bg-[#183c34]/15" />
                   <img
+                    loading="lazy"
+                    decoding="async"
                     src={`${raw}/mark-construction-light.png`}
                     alt=""
                     aria-hidden="true"
@@ -294,6 +304,8 @@ export default function InnovCleanCasePage() {
 
       <section className="relative min-h-[72vh] overflow-hidden bg-[#183c34] text-white">
         <img
+          loading="lazy"
+          decoding="async"
           src={`${raw}/sustainability-forest.jpg`}
           alt="Forest representing environmental responsibility"
           className="absolute inset-0 h-full w-full object-cover"
