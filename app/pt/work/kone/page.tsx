@@ -6,7 +6,19 @@ import { KoneMachineMotion } from "@/components/work/kone-machine-motion"
 export const metadata: Metadata = {
   title: "Kone Máquinas — Projeto — Ichthus",
   description:
-    "Uma experiência digital para uma fabricante industrial brasileira com mais de cinco décadas de história em engenharia.",
+    "Uma experiência digital para uma fabricante industrial brasileira com mais de cinco décadas de história em engenharia.",,
+  alternates: {
+    canonical: "/pt/work/kone",
+    languages: {
+      en: "/en/work/kone",
+      "pt-BR": "/pt/work/kone",
+    },
+  },
+  openGraph: {
+    description: "Uma experiência digital para uma fabricante industrial brasileira com mais de cinco décadas de história em engenharia.",
+    locale: "pt_BR",
+    type: "website",
+  }
 }
 
 const raw = "https://raw.githubusercontent.com/contatoagenciawin-ichthus/kone/main/public"
