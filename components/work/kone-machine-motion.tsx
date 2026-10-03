@@ -72,6 +72,8 @@ export function KoneMachineMotion({ src, alt }: KoneMachineMotionProps) {
         ref={imageRef}
         src={src}
         alt={alt}
+        loading="lazy"
+        decoding="async"
         className="absolute inset-0 h-full w-full object-contain p-[7vw] will-change-transform sm:p-[5vw] motion-reduce:transform-none"
       />
     </div>
