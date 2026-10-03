@@ -4,7 +4,19 @@ import Link from "next/link"
 export const metadata: Metadata = {
   title: "Vem Viver — Projeto — Ichthus",
   description:
-    "Um case de estratégia de marca que transforma uma história iniciada em 1992 em uma nova proposta de consumo baseada em qualidade, confiança e consistência.",
+    "Um case de estratégia de marca que transforma uma história iniciada em 1992 em uma nova proposta de consumo baseada em qualidade, confiança e consistência.",,
+  alternates: {
+    canonical: "/pt/work/vem-viver",
+    languages: {
+      en: "/en/work/vem-viver",
+      "pt-BR": "/pt/work/vem-viver",
+    },
+  },
+  openGraph: {
+    description: "Um case de estratégia de marca que transforma uma história iniciada em 1992 em uma nova proposta de consumo baseada em qualidade, confiança e consistência.",
+    locale: "pt_BR",
+    type: "website",
+  }
 }
 
 const raw =
