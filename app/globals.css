@@ -171,3 +171,75 @@ body {
     scroll-behavior: auto !important;
   }
 }
+
+
+.ichthus-mobile-hero-frame {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  animation: ichthus-mobile-hero-frame 16s infinite;
+}
+
+.ichthus-mobile-hero-frame:nth-child(1) {
+  opacity: 1;
+  animation-delay: 0s;
+}
+
+.ichthus-mobile-hero-frame:nth-child(2) {
+  animation-delay: 4s;
+}
+
+.ichthus-mobile-hero-frame:nth-child(3) {
+  animation-delay: 8s;
+}
+
+.ichthus-mobile-hero-frame:nth-child(4) {
+  animation-delay: 12s;
+}
+
+.ichthus-mobile-hero-drift {
+  animation: ichthus-mobile-hero-drift 7s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes ichthus-mobile-hero-frame {
+  0%,
+  21% {
+    opacity: 1;
+  }
+
+  26%,
+  96% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes ichthus-mobile-hero-drift {
+  from {
+    transform: scale(1.015) translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: scale(1.055) translate3d(0, -1.2%, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ichthus-mobile-hero-frame {
+    animation: none !important;
+    opacity: 0 !important;
+  }
+
+  .ichthus-mobile-hero-frame:first-child {
+    opacity: 1 !important;
+  }
+
+  .ichthus-mobile-hero-drift {
+    animation: none !important;
+    transform: none !important;
+  }
+}
