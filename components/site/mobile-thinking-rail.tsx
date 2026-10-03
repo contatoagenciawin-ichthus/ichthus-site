@@ -1,5 +1,8 @@
+"use client"
+
 import Link from "next/link"
-import { ArrowUpRight } from "lucide-react"
+import { useRef } from "react"
+import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react"
 
 type Locale = "en" | "pt"
 
@@ -10,6 +13,8 @@ const images = [
 ]
 
 export function MobileThinkingRail({ locale }: { locale: Locale }) {
+  const railRef = useRef<HTMLDivElement>(null)
+
   const items =
     locale === "en"
       ? [
@@ -47,14 +52,27 @@ export function MobileThinkingRail({ locale }: { locale: Locale }) {
           },
         ]
 
+  function move(direction: -1 | 1) {
+    const rail = railRef.current
+    if (!rail) return
+
+    rail.scrollBy({
+      left: direction * rail.clientWidth * 0.82,
+      behavior: "smooth",
+    })
+  }
+
   return (
-    <div className="min-w-0 max-w-full overflow-hidden sm:hidden">
-      <div className="thinking-mobile-rail flex w-full max-w-full snap-x snap-mandatory gap-3 overflow-x-auto pb-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+    <div className="min-w-0 max-w-full sm:hidden">
+      <div
+        ref={railRef}
+        className="thinking-mobile-rail flex w-full max-w-full snap-x snap-mandatory gap-3 overflow-x-scroll overflow-y-hidden pb-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+      >
         {items.map((item, index) => (
           <Link
             key={item.href}
             href={item.href}
-            className="group block w-[78vw] max-w-[330px] shrink-0 snap-start first:ml-0 last:mr-1"
+            className="group block w-[78vw] max-w-[330px] shrink-0 snap-start last:mr-1"
           >
             <article className="overflow-hidden border border-black/15 bg-white">
               <div className="relative aspect-[4/3] overflow-hidden bg-[#e7e7e2]">
@@ -87,17 +105,36 @@ export function MobileThinkingRail({ locale }: { locale: Locale }) {
         ))}
       </div>
 
-      <div className="mt-3 flex items-center justify-between">
+      <div className="mt-3 flex items-center justify-between gap-4">
         <p className="text-[9px] uppercase tracking-[0.12em] text-black/30">
           {locale === "en" ? "Swipe to explore" : "Deslize para explorar"}
         </p>
-        <Link
-          href={locale === "en" ? "/en/thinking" : "/pt/thinking"}
-          className="inline-flex items-center gap-1.5 border-b border-black pb-0.5 text-xs font-semibold"
-        >
-          {locale === "en" ? "All Thinking" : "Todas as ideias"}
-          <ArrowUpRight className="h-3.5 w-3.5" />
-        </Link>
+
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={() => move(-1)}
+            aria-label={locale === "en" ? "Previous idea" : "Ideia anterior"}
+            className="grid h-9 w-9 place-items-center border border-black/15 bg-transparent"
+          >
+            <ArrowLeft className="h-3.5 w-3.5" />
+          </button>
+          <button
+            type="button"
+            onClick={() => move(1)}
+            aria-label={locale === "en" ? "Next idea" : "Próxima ideia"}
+            className="grid h-9 w-9 place-items-center border border-black/15 bg-transparent"
+          >
+            <ArrowRight className="h-3.5 w-3.5" />
+          </button>
+          <Link
+            href={locale === "en" ? "/en/thinking" : "/pt/thinking"}
+            className="ml-1 inline-flex items-center gap-1.5 border-b border-black pb-0.5 text-xs font-semibold"
+          >
+            {locale === "en" ? "All" : "Todas"}
+            <ArrowUpRight className="h-3.5 w-3.5" />
+          </Link>
+        </div>
       </div>
     </div>
   )
