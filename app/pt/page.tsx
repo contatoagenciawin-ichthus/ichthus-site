@@ -133,8 +133,8 @@ export default function Home() {
 
             <div className="mt-14 grid gap-8 border-t border-black/15 pt-7 sm:grid-cols-2 lg:mt-20 lg:grid-cols-[1.1fr_0.9fr]">
               <p className="max-w-2xl text-xl leading-[1.35] tracking-[-0.025em] sm:text-2xl lg:text-3xl">
-                Strategy, design, acquisition and technology connected from thinking
-                through execution.
+                Estratégia, design, aquisição e tecnologia conectados do pensamento
+                à execução.
               </p>
               <div className="sm:justify-self-end">
                 <a
@@ -173,13 +173,13 @@ export default function Home() {
 
               <div>
                 <h2 className="text-5xl font-bold leading-[0.9] tracking-[-0.065em] sm:text-6xl lg:text-7xl">
-                  Engineering,
+                  Engenharia,
                   <br />
-                  translated.
+                  traduzida.
                 </h2>
                 <p className="mt-6 max-w-sm text-sm leading-6 text-black/50">
-                  Reframing five decades of Brazilian industrial engineering for a
-                  digital and international audience.
+                  Traduzindo cinco décadas de engenharia industrial brasileira para uma
+                  audiência digital e internacional.
                 </p>
                 <p className="mt-7 text-[10px] font-medium uppercase tracking-[0.12em] text-black/35">
                   Indústria / B2B / Digital / Internacional
@@ -212,7 +212,7 @@ export default function Home() {
                 className="absolute inset-0 h-full w-full object-cover opacity-20"
               />
               <p className="absolute bottom-6 left-6 text-[10px] font-medium uppercase tracking-[0.13em] text-white/70 sm:bottom-8 sm:left-8">
-                London / United Kingdom
+                Londres / Reino Unido
               </p>
             </div>
 
@@ -226,13 +226,13 @@ export default function Home() {
 
               <div>
                 <h2 className="text-5xl font-bold leading-[0.9] tracking-[-0.065em] sm:text-6xl lg:text-7xl">
-                  Built here.
+                  Feito daqui.
                   <br />
-                  Relevant there.
+                  Relevante lá.
                 </h2>
                 <p className="mt-6 max-w-sm text-sm leading-6 text-black/50">
-                  An ongoing digital partnership supporting a UK commercial services
-                  company from Brazil.
+                  Uma parceria digital contínua com uma empresa britânica de serviços,
+                  conduzida a partir do Brasil.
                 </p>
                 <p className="mt-7 text-[10px] font-medium uppercase tracking-[0.12em] text-black/35">
                   Internacional / Digital / Parceria contínua
@@ -254,15 +254,15 @@ export default function Home() {
 
               <div>
                 <h2 className="text-5xl font-bold leading-[0.9] tracking-[-0.065em] sm:text-6xl lg:text-7xl">
-                  A story
+                  Uma história
                   <br />
-                  becomes
+                  vira
                   <br />
-                  a brand.
+                  uma marca.
                 </h2>
                 <p className="mt-6 max-w-sm text-sm leading-6 text-black/50">
-                  Turning a history that began in 1992 into a strategic platform for a
-                  new consumer proposition.
+                  Transformando uma história iniciada em 1992 em uma plataforma estratégica para uma
+                  nova proposta de consumo.
                 </p>
                 <p className="mt-7 text-[10px] font-medium uppercase tracking-[0.12em] text-black/35">
                   Estratégia / Marca / Consumo
@@ -273,7 +273,7 @@ export default function Home() {
             <div className="relative min-h-[58vh] overflow-hidden bg-[#173d2d] lg:min-h-[72vh]">
               <img
                 src={`${vemRaw}/hero-grapes.jpg`}
-                alt="Vem Viver brand composition"
+                alt="Composição de marca da Vem Viver"
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1200ms] group-hover:scale-[1.018]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#102b20]/35 via-transparent to-transparent" />
@@ -289,7 +289,7 @@ export default function Home() {
                   <div>
                     <p className="text-sm font-semibold">Marc.I.A.</p>
                     <p className="mt-1 text-[9px] uppercase tracking-[0.12em] text-white/40">
-                      Connected operations
+                      Operação conectada
                     </p>
                   </div>
                   <span className="h-3 w-3 rounded-full bg-[#14bf63]" />
@@ -327,8 +327,8 @@ export default function Home() {
                   de ponta a ponta.
                 </h2>
                 <p className="mt-6 max-w-sm text-sm leading-6 text-black/60">
-                  Connecting acquisition, customer service, CRM, quoting, operations
-                  and AI-assisted workflows.
+                  Conectando aquisição, atendimento, CRM, orçamentos, operação
+                  e fluxos assistidos por IA.
                 </p>
                 <p className="mt-7 text-[10px] font-medium uppercase tracking-[0.12em] text-black/45">
                   Crescimento / CX / CRM / IA / Tecnologia
