@@ -5,7 +5,19 @@ import { ArrowUpRight } from "lucide-react"
 export const metadata: Metadata = {
   title: "InnovClean Services — Projeto — Ichthus",
   description:
-    "Uma parceria digital contínua apoiando uma empresa britânica de serviços com marca, site e infraestrutura digital.",
+    "Uma parceria digital contínua apoiando uma empresa britânica de serviços com marca, site e infraestrutura digital.",,
+  alternates: {
+    canonical: "/pt/work/innovclean",
+    languages: {
+      en: "/en/work/innovclean",
+      "pt-BR": "/pt/work/innovclean",
+    },
+  },
+  openGraph: {
+    description: "Uma parceria digital contínua apoiando uma empresa britânica de serviços com marca, site e infraestrutura digital.",
+    locale: "pt_BR",
+    type: "website",
+  }
 }
 
 const raw =
