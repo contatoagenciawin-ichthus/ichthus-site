@@ -1,0 +1,66 @@
+import { ImageResponse } from "next/og"
+
+export const alt = "Ichthus — Estratégia, Marca, Digital, Crescimento & Tecnologia"
+export const size = {
+  width: 1200,
+  height: 630,
+}
+export const contentType = "image/png"
+
+export default function Image() {
+  return new ImageResponse(
+    (
+      <div
+        style={{
+          width: "100%",
+          height: "100%",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+          background: "#f2f2ef",
+          color: "#111111",
+          padding: "54px 62px",
+          fontFamily: "Arial, Helvetica, sans-serif",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            fontSize: 34,
+            fontWeight: 700,
+            letterSpacing: "-1.5px",
+          }}
+        >
+          ICHTHUS
+        </div>
+
+        <div
+          style={{
+            display: "flex",
+            maxWidth: 1000,
+            fontSize: 78,
+            lineHeight: 0.94,
+            fontWeight: 700,
+            letterSpacing: "-4px",
+          }}
+        >
+          Estratégia, marca, digital, crescimento e tecnologia.
+        </div>
+
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            borderTop: "1px solid rgba(0,0,0,0.2)",
+            paddingTop: 20,
+            fontSize: 20,
+          }}
+        >
+          <span>Independente / Brasil</span>
+          <span>Atuação internacional</span>
+        </div>
+      </div>
+    ),
+    size,
+  )
+}
