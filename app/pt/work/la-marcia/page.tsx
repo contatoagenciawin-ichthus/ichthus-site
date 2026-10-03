@@ -20,8 +20,8 @@ const flow = [
 const capabilities = [
   {
     number: "01",
-    title: "Conversa becomes context.",
-    text: "An enquiry does not remain trapped inside a message thread. Cliente, service need and next action become structured operational context.",
+    title: "A conversa vira contexto.",
+    text: "Uma solicitação não fica presa dentro de uma conversa. Cliente, necessidade de serviço e próxima ação se transformam em contexto operacional estruturado.",
   },
   {
     number: "02",
@@ -237,8 +237,8 @@ export default function LaMarciaCasePage() {
                 <div className="mt-6 space-y-5">
                   {[
                     ["Cliente", "Novo lead"],
-                    ["Service", "Nova instalação de ar-condicionado"],
-                    ["Capacidade", "12,000 BTU"],
+                    ["Serviço", "Nova instalação de ar-condicionado"],
+                    ["Capacidade", "12.000 BTU"],
                     ["Cidade", "Hortolândia"],
                     ["Próxima ação", "Preparar orçamento"],
                   ].map(([label, value]) => (
@@ -327,7 +327,7 @@ export default function LaMarciaCasePage() {
                 <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
                   {[
                     ["Em aberto", "8", "atendimentos ativos"],
-                    ["Vistorias today", "2", "visitas agendadas"],
+                    ["Vistorias hoje", "2", "visitas agendadas"],
                     ["Preparar orçamento", "3", "aguardando proposta"],
                     ["Ordem de serviços", "4", "agendadas hoje"],
                     ["Sem data", "1", "podem ser esquecidos"],
@@ -379,9 +379,9 @@ export default function LaMarciaCasePage() {
                       </p>
                     </div>
                     <div className="space-y-3 text-sm text-white/70">
-                      <p>✓ Próxima ação registered</p>
-                      <p>✓ Orçamento with approval flow</p>
-                      <p>✓ Ordem de serviço with execution history</p>
+                      <p>✓ Próxima ação registrada</p>
+                      <p>✓ Orçamento com fluxo de aprovação</p>
+                      <p>✓ Ordem de serviço com histórico de execução</p>
                     </div>
                   </article>
                 </div>
@@ -404,7 +404,7 @@ export default function LaMarciaCasePage() {
 
               <div className="mt-16 grid gap-px border border-white/15 bg-white/15 lg:mt-24 lg:grid-cols-4">
                 {[
-                  ["Conversa", "Cliente request and context"],
+                  ["Conversa", "Solicitação e contexto do cliente"],
                   ["Camada de políticas", "Modo, consentimento e comportamento permitido"],
                   ["Camada de comandos", "Ação de domínio autorizada"],
                   ["Auditoria", "O que mudou e por quê"],
