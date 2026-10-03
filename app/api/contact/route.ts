@@ -61,10 +61,10 @@ export async function POST(request: Request) {
     return jsonError(locale === "pt" ? "E-mail inválido." : "Invalid email address.", 400)
   }
 
-  const databaseUrl = process.env.DATABASE_URL
+  const databaseUrl = process.env.ICHTHUS_DATABASE_URL
 
   if (!databaseUrl) {
-    console.error("Contact API: DATABASE_URL is not configured")
+    console.error("Contact API: ICHTHUS_DATABASE_URL is not configured")
     return jsonError(
       locale === "pt"
         ? "O formulário está temporariamente indisponível. Use o e-mail de contato."
