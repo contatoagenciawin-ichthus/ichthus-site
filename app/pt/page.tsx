@@ -103,7 +103,7 @@ export default function Home() {
             <a href="/pt#capabilities">Capacidades</a>
             <a href="/pt#about">Sobre</a>
             <a href="/pt#thinking">Ideias</a>
-            <a href="/pt#contact">Contato</a>
+            <Link href="/pt/contact">Contato</Link>
           </nav>
 
           <div className="flex items-center gap-4 text-[10px] font-medium uppercase tracking-[0.1em]">
@@ -517,13 +517,17 @@ export default function Home() {
                 <br />
                 importante para construir?
               </h2>
-              <div className="mt-14 flex flex-col gap-6 border-t border-black/15 pt-7 sm:flex-row sm:items-end sm:justify-between">
-                <a
-                  href="mailto:contato@ichthusmkt.com.br"
-                  className="text-xl font-semibold tracking-[-0.025em] sm:text-2xl"
-                >
-                  contato@ichthusmkt.com.br
-                </a>
+              <div className="mt-14 grid gap-8 border-t border-black/15 pt-7 sm:grid-cols-2 sm:items-end">
+                <div>
+                  <Link
+                    href="/pt/contact"
+                    className="group inline-flex items-center gap-3 text-xl font-semibold tracking-[-0.025em] sm:text-2xl"
+                  >
+                    Iniciar uma conversa
+                    <ArrowUpRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+                  </Link>
+                  <p className="mt-3 text-sm text-black/40">Ou escreva para contato@ichthusmkt.com.br</p>
+                </div>
                 <p className="text-sm leading-6 text-black/45 sm:text-right">
                   Brasil
                   <br />
