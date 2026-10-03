@@ -3,6 +3,7 @@ import Link from "next/link"
 import { ArrowDownRight, ArrowUpRight } from "lucide-react"
 import { KoneMachineMotion } from "@/components/work/kone-machine-motion"
 import { MobileHomeMenu } from "@/components/site/mobile-home-menu"
+import { MobileEditorialMotion } from "@/components/site/mobile-editorial-motion"
 
 export const metadata: Metadata = {
   title: { absolute: "Ichthus — Strategy, Brand, Digital, Growth & Technology" },
@@ -117,9 +118,15 @@ export default function Home() {
         </div>
       </header>
 
-      <section className="mx-auto max-w-[1600px] px-5 pb-20 pt-16 sm:px-8 sm:pb-28 sm:pt-24 lg:px-12 lg:pb-36 lg:pt-28">
-        <div className="grid gap-14 lg:grid-cols-[0.25fr_0.75fr] lg:gap-16">
-          <div className="pt-2 text-[11px] font-medium uppercase leading-6 tracking-[0.12em] text-black/45">
+      <section className="mx-auto max-w-[1600px] bg-[#111] px-5 pb-5 pt-8 text-white sm:px-8 sm:pb-8 sm:pt-12 lg:bg-transparent lg:px-12 lg:pb-36 lg:pt-28 lg:text-black">
+        <div className="grid gap-8 lg:grid-cols-[0.25fr_0.75fr] lg:gap-16">
+          <div className="lg:hidden">
+            <p className="text-[10px] font-medium uppercase tracking-[0.13em] text-white/40">
+              Independent / Brazil / International
+            </p>
+          </div>
+
+          <div className="hidden pt-2 text-[11px] font-medium uppercase leading-6 tracking-[0.12em] text-black/45 lg:block">
             <p>Independent</p>
             <p>Strategy / Brand</p>
             <p>Digital / Growth</p>
@@ -127,7 +134,7 @@ export default function Home() {
           </div>
 
           <div>
-            <h1 className="max-w-[1220px] text-[clamp(4rem,8.6vw,9.3rem)] font-bold leading-[0.84] tracking-[-0.08em]">
+            <h1 className="max-w-[1220px] text-[clamp(2.85rem,10.7vw,4rem)] font-bold leading-[0.87] tracking-[-0.068em] sm:text-[clamp(3.5rem,8.5vw,5.4rem)] lg:text-[clamp(4rem,8.6vw,9.3rem)] lg:leading-[0.84] lg:tracking-[-0.08em]">
               We build brands,
               <br />
               digital experiences
@@ -135,20 +142,21 @@ export default function Home() {
               and growth systems.
             </h1>
 
-            <div className="mt-14 grid gap-8 border-t border-black/15 pt-7 sm:grid-cols-2 lg:mt-20 lg:grid-cols-[1.1fr_0.9fr]">
-              <p className="max-w-2xl text-xl leading-[1.35] tracking-[-0.025em] sm:text-2xl lg:text-3xl">
-                Strategy, design, acquisition and technology connected from thinking
-                through execution.
+            <div className="mt-8 grid gap-5 border-t border-white/20 pt-5 sm:grid-cols-2 lg:mt-20 lg:gap-8 lg:border-black/15 lg:pt-7">
+              <p className="max-w-2xl text-base leading-[1.45] tracking-[-0.02em] text-white/72 sm:text-xl lg:text-3xl lg:leading-[1.35] lg:text-black">
+                Strategy, design, acquisition and technology connected from thinking through execution.
               </p>
               <div className="sm:justify-self-end">
                 <a
                   href="#work"
-                  className="inline-flex items-center gap-2 border-b border-black pb-1 text-sm font-semibold"
+                  className="inline-flex items-center gap-2 border-b border-white/70 pb-1 text-sm font-semibold lg:border-black"
                 >
                   View selected work <ArrowDownRight className="h-4 w-4" />
                 </a>
               </div>
             </div>
+
+            <MobileEditorialMotion locale="en" />
           </div>
         </div>
       </section>
