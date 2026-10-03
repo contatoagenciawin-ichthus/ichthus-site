@@ -4,7 +4,19 @@ import Link from "next/link"
 export const metadata: Metadata = {
   title: "Vem Viver — Work — Ichthus",
   description:
-    "A brand strategy case turning a story that began in 1992 into a new consumer proposition built around quality, trust and consistency.",
+    "A brand strategy case turning a story that began in 1992 into a new consumer proposition built around quality, trust and consistency.",,
+  alternates: {
+    canonical: "/en/work/vem-viver",
+    languages: {
+      en: "/en/work/vem-viver",
+      "pt-BR": "/pt/work/vem-viver",
+    },
+  },
+  openGraph: {
+    description: "A brand strategy case turning a story that began in 1992 into a new consumer proposition built around quality, trust and consistency.",
+    locale: "en",
+    type: "website",
+  }
 }
 
 const raw =
