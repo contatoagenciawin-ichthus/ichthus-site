@@ -124,6 +124,8 @@ export default function VemViverCasePage() {
         <div className="mx-auto max-w-[1600px]">
           <div className="relative min-h-[74vh] overflow-hidden bg-[#d9c7a3]">
             <img
+              loading="lazy"
+              decoding="async"
               src={`${raw}/hero-grapes.jpg`}
               alt="Grapes and juice composition for Vem Viver"
               className="absolute inset-0 h-full w-full object-cover"
@@ -176,6 +178,8 @@ export default function VemViverCasePage() {
 
       <section className="relative min-h-[70vh] overflow-hidden bg-[#1b3b2f] text-white">
         <img
+          loading="lazy"
+          decoding="async"
           src={`${raw}/history-vineyard.jpg`}
           alt="Vineyard representing the history behind Vem Viver"
           className="absolute inset-0 h-full w-full object-cover"
@@ -218,6 +222,8 @@ export default function VemViverCasePage() {
               <article key={product.number} className="border-b border-r border-black/15">
                 <div className="relative aspect-[4/5] overflow-hidden bg-[#e7e0d4]">
                   <img
+                    loading="lazy"
+                    decoding="async"
                     src={product.image}
                     alt={product.name}
                     className="h-full w-full object-cover transition-transform duration-700 hover:scale-[1.025]"
@@ -313,6 +319,8 @@ export default function VemViverCasePage() {
       <section className="grid min-h-[76vh] lg:grid-cols-2">
         <div className="relative min-h-[52vh] overflow-hidden bg-[#d7cdbb] lg:min-h-[76vh]">
           <img
+            loading="lazy"
+            decoding="async"
             src={`${raw}/table-setting.jpg`}
             alt="Vem Viver table setting"
             className="absolute inset-0 h-full w-full object-cover"
@@ -339,6 +347,8 @@ export default function VemViverCasePage() {
 
       <section className="relative min-h-[72vh] overflow-hidden bg-[#183528] text-white">
         <img
+          loading="lazy"
+          decoding="async"
           src={`${raw}/care-hands.jpg`}
           alt="Hands representing care in product selection"
           className="absolute inset-0 h-full w-full object-cover opacity-35"
