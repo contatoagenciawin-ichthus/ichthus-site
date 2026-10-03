@@ -1,30 +1,38 @@
 import { NextResponse } from "next/server"
-import { neon } from "@neondatabase/serverless"
+import { POST } from "../route"
 
 export const runtime = "nodejs"
 
 export async function GET() {
-  const databaseUrl = process.env.ICHTHUS_DATABASE_URL
-  const resendKey = process.env.RESEND_API_KEY
+  const request = new Request("https://qa.ichthusmkt.com.br/api/contact", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "User-Agent": "Ichthus-QA",
+      Referer: "https://qa.ichthusmkt.com.br/en/contact",
+      "x-vercel-ip-country": "BR",
+    },
+    body: JSON.stringify({
+      locale: "en",
+      name: "Ichthus QA",
+      company: "Ichthus QA",
+      email: "qa@ichthusmkt.com.br",
+      market: "Brazil",
+      message: "Automated end-to-end contact backend validation. This is a test lead.",
+      website: "",
+      sourcePath: "/en/contact",
+    }),
+  })
 
-  if (!databaseUrl) {
-    return NextResponse.json({ ok: false, database: false, resend: Boolean(resendKey) }, { status: 503 })
-  }
+  const response = await POST(request)
+  const payload = await response.json()
 
-  try {
-    const sql = neon(databaseUrl)
-    const rows = await sql`select count(*)::int as count from contact_leads`
-    return NextResponse.json({
-      ok: true,
-      database: true,
-      resend: Boolean(resendKey),
-      leadCount: rows[0]?.count ?? 0,
-    })
-  } catch (error) {
-    console.error("Contact QA failed", error)
-    return NextResponse.json(
-      { ok: false, database: false, resend: Boolean(resendKey) },
-      { status: 503 },
-    )
-  }
+  return NextResponse.json(
+    {
+      qa: true,
+      contactStatus: response.status,
+      contactResponse: payload,
+    },
+    { status: response.ok ? 200 : response.status },
+  )
 }
