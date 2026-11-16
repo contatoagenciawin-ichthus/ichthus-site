@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marc.I.A. para Clínicas — nenhum paciente sem resposta no WhatsApp</title>
+<meta name="description" content="A Marc.I.A. atende o WhatsApp oficial da sua clínica 24 horas: responde, entende áudio, separa novos contatos de pacientes, encaminha urgências para você e organiza pedidos de consulta. Programa Cliente Fundador com 10 vagas.">
+<meta property="og:title" content="Marc.I.A. para Clínicas — nenhum paciente sem resposta">
+<meta property="og:description" content="Atendimento inteligente no WhatsApp oficial da sua clínica, 24h. No ar em até 7 dias úteis. 10 vagas de Cliente Fundador.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta name="theme-color" content="#0f3548">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0f3548; --ink-2:#2c4d5e; --muted:#5d7380;
+    --coral:#e05c58; --coral-dk:#c4433f;
+    --paper:#f2f2ef; --paper-2:#e9e8e2; --card:#ffffff;
+    --green:#183c34; --wa:#1f8a5b; --bubble:#dcf3e4;
+    --line:rgba(15,53,72,.12);
+    --radius:16px;
+    --serif:"Fraunces", Georgia, "Times New Roman", serif;
+    --sans:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.55;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  img{max-width:100%}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+  h1,h2,h3{font-family:var(--serif);font-weight:600;letter-spacing:-.01em;line-height:1.12;margin:0}
+  h1{font-size:clamp(2.3rem,5.4vw,3.9rem)}
+  h2{font-size:clamp(1.75rem,3.6vw,2.6rem)}
+  h3{font-size:1.2rem;font-family:var(--sans);font-weight:700;letter-spacing:0}
+  p{margin:0}
+  .eyebrow{font-size:.8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--coral-dk)}
+  .lead{font-size:1.15rem;color:var(--ink-2);max-width:36em}
+  section{padding:88px 0}
+  .btn{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:1rem;text-decoration:none;border-radius:999px;padding:15px 26px;transition:transform .15s ease, background .15s ease, box-shadow .15s ease}
+  .btn:focus-visible{outline:3px solid var(--coral);outline-offset:3px}
+  .btn-primary{background:var(--coral);color:#fff;box-shadow:0 8px 24px rgba(224,92,88,.32)}
+  .btn-primary:hover{background:var(--coral-dk);transform:translateY(-1px)}
+  .btn-ghost{color:var(--ink);border:1.5px solid var(--line);background:transparent}
+  .btn-ghost:hover{border-color:var(--ink)}
+  .btn svg{width:20px;height:20px;flex:none}
+
+  /* header */
+  header.top{position:sticky;top:0;z-index:20;background:rgba(242,242,239,.88);backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line)}
+  header.top .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{font-family:var(--serif);font-weight:600;font-size:1.35rem;text-decoration:none}
+  .brand span{color:var(--coral)}
+  .brand small{font-family:var(--sans);font-size:.78rem;font-weight:600;color:var(--muted);margin-left:8px;letter-spacing:.02em}
+  header.top .btn{padding:10px 18px;font-size:.92rem}
+  @media (max-width:560px){ .brand small{display:none} }
+
+  /* hero */
+  .hero{padding:64px 0 80px}
+  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+  .hero h1 em{font-style:normal;color:var(--coral)}
+  .hero .lead{margin-top:22px}
+  .hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+  .hero-note{margin-top:18px;font-size:.92rem;color:var(--muted)}
+  .hero-note b{color:var(--ink)}
+  @media (max-width:900px){ .hero-grid{grid-template-columns:1fr} .phone{max-width:380px;margin:0 auto} }
+
+  /* phone mock */
+  .phone{background:var(--ink);border-radius:34px;padding:12px;box-shadow:0 30px 60px rgba(15,53,72,.28)}
+  .screen{background:#efeae2;border-radius:24px;overflow:hidden}
+  .chat-head{background:var(--green);color:#fff;padding:14px 16px;display:flex;align-items:center;gap:12px}
+  .avatar{width:38px;height:38px;border-radius:50%;background:var(--coral);display:grid;place-items:center;font-family:var(--serif);font-weight:600}
+  .chat-head b{display:block;font-size:.95rem}
+  .chat-head small{opacity:.8;font-size:.78rem}
+  .chat{padding:16px 12px 18px;display:flex;flex-direction:column;gap:8px;font-size:.88rem}
+  .msg{max-width:84%;padding:8px 11px 6px;border-radius:10px;box-shadow:0 1px 1px rgba(0,0,0,.08);position:relative}
+  .msg time{display:block;text-align:right;font-size:.68rem;color:#667;margin-top:2px}
+  .in{align-self:flex-start;background:#fff;border-top-left-radius:2px}
+  .out{align-self:flex-end;background:var(--bubble);border-top-right-radius:2px}
+  .audio{display:flex;align-items:center;gap:8px;color:var(--ink-2)}
+  .audio i{display:inline-block;width:110px;height:4px;border-radius:2px;background:linear-gradient(90deg,var(--ink-2) 40%,#b9c4c9 40%)}
+  .sys{align-self:center;background:#fff6d8;color:#5b4a12;font-size:.74rem;padding:5px 10px;border-radius:8px}
+  .mock-label{text-align:center;font-size:.78rem;color:var(--muted);margin-top:12px}
+
+  /* problem */
+  .problem{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .problem .grid3{margin-top:44px}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+  @media (max-width:860px){ .grid3,.grid2{grid-template-columns:1fr} }
+  .pain{padding:26px;border-radius:var(--radius);background:var(--paper);border:1px solid var(--line)}
+  .pain .num{font-family:var(--serif);font-size:2.3rem;color:var(--coral);line-height:1}
+  .pain h3{margin:12px 0 8px}
+  .pain p{color:var(--ink-2)}
+
+  /* how */
+  .steps{list-style:none;padding:0;margin:44px 0 0;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;counter-reset:s}
+  @media (max-width:960px){ .steps{grid-template-columns:repeat(2,1fr)} }
+  @media (max-width:560px){ .steps{grid-template-columns:1fr} }
+  .steps li{counter-increment:s;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+  .steps li::before{content:counter(s);display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--ink);color:#fff;font-weight:700;margin-bottom:16px}
+  .steps h3{margin-bottom:8px}
+  .steps p{color:var(--ink-2);font-size:.96rem}
+
+  /* modules */
+  .modules{background:var(--ink);color:#fff}
+  .modules .eyebrow{color:#f3a19e}
+  .modules .lead{color:#c9d6dd}
+  .mod-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:44px}
+  @media (max-width:860px){ .mod-grid{grid-template-columns:1fr} }
+  .mod{border:1px solid rgba(255,255,255,.14);border-radius:var(--radius);padding:26px;background:rgba(255,255,255,.03)}
+  .mod.core{grid-column:1/-1;background:rgba(224,92,88,.12);border-color:rgba(224,92,88,.5)}
+  .mod .tag{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:rgba(255,255,255,.1);margin-bottom:12px}
+  .mod.core .tag{background:var(--coral)}
+  .mod h3{font-size:1.25rem;margin-bottom:10px}
+  .mod p{color:#c9d6dd}
+  .mod ul{margin:14px 0 0;padding-left:18px;color:#dfe7eb}
+  .mod ul li{margin:4px 0}
+  .mod.core ul{columns:2;column-gap:32px}
+  @media (max-width:700px){ .mod.core ul{columns:1} }
+  .mod .for{margin-top:14px;font-size:.88rem;color:#9fb4bf}
+
+  /* combos */
+  .combos{margin-top:28px;width:100%;border-collapse:collapse;font-size:.95rem;color:#dfe7eb}
+  .combos th,.combos td{text-align:left;padding:12px 10px;border-bottom:1px solid rgba(255,255,255,.12);vertical-align:top}
+  .combos th{color:#9fb4bf;font-weight:600;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase}
+  .combos td b{color:#fff}
+  .table-scroll{overflow-x:auto}
+
+  /* pricing */
+  .pricing-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:28px;margin-top:44px;align-items:start}
+  @media (max-width:900px){ .pricing-grid{grid-template-columns:1fr} }
+  .pricing-grid > *, .hero-grid > *, .mod-grid > *{min-width:0}
+  @media (max-width:560px){ .founder{padding:28px 20px} .price strong{font-size:2.5rem} .ptable td.num{white-space:normal} .ptable th,.ptable td{padding:10px 8px;font-size:.88rem} }
+  .founder{background:var(--card);border:2px solid var(--coral);border-radius:22px;padding:32px;position:relative;box-shadow:0 20px 50px rgba(224,92,88,.14)}
+  .founder .ribbon{position:absolute;top:-14px;left:28px;background:var(--coral);color:#fff;font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:6px 12px;border-radius:999px}
+  .price{display:flex;align-items:baseline;gap:8px;margin-top:18px}
+  .price strong{font-family:var(--serif);font-size:3rem;line-height:1}
+  .price span{color:var(--muted)}
+  .price-sub{color:var(--ink-2);margin-top:6px}
+  .checks{list-style:none;padding:0;margin:22px 0 26px}
+  .checks li{padding-left:30px;position:relative;margin:10px 0}
+  .checks li::before{content:"";position:absolute;left:0;top:4px;width:18px;height:18px;border-radius:50%;background:var(--coral) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E") center/12px no-repeat}
+  .small{font-size:.86rem;color:var(--muted)}
+  .table-card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:8px 8px 18px}
+  .ptable{width:100%;border-collapse:collapse;font-size:.94rem}
+  .ptable caption{text-align:left;padding:16px 14px 8px;font-weight:700}
+  .ptable th,.ptable td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--line)}
+  .ptable th{font-size:.76rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  .ptable td.num{white-space:nowrap}
+  .ptable .f{color:var(--coral-dk);font-weight:700}
+  .table-card .small{padding:12px 14px 0}
+
+  /* trust */
+  .trust .grid2{margin-top:40px}
+  .tcard{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px}
+  .tcard h3{margin-bottom:8px}
+  .tcard p{color:var(--ink-2)}
+
+  /* faq */
+  .faq{background:var(--card);border-top:1px solid var(--line)}
+  .faq-list{margin-top:36px;max-width:820px}
+  details{border-bottom:1px solid var(--line);padding:18px 0}
+  summary{cursor:pointer;font-weight:700;font-size:1.06rem;list-style:none;display:flex;justify-content:space-between;gap:16px}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";font-weight:400;font-size:1.5rem;line-height:1;color:var(--coral)}
+  details[open] summary::after{content:"–"}
+  details p{margin-top:10px;color:var(--ink-2);max-width:44em}
+  summary:focus-visible{outline:3px solid var(--coral);outline-offset:4px;border-radius:4px}
+
+  /* final */
+  .final{background:var(--coral);color:#fff;text-align:center}
+  .final h2{max-width:18em;margin:0 auto}
+  .final p{margin:18px auto 0;max-width:34em;color:#ffe9e8;font-size:1.1rem}
+  .final .btn{background:#fff;color:var(--coral-dk);margin-top:30px;box-shadow:0 10px 28px rgba(0,0,0,.18)}
+  .final .btn:hover{transform:translateY(-1px)}
+
+  footer{background:var(--ink);color:#9fb4bf;padding:36px 0;font-size:.88rem}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
+  footer a{color:#dfe7eb}
+
+  .float-wa{position:fixed;right:18px;bottom:18px;z-index:30;width:58px;height:58px;border-radius:50%;background:var(--wa);display:grid;place-items:center;box-shadow:0 10px 26px rgba(0,0,0,.25)}
+  .float-wa svg{width:30px;height:30px}
+  .float-wa:focus-visible{outline:3px solid var(--coral);outline-offset:3px}
+  @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto} .btn{transition:none} }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#inicio" aria-label="Marc.I.A. para Clínicas, início">Marc<span>.</span>I<span>.</span>A<span>.</span><small>para Clínicas</small></a>
+    <a class="btn btn-primary js-wa" href="https://wa.me/5519998056642" data-msg="Olá! Quero saber sobre o Programa Cliente Fundador da Marc.I.A. para clínicas.">Quero uma vaga</a>
+  </div>
+</header>
+
+<main id="inicio">
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Atendimento inteligente no WhatsApp para clínicas</p>
+      <h1>Nenhum paciente <em>sem resposta.</em></h1>
+      <p class="lead">A Marc.I.A. atende o WhatsApp oficial da sua clínica 24 horas por dia. Ela responde com as informações da sua clínica, entende áudio, separa quem é paciente de quem é novo contato, encaminha urgências para você na hora e deixa os pedidos de consulta prontos para a recepção.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary js-wa" href="https://wa.me/5519998056642" data-msg="Olá! Quero saber sobre o Programa Cliente Fundador da Marc.I.A. para clínicas.">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3Z"/></svg>
+          Quero ser cliente fundador
+        </a>
+        <a class="btn btn-ghost" href="#como-funciona">Como funciona</a>
+      </div>
+      <p class="hero-note"><b>10 vagas</b> de Cliente Fundador · no ar em até 7 dias úteis, com garantia</p>
+    </div>
+
+    <div>
+      <div class="phone" role="img" aria-label="Exemplo de conversa: um paciente manda áudio às 22h14 pedindo horário; a Marc.I.A. responde em seguida, pergunta a unidade e registra o pedido para a recepção confirmar.">
+        <div class="screen">
+          <div class="chat-head">
+            <div class="avatar" aria-hidden="true">M</div>
+            <div><b>Clínica Exemplo</b><small>Atendimento · online</small></div>
+          </div>
+          <div class="chat" aria-hidden="true">
+            <div class="msg in"><span class="audio">▶ <i></i> 0:18</span><time>22:14</time></div>
+            <div class="msg out">Boa noite! Entendi: você quer marcar uma avaliação para implante. Atendemos em duas unidades. Qual fica melhor para você?<time>22:14</time></div>
+            <div class="msg in">Americana, de manhã se der<time>22:15</time></div>
+            <div class="msg out">Perfeito. Tenho quinta às 9h ou sexta às 10h30 em Americana. Qual prefere?<time>22:15</time></div>
+            <div class="msg in">Quinta 9h 🙏<time>22:16</time></div>
+            <div class="msg out">Anotado! A recepção confirma com você amanhã cedo. Posso ajudar em mais alguma coisa?<time>22:16</time></div>
+            <div class="sys">Pedido registrado · recepção notificada</div>
+          </div>
+        </div>
+      </div>
+      <p class="mock-label">Exemplo ilustrativo de conversa</p>
+    </div>
+  </div>
+</section>
+
+<section class="problem">
+  <div class="wrap">
+    <p class="eyebrow">O problema</p>
+    <h2>O paciente escreve quando pode. A clínica responde quando consegue.</h2>
+    <div class="grid3">
+      <div class="pain">
+        <div class="num">22h</div>
+        <h3>Mensagem fora do horário</h3>
+        <p>Quem escreve à noite e só recebe resposta no dia seguinte já marcou com outra clínica.</p>
+      </div>
+      <div class="pain">
+        <div class="num">1</div>
+        <h3>Uma recepção para tudo</h3>
+        <p>Telefone, balcão, convênio e WhatsApp ao mesmo tempo. A mensagem é sempre a primeira a esperar.</p>
+      </div>
+      <div class="pain">
+        <div class="num">R$</div>
+        <h3>Anúncio pago, conversa perdida</h3>
+        <p>Você paga pelo clique, o contato chega e ninguém sabe dizer quantas consultas aquele anúncio realmente trouxe.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="como-funciona">
+  <div class="wrap">
+    <p class="eyebrow">Como funciona</p>
+    <h2>Do primeiro “oi” à consulta marcada</h2>
+    <ol class="steps">
+      <li><h3>Conectamos o seu WhatsApp oficial</h3><p>Usamos a API oficial da Meta no número da sua clínica. O número e a conta continuam sendo seus.</p></li>
+      <li><h3>Ensinamos a Marc.I.A. sobre a sua clínica</h3><p>Serviços, convênios, endereços, horários, profissionais e o que é urgência para você.</p></li>
+      <li><h3>Ela atende 24 horas</h3><p>Responde, entende áudio, identifica o assunto e transfere para uma pessoa sempre que precisa, com o resumo da conversa.</p></li>
+      <li><h3>A recepção recebe tudo pronto</h3><p>Pedidos de consulta organizados, urgências avisadas na hora no seu WhatsApp e histórico de cada contato.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="modules" id="modulos">
+  <div class="wrap">
+    <p class="eyebrow">Módulos</p>
+    <h2>Você contrata só o que faz sentido para a sua clínica</h2>
+    <p class="lead" style="margin-top:16px">O Atendimento Inteligente é a base. Os outros módulos são opcionais e independentes entre si.</p>
+
+    <div class="mod-grid">
+      <article class="mod core">
+        <span class="tag">Base · todo cliente</span>
+        <h3>Atendimento Inteligente</h3>
+        <p>A Marc.I.A. no WhatsApp oficial da sua clínica.</p>
+        <ul>
+          <li>Respostas 24h com as informações da sua clínica</li>
+          <li>Entende mensagens de áudio</li>
+          <li>Separa novos contatos de pacientes</li>
+          <li>Identifica o assunto: consulta, dúvida, convênio, financeiro</li>
+          <li>Alerta imediato no seu WhatsApp quando há sinal de urgência</li>
+          <li>Transferência para uma pessoa com resumo da conversa</li>
+          <li>Caixa de entrada e cadastro simples de contatos</li>
+          <li>Conexão com a Meta feita por nós</li>
+        </ul>
+      </article>
+      <article class="mod">
+        <span class="tag">Opcional</span>
+        <h3>Agenda</h3>
+        <p>A Marc.I.A. consulta os horários livres, propõe opções ao paciente e deixa o pedido pronto para a recepção confirmar com um toque. Funciona com várias unidades e profissionais.</p>
+        <p class="for">Para quem precisa organizar a agenda, com ou sem anúncios.</p>
+      </article>
+      <article class="mod">
+        <span class="tag">Opcional</span>
+        <h3>Relacionamento</h3>
+        <p>Confirmação 24h antes da consulta, lembrete de retorno, reativação de pacientes que sumiram e pesquisa depois do atendimento. Quem pede para sair não recebe mais.</p>
+        <p class="for">Para reduzir faltas e trazer pacientes de volta.</p>
+      </article>
+      <article class="mod">
+        <span class="tag">Opcional</span>
+        <h3>Atribuição de anúncios</h3>
+        <p>Relatório mensal que liga o investimento em anúncios às conversas e às consultas agendadas, com o custo por consulta de cada campanha. Meta Ads e Google Ads.</p>
+        <p class="for">Para quem anuncia, com a gente ou com outra agência.</p>
+      </article>
+      <article class="mod">
+        <span class="tag">Opcional</span>
+        <h3>Gestão de tráfego</h3>
+        <p>Campanhas no Meta e no Google criadas e gerenciadas pela Ichthus Mkt, já medidas por consulta agendada.</p>
+        <p class="for">Para quem quer trazer mais pacientes novos.</p>
+      </article>
+    </div>
+
+    <div class="table-scroll">
+      <table class="combos">
+        <caption class="small" style="text-align:left;color:#9fb4bf;padding:24px 0 4px">Combinações mais comuns</caption>
+        <thead><tr><th scope="col">A sua situação</th><th scope="col">O que indicamos</th></tr></thead>
+        <tbody>
+          <tr><td>Quero responder todo mundo, não faço anúncios</td><td><b>Atendimento Inteligente</b></td></tr>
+          <tr><td>Minha agenda é o maior problema</td><td><b>Atendimento + Agenda</b> (+ Relacionamento)</td></tr>
+          <tr><td>Anuncio no Google ou no Meta e não sei o retorno</td><td><b>Atendimento + Atribuição</b></td></tr>
+          <tr><td>Quero tudo resolvido</td><td><b>Todos os módulos + Gestão de tráfego</b></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="fundador">
+  <div class="wrap">
+    <p class="eyebrow">Programa Cliente Fundador</p>
+    <h2>10 clínicas com condição de lançamento</h2>
+    <p class="lead" style="margin-top:16px">Estamos abrindo a Marc.I.A. para clínicas com um grupo pequeno, acompanhado de perto. Em troca de condições especiais, pedimos que você nos ajude a provar o resultado.</p>
+
+    <div class="pricing-grid">
+      <div class="founder">
+        <span class="ribbon">Fundador · 10 vagas</span>
+        <h3 style="font-family:var(--serif);font-size:1.5rem;font-weight:600">Atendimento Inteligente</h3>
+        <div class="price"><strong>R$ 397</strong><span>/mês por 6 meses</span></div>
+        <p class="price-sub">+ implantação de R$ 900 (preço público: R$ 2.800)</p>
+        <ul class="checks">
+          <li>No ar em até 7 dias úteis após a conexão com a Meta, ou devolvemos a implantação</li>
+          <li>Depois dos 6 meses, 30% de desconto sobre o preço público, enquanto você for cliente</li>
+          <li>Módulos opcionais também com preço de fundador</li>
+          <li>Acompanhamento direto com a equipe que constrói o produto</li>
+        </ul>
+        <p class="small"><b>Sua contrapartida:</b> autorizar o uso do seu caso com números, gravar um depoimento curto, uma conversa de feedback por mês e indicar duas clínicas. Vagas até 31/01/2027 ou até preencher.</p>
+        <a class="btn btn-primary js-wa" style="margin-top:22px" href="https://wa.me/5519998056642" data-msg="Olá! Quero uma vaga no Programa Cliente Fundador da Marc.I.A. para clínicas.">Quero uma vaga de fundador</a>
+      </div>
+
+      <div class="table-card">
+        <div class="table-scroll">
+          <table class="ptable">
+            <caption>Valores por módulo</caption>
+            <thead><tr><th scope="col">Módulo</th><th scope="col">Preço público</th><th scope="col">Fundador</th></tr></thead>
+            <tbody>
+              <tr><td>Atendimento Inteligente</td><td class="num">R$ 2.800 + R$ 790/mês</td><td class="num f">R$ 900 + R$ 397/mês</td></tr>
+              <tr><td>Agenda</td><td class="num">R$ 600 + R$ 290/mês</td><td class="num f">R$ 150/mês</td></tr>
+              <tr><td>Relacionamento</td><td class="num">R$ 190/mês</td><td class="num f">R$ 100/mês</td></tr>
+              <tr><td>Atribuição de anúncios</td><td class="num">R$ 600 + R$ 390/mês</td><td class="num f">R$ 200/mês</td></tr>
+              <tr><td>Gestão de tráfego</td><td class="num">a partir de R$ 1.500/mês</td><td class="num">sob proposta</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="small">Preços de fundador válidos por 6 meses; implantação dos módulos opcionais inclusa para fundadores. Os custos de mensagens cobrados pela Meta são informados na proposta. Valores sem verba de mídia.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="trust">
+  <div class="wrap">
+    <p class="eyebrow">Com responsabilidade</p>
+    <h2>O que a Marc.I.A. faz, e o que ela não faz</h2>
+    <div class="grid2">
+      <div class="tcard"><h3>Nada clínico</h3><p>A Marc.I.A. não diagnostica, não orienta tratamento e não interpreta exames. Ela cuida do administrativo. Quando aparece um sinal de urgência definido por você, a conversa vai na hora para uma pessoa.</p></div>
+      <div class="tcard"><h3>Seus dados, sua conta</h3><p>O número, a conta do WhatsApp e o cadastro dos pacientes são da clínica. Guardamos só dados administrativos, com contrato de tratamento de dados conforme a LGPD.</p></div>
+      <div class="tcard"><h3>WhatsApp oficial</h3><p>Somos desenvolvedores registrados na Meta e usamos a API oficial do WhatsApp Business. Nada de aplicativos paralelos que colocam o seu número em risco.</p></div>
+      <div class="tcard"><h3>Uma pessoa sempre por perto</h3><p>O paciente pode pedir para falar com alguém a qualquer momento. A transferência leva o resumo da conversa, para ninguém precisar repetir nada.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="faq" id="perguntas">
+  <div class="wrap">
+    <p class="eyebrow">Perguntas frequentes</p>
+    <h2>Antes de você perguntar</h2>
+    <div class="faq-list">
+      <details><summary>Preciso trocar o número da clínica?</summary><p>Em geral, não: conectamos o seu número atual à API oficial da Meta. Se houver alguma restrição técnica com o seu número, avisamos antes de você pagar a implantação.</p></details>
+      <details><summary>Quanto tempo leva para começar?</summary><p>Até 7 dias úteis depois que a conexão com a Meta é concluída. Fazemos essa conexão junto com você, por videochamada.</p></details>
+      <details><summary>Funciona com o sistema de gestão que eu uso?</summary><p>Nesta primeira versão, a Marc.I.A. trabalha com a sua agenda do Google ou com a agenda que organizamos para você. Integrações com sistemas de gestão clínica são avaliadas caso a caso, como projeto à parte.</p></details>
+      <details><summary>E se a IA responder errado?</summary><p>Ela só responde com as informações que você aprovou. Quando não sabe, diz que vai verificar e transfere para uma pessoa. Revisamos as conversas com você todo mês.</p></details>
+      <details><summary>Ela marca consultas sozinha?</summary><p>Nesta fase, a Marc.I.A. propõe horários livres e deixa o pedido pronto; a recepção confirma com um toque. Assim nenhum horário é marcado sem alguém da clínica ver.</p></details>
+      <details><summary>Preciso fazer anúncios?</summary><p>Não. O Atendimento Inteligente funciona para qualquer contato que chega pelo WhatsApp. Os módulos de anúncios são opcionais.</p></details>
+      <details><summary>Tem fidelidade?</summary><p>Não há multa de cancelamento. Para fundadores, pedimos o compromisso de participar das conversas de feedback durante os 6 meses de condição especial.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <h2>Mande uma mensagem para a sua clínica hoje às 22h. Quem responde?</h2>
+    <p>Se a resposta for “ninguém até amanhã”, vale uma conversa de 20 minutos com a gente.</p>
+    <a class="btn js-wa" href="https://wa.me/5519998056642" data-msg="Olá! Quero conversar sobre a Marc.I.A. para a minha clínica.">Falar no WhatsApp</a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Marc.I.A. para Clínicas · uma solução <a href="https://ichthusmkt.com.br">Ichthus Mkt</a></span>
+    <span>Tecnologia Proxy Technology · WhatsApp (19) 99805-6642</span>
+  </div>
+</footer>
+
+<a class="float-wa js-wa" href="https://wa.me/5519998056642" data-msg="Olá! Vim pela página da Marc.I.A. para clínicas." aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3Z"/></svg>
+</a>
+
+<script>
+  // Monta os links do WhatsApp com a mensagem e a origem (utm) da visita.
+  (function(){
+    var base = "https://wa.me/5519998056642";
+    var src = "";
+    try {
+      var p = new URLSearchParams(window.location.search);
+      var u = p.get("utm_source"), c = p.get("utm_campaign");
+      if (u || c) src = " [origem: " + [u, c].filter(Boolean).join(" / ") + "]";
+    } catch (e) {}
+    document.querySelectorAll(".js-wa").forEach(function(a){
+      var msg = (a.getAttribute("data-msg") || "") + src;
+      a.setAttribute("href", base + "?text=" + encodeURIComponent(msg));
+      a.setAttribute("target", "_blank");
+      a.setAttribute("rel", "noopener");
+    });
+  })();
+</script>
+</body>
+</html>
