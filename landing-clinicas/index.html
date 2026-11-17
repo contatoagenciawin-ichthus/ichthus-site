@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marc.I.A. para Clínicas — sua recepção fecha às 18h. Seus pacientes, não.</title>
+<meta name="description" content="A Marc.I.A. atende o WhatsApp oficial da sua clínica à noite, no fim de semana e nos horários de pico. Responde na hora, entende áudio, encaminha urgências e entrega para a recepção os pedidos de consulta prontos. 10 vagas de Cliente Fundador.">
+<meta property="og:title" content="Marc.I.A. para Clínicas — nenhum paciente sem resposta">
+<meta property="og:description" content="Atendimento inteligente na API oficial do WhatsApp. Sua recepção cuida de quem está na clínica; a Marc.I.A. cuida de quem escreve às 22h.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta name="theme-color" content="#06141c">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --night:#06141c; --night-2:#0a1f2b; --panel:#0f2836; --panel-2:#133243;
+    --line:rgba(205,225,235,.12); --line-2:rgba(205,225,235,.2);
+    --text:#e8eff2; --soft:#b3c4cc; --muted:#7f97a3;
+    --coral:#ef6b66; --coral-dk:#e05c58; --coral-soft:rgba(239,107,102,.14);
+    --moon:#f4e7c5; --mint:#4fd1a1; --amber:#f3b85b;
+    --wa-bg:#0b141a; --wa-head:#1f2c34; --wa-in:#202c33; --wa-out:#005c4b; --wa-green:#25d366;
+    --radius:18px;
+    --serif:"Fraunces", Georgia, "Times New Roman", serif;
+    --sans:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:var(--sans);color:var(--text);background:var(--night);line-height:1.55;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 22px}
+  h1,h2,h3{margin:0;line-height:1.12}
+  h1,h2{font-family:var(--serif);font-weight:600;letter-spacing:-.01em}
+  h1{font-size:clamp(2.3rem,5.2vw,3.8rem)}
+  h2{font-size:clamp(1.8rem,3.6vw,2.6rem)}
+  h3{font-size:1.15rem;font-weight:700}
+  p{margin:0}
+  .eyebrow{font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--coral)}
+  .lead{font-size:1.14rem;color:var(--soft);max-width:36em}
+  section{padding:92px 0;position:relative}
+  .sec-head{max-width:760px}
+  .sec-head .lead{margin-top:16px}
+  .btn{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:1rem;text-decoration:none;border-radius:999px;padding:15px 26px;transition:transform .15s ease, background .15s ease, border-color .15s ease}
+  .btn:focus-visible,summary:focus-visible,.float-wa:focus-visible{outline:3px solid var(--moon);outline-offset:3px}
+  .btn-primary{background:var(--coral);color:#fff;box-shadow:0 10px 30px rgba(239,107,102,.35)}
+  .btn-primary:hover{background:var(--coral-dk);transform:translateY(-1px)}
+  .btn-ghost{border:1.5px solid var(--line-2);color:var(--text)}
+  .btn-ghost:hover{border-color:var(--text)}
+  .btn svg{width:20px;height:20px;flex:none}
+  .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  @media (max-width:880px){ .grid2,.grid3{grid-template-columns:1fr} }
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:26px}
+  .card p{color:var(--soft)}
+  .card h3{margin-bottom:8px}
+
+  /* header */
+  header.top{position:sticky;top:0;z-index:20;background:rgba(6,20,28,.82);backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line)}
+  header.top .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:14px}
+  .brand{font-family:var(--serif);font-weight:600;font-size:1.35rem;text-decoration:none;white-space:nowrap}
+  .brand span{color:var(--coral)}
+  .brand small{font-family:var(--sans);font-size:.78rem;font-weight:600;color:var(--muted);margin-left:8px}
+  header.top .btn{padding:10px 18px;font-size:.92rem}
+  @media (max-width:560px){ .brand small{display:none} }
+
+  /* hero */
+  .hero{padding:56px 0 84px;overflow:hidden;background:
+      radial-gradient(900px 500px at 85% 10%, rgba(244,231,197,.09), transparent 60%),
+      radial-gradient(700px 500px at 0% 100%, rgba(239,107,102,.08), transparent 60%), var(--night)}
+  .stars{position:absolute;inset:0;pointer-events:none;opacity:.55;background-image:
+      radial-gradient(1px 1px at 12% 18%, #fff 50%, transparent 51%),radial-gradient(1px 1px at 32% 8%, #fff 50%, transparent 51%),
+      radial-gradient(1.5px 1.5px at 58% 22%, #fff 50%, transparent 51%),radial-gradient(1px 1px at 76% 6%, #fff 50%, transparent 51%),
+      radial-gradient(1px 1px at 92% 30%, #fff 50%, transparent 51%),radial-gradient(1px 1px at 46% 40%, #fff 50%, transparent 51%),
+      radial-gradient(1px 1px at 6% 55%, #fff 50%, transparent 51%),radial-gradient(1.5px 1.5px at 24% 72%, #fff 50%, transparent 51%)}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;position:relative}
+  .hero-grid > *{min-width:0}
+  @media (max-width:920px){ .hero-grid{grid-template-columns:1fr;gap:44px} }
+  .clock{display:inline-flex;align-items:center;gap:10px;font-size:.88rem;color:var(--moon);border:1px solid rgba(244,231,197,.3);border-radius:999px;padding:6px 14px 6px 10px;margin-bottom:22px}
+  .clock .moon{width:18px;height:18px;border-radius:50%;box-shadow:inset -5px 1px 0 0 var(--moon)}
+  .hero h1 em{font-style:normal;color:var(--moon)}
+  .hero .lead{margin-top:22px}
+  .hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+  .badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+  .badge{display:inline-flex;align-items:center;gap:8px;font-size:.86rem;font-weight:600;color:var(--text);background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:8px 14px}
+  .badge.official{border-color:rgba(37,211,102,.45);background:rgba(37,211,102,.08)}
+  .badge svg{width:16px;height:16px;flex:none}
+
+  /* phone + animated chat */
+  .phone-wrap{position:relative;max-width:390px;margin:0 auto;width:100%}
+  .phone{background:#000;border-radius:40px;padding:11px;box-shadow:0 40px 80px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.08)}
+  .screen{background:var(--wa-bg);border-radius:30px;overflow:hidden;height:600px;display:flex;flex-direction:column}
+  .status{display:flex;justify-content:space-between;padding:10px 22px 4px;font-size:.78rem;font-weight:600;color:#e9edef}
+  .chat-head{background:var(--wa-head);color:#e9edef;padding:10px 14px;display:flex;align-items:center;gap:11px}
+  .avatar{width:38px;height:38px;border-radius:50%;background:var(--coral);display:grid;place-items:center;font-family:var(--serif);font-weight:600;color:#fff;flex:none}
+  .chat-head b{display:flex;align-items:center;gap:5px;font-size:.95rem}
+  .chat-head b svg{width:15px;height:15px}
+  .chat-head small{color:#8696a0;font-size:.76rem}
+  .chat{flex:1;padding:14px 12px;display:flex;flex-direction:column;gap:7px;font-size:.88rem;overflow:hidden;justify-content:flex-end;
+      background-color:var(--wa-bg);background-image:radial-gradient(rgba(255,255,255,.025) 1px, transparent 1px);background-size:18px 18px}
+  .msg{max-width:84%;padding:7px 10px 5px;border-radius:9px;color:#e9edef;animation:pop .28s ease both}
+  .msg time{display:block;text-align:right;font-size:.66rem;color:#8696a0;margin-top:2px}
+  .out time{color:#a6d6c8}
+  .in{align-self:flex-start;background:var(--wa-in);border-top-left-radius:2px}
+  .out{align-self:flex-end;background:var(--wa-out);border-top-right-radius:2px}
+  .audio{display:flex;align-items:center;gap:8px}
+  .audio .play{width:0;height:0;border-left:9px solid #8696a0;border-top:6px solid transparent;border-bottom:6px solid transparent}
+  .audio .wave{display:flex;gap:2px;align-items:center;height:18px}
+  .audio .wave i{width:2.5px;border-radius:2px;background:#8696a0}
+  .tr{display:block;font-size:.72rem;color:#8fb7ad;margin-top:4px;font-style:italic}
+  .day{align-self:center;background:#182229;color:#8696a0;font-size:.72rem;padding:4px 10px;border-radius:7px;margin-bottom:4px}
+  .typing{align-self:flex-start;background:var(--wa-in);border-radius:9px;border-top-left-radius:2px;padding:10px 12px;display:flex;gap:4px}
+  .typing i{width:6px;height:6px;border-radius:50%;background:#8696a0;animation:blink 1.2s infinite}
+  .typing i:nth-child(2){animation-delay:.2s}.typing i:nth-child(3){animation-delay:.4s}
+  .sys{align-self:center;background:rgba(243,184,91,.14);color:var(--amber);border:1px solid rgba(243,184,91,.3);font-size:.74rem;padding:5px 10px;border-radius:8px;animation:pop .28s ease both}
+  .inputbar{display:flex;align-items:center;gap:8px;padding:8px 10px 14px;background:var(--wa-bg)}
+  .inputbar span{flex:1;background:var(--wa-head);border-radius:999px;padding:10px 14px;color:#8696a0;font-size:.85rem}
+  .inputbar b{width:40px;height:40px;border-radius:50%;background:#00a884;display:grid;place-items:center}
+  .inputbar b svg{width:18px;height:18px}
+  .float-note{position:absolute;right:-44px;top:-18px;background:var(--panel-2);border:1px solid var(--line-2);border-radius:14px;padding:10px 14px;font-size:.8rem;box-shadow:0 18px 40px rgba(0,0,0,.45);max-width:200px}
+  .float-note b{display:block;color:var(--mint);font-size:1.15rem}
+  .float-note.n2{top:auto;bottom:-22px;left:-44px;right:auto}
+  .float-note.n2 b{color:var(--moon)}
+  @media (max-width:1000px){ .float-note{display:none} }
+  @media (max-width:520px){ .screen{height:560px} }
+  .mock-label{text-align:center;font-size:.78rem;color:var(--muted);margin-top:14px}
+  @keyframes pop{from{opacity:0;transform:translateY(6px) scale(.98)}to{opacity:1;transform:none}}
+  @keyframes blink{0%,80%,100%{opacity:.3}40%{opacity:1}}
+
+  /* night problem */
+  .problem{background:var(--night-2);border-top:1px solid var(--line)}
+  .timeline{margin-top:46px;display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+  @media (max-width:880px){ .timeline{grid-template-columns:1fr 1fr} }
+  @media (max-width:520px){ .timeline{grid-template-columns:1fr} }
+  .slot{padding:24px;border-right:1px solid var(--line);background:var(--panel)}
+  .slot:last-child{border-right:0}
+  .slot .hr{font-family:var(--serif);font-size:1.9rem;color:var(--moon)}
+  .slot.day-slot .hr{color:var(--soft)}
+  .slot h3{margin:8px 0 6px;font-size:1rem}
+  .slot p{color:var(--soft);font-size:.94rem}
+  .slot .who{display:inline-block;margin-top:12px;font-size:.74rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 9px;border-radius:999px}
+  .who.h{background:rgba(179,196,204,.12);color:var(--soft)}
+  .who.ai{background:var(--coral-soft);color:var(--coral)}
+
+  /* reception ally */
+  .ally-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:46px;align-items:stretch}
+  .ally-grid > *{min-width:0}
+  @media (max-width:880px){ .ally-grid{grid-template-columns:1fr} }
+  .col{border-radius:22px;padding:30px;border:1px solid var(--line)}
+  .col.ai{background:linear-gradient(180deg,rgba(239,107,102,.12),rgba(239,107,102,.03))}
+  .col.human{background:linear-gradient(180deg,rgba(244,231,197,.09),rgba(244,231,197,.02))}
+  .col h3{font-family:var(--serif);font-weight:600;font-size:1.45rem;margin-bottom:6px}
+  .col .sub{color:var(--soft);font-size:.95rem}
+  .col ul{list-style:none;padding:0;margin:20px 0 0}
+  .col li{padding:10px 0 10px 28px;border-top:1px solid var(--line);position:relative;color:var(--text)}
+  .col li::before{content:"";position:absolute;left:2px;top:17px;width:10px;height:10px;border-radius:50%}
+  .col.ai li::before{background:var(--coral)}
+  .col.human li::before{background:var(--moon)}
+  .handoff{margin-top:26px;text-align:center;color:var(--soft)}
+  .handoff b{color:var(--text)}
+
+  /* official */
+  .official-sec{background:var(--night-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .off-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:center}
+  .off-grid > *{min-width:0}
+  @media (max-width:880px){ .off-grid{grid-template-columns:1fr} }
+  .shield{width:64px;height:64px;border-radius:18px;background:rgba(37,211,102,.12);border:1px solid rgba(37,211,102,.4);display:grid;place-items:center;margin-bottom:22px}
+  .shield svg{width:34px;height:34px}
+  .compare{width:100%;border-collapse:collapse;font-size:.95rem;background:var(--panel);border-radius:var(--radius);overflow:hidden}
+  .compare th,.compare td{padding:14px 16px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+  .compare thead th{font-size:.76rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  .compare thead th.ok{color:var(--wa-green)}
+  .compare td.ok{color:var(--text)}
+  .compare td.no{color:var(--muted)}
+  .compare tr:last-child td{border-bottom:0}
+  .table-scroll{overflow-x:auto;border-radius:var(--radius);border:1px solid var(--line)}
+
+  /* steps */
+  .steps{list-style:none;padding:0;margin:46px 0 0;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;counter-reset:s}
+  @media (max-width:960px){ .steps{grid-template-columns:repeat(2,1fr)} }
+  @media (max-width:560px){ .steps{grid-template-columns:1fr} }
+  .steps li{counter-increment:s;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+  .steps li::before{content:counter(s);display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--coral);color:#fff;font-weight:700;margin-bottom:16px}
+  .steps h3{margin-bottom:8px}
+  .steps p{color:var(--soft);font-size:.95rem}
+
+  /* traffic dashboard */
+  .traffic{background:linear-gradient(180deg,var(--night) 0%, var(--night-2) 100%)}
+  .dash{margin-top:46px;background:#081a24;border:1px solid var(--line-2);border-radius:24px;padding:22px;box-shadow:0 40px 80px rgba(0,0,0,.4)}
+  .dash-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;padding:4px 6px 18px;border-bottom:1px solid var(--line)}
+  .dash-top b{font-size:1.02rem}
+  .dash-top small{display:block;color:var(--muted);font-size:.78rem}
+  .live{display:inline-flex;align-items:center;gap:8px;font-size:.8rem;color:var(--mint);font-weight:600}
+  .live i{width:8px;height:8px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 0 rgba(79,209,161,.6);animation:pulse 2s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(79,209,161,.55)}70%{box-shadow:0 0 0 10px rgba(79,209,161,0)}100%{box-shadow:0 0 0 0 rgba(79,209,161,0)}}
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:18px}
+  @media (max-width:760px){ .kpis{grid-template-columns:repeat(2,1fr)} }
+  .kpi{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px}
+  .kpi span{display:block;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  .kpi strong{display:block;font-size:1.55rem;margin-top:6px}
+  .kpi.hl{border-color:rgba(239,107,102,.5);background:linear-gradient(180deg,rgba(239,107,102,.14),var(--panel))}
+  .kpi.hl strong{color:var(--coral)}
+  .dash-body{display:grid;grid-template-columns:1.35fr .65fr;gap:14px;margin-top:14px}
+  .dash-body > *{min-width:0}
+  @media (max-width:880px){ .dash-body{grid-template-columns:1fr} }
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px}
+  .panel h4{margin:0 0 12px;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .camp{width:100%;border-collapse:collapse;font-size:.88rem}
+  .camp th,.camp td{padding:10px 8px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}
+  .camp th{font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  .camp td.n{text-align:right}.camp th.n{text-align:right}
+  .camp tr:last-child td{border-bottom:0}
+  .st{display:inline-flex;align-items:center;gap:6px;font-size:.78rem}
+  .st::before{content:"";width:7px;height:7px;border-radius:50%}
+  .st.on{color:var(--mint)}.st.on::before{background:var(--mint)}
+  .st.off{color:var(--muted)}.st.off::before{background:var(--muted)}
+  .camp-scroll{overflow-x:auto}
+  .src{list-style:none;padding:0;margin:0}
+  .src li{margin:0 0 14px}
+  .src .row{display:flex;justify-content:space-between;font-size:.88rem;margin-bottom:6px}
+  .src .row b{font-weight:700}
+  .bar{height:8px;border-radius:999px;background:rgba(205,225,235,.08);overflow:hidden}
+  .bar i{display:block;height:100%;border-radius:999px;background:var(--coral)}
+  .src li:nth-child(2) .bar i{background:#f39b8a}
+  .src li:nth-child(3) .bar i{background:var(--moon)}
+  .src li:nth-child(4) .bar i{background:var(--soft)}
+  .dash-label{text-align:center;font-size:.78rem;color:var(--muted);margin-top:14px}
+  .traffic-points{margin-top:38px}
+
+  /* modules */
+  .mod-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:46px}
+  .mod-grid > *{min-width:0}
+  @media (max-width:880px){ .mod-grid{grid-template-columns:1fr} }
+  .mod{border:1px solid var(--line);border-radius:var(--radius);padding:26px;background:var(--panel)}
+  .mod.core{grid-column:1/-1;background:linear-gradient(135deg,rgba(239,107,102,.16),var(--panel) 60%);border-color:rgba(239,107,102,.45)}
+  .mod .tag{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:rgba(205,225,235,.1);color:var(--soft);margin-bottom:12px}
+  .mod.core .tag{background:var(--coral);color:#fff}
+  .mod h3{font-size:1.22rem;margin-bottom:10px}
+  .mod p{color:var(--soft)}
+  .mod ul{margin:14px 0 0;padding-left:18px;color:var(--text)}
+  .mod ul li{margin:5px 0}
+  .mod.core ul{columns:2;column-gap:32px}
+  @media (max-width:700px){ .mod.core ul{columns:1} }
+  .mod .for{margin-top:14px;font-size:.86rem;color:var(--muted)}
+
+  /* pricing */
+  .pricing-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:28px;margin-top:46px;align-items:start}
+  .pricing-grid > *{min-width:0}
+  @media (max-width:920px){ .pricing-grid{grid-template-columns:1fr} }
+  .founder{background:var(--panel);border:2px solid var(--coral);border-radius:24px;padding:32px;position:relative;box-shadow:0 24px 60px rgba(239,107,102,.16)}
+  .founder .ribbon{position:absolute;top:-14px;left:28px;background:var(--coral);color:#fff;font-size:.76rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:6px 12px;border-radius:999px}
+  .founder h3{font-family:var(--serif);font-weight:600;font-size:1.5rem}
+  .price{display:flex;align-items:baseline;gap:8px;margin-top:18px;flex-wrap:wrap}
+  .price strong{font-family:var(--serif);font-size:3rem;line-height:1}
+  .price span{color:var(--muted)}
+  .price-sub{color:var(--soft);margin-top:6px}
+  .checks{list-style:none;padding:0;margin:22px 0 24px}
+  .checks li{padding-left:30px;position:relative;margin:10px 0}
+  .checks li::before{content:"";position:absolute;left:0;top:4px;width:18px;height:18px;border-radius:50%;background:var(--coral) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E") center/12px no-repeat}
+  .small{font-size:.85rem;color:var(--muted)}
+  .small b{color:var(--soft)}
+  .table-card{background:var(--panel);border:1px solid var(--line);border-radius:24px;padding:8px 8px 18px}
+  .ptable{width:100%;border-collapse:collapse;font-size:.93rem}
+  .ptable caption{text-align:left;padding:16px 14px 8px;font-weight:700}
+  .ptable th,.ptable td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--line)}
+  .ptable th{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  .ptable td.num{white-space:nowrap}
+  .ptable .f{color:var(--coral);font-weight:700}
+  .table-card .small{padding:12px 14px 0}
+  @media (max-width:560px){ .founder{padding:28px 20px} .price strong{font-size:2.5rem} .ptable td.num{white-space:normal} .ptable th,.ptable td{padding:10px 8px;font-size:.86rem} }
+
+  /* faq */
+  .faq{background:var(--night-2);border-top:1px solid var(--line)}
+  .faq-list{margin-top:36px;max-width:840px}
+  details{border-bottom:1px solid var(--line);padding:18px 0}
+  summary{cursor:pointer;font-weight:700;font-size:1.05rem;list-style:none;display:flex;justify-content:space-between;gap:16px}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";font-weight:400;font-size:1.5rem;line-height:1;color:var(--coral)}
+  details[open] summary::after{content:"–"}
+  details p{margin-top:10px;color:var(--soft);max-width:46em}
+
+  /* final */
+  .final{text-align:center;background:radial-gradient(700px 360px at 50% 0%, rgba(244,231,197,.12), transparent 70%), var(--night)}
+  .final h2{max-width:17em;margin:0 auto}
+  .final p{margin:18px auto 0;max-width:34em;color:var(--soft);font-size:1.1rem}
+  .final .btn{margin-top:30px}
+
+  footer{background:#040d12;color:var(--muted);padding:34px 0;font-size:.86rem;border-top:1px solid var(--line)}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
+  footer a{color:var(--soft)}
+
+  .float-wa{transition:opacity .25s ease, transform .25s ease;position:fixed;right:18px;bottom:18px;z-index:30;width:58px;height:58px;border-radius:50%;background:var(--wa-green);display:grid;place-items:center;box-shadow:0 12px 28px rgba(0,0,0,.45)}
+  .float-wa svg{width:30px;height:30px}
+
+  /* ---- mobile refinements ---- */
+  @media (max-width:920px){
+    .hero-text{display:contents}
+    .hero-grid{gap:0}
+    .hero .clock{order:1;justify-self:start}
+    .hero h1{order:2}
+    .badges{order:3;margin-top:18px}
+    .hero-visual{order:4;margin:24px 0 8px}
+    .hero .lead{order:5;margin-top:18px}
+    .hero-ctas{order:6}
+  }
+  @media (max-width:600px){
+    section{padding:64px 0}
+    .hero{padding:32px 0 56px}
+    .clock{margin-bottom:16px;font-size:.82rem}
+    .screen{height:450px}
+    .chat{font-size:.82rem}
+    .phone{border-radius:34px;padding:9px}
+    .screen{border-radius:26px}
+    .hero-ctas .btn{width:100%;justify-content:center}
+    .badges{gap:8px}
+    .badge{font-size:.8rem;padding:7px 12px}
+    .slot{border-right:0;border-bottom:1px solid var(--line)}
+    .slot:last-child{border-bottom:0}
+    .compare th,.compare td{padding:11px 10px;font-size:.84rem}
+    .kpi strong{font-size:1.3rem}
+    .camp th:nth-child(2),.camp td:nth-child(2),.camp th:nth-child(3),.camp td:nth-child(3),.camp th:nth-child(4),.camp td:nth-child(4){display:none}
+    .camp td,.camp th{white-space:normal;padding:9px 4px;font-size:.82rem}
+    .camp th{font-size:.6rem;letter-spacing:.03em}
+    .camp td.n{white-space:nowrap}
+    .panel{padding:14px 12px}
+    .dash{padding:14px;border-radius:20px}
+    .ptable thead{display:none}
+    .ptable tr{display:block;padding:12px 6px;border-bottom:1px solid var(--line)}
+    .ptable tr:last-child{border-bottom:0}
+    .ptable td{display:flex;justify-content:space-between;gap:12px;border:0;padding:3px 8px;font-size:.9rem}
+    .ptable td:first-child{font-weight:700;padding-bottom:6px}
+    .ptable td[data-label]::before{content:attr(data-label);color:var(--muted);font-weight:500}
+    .col{padding:24px 20px}
+    .founder h3{font-size:1.3rem}
+  }
+  .float-wa.hidden{opacity:0;transform:scale(.8);pointer-events:none}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto} .btn{transition:none}
+    .msg,.sys{animation:none} .typing i,.live i{animation:none}
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3Z"/></symbol>
+  <symbol id="verified" viewBox="0 0 24 24"><path fill="#25d366" d="M12 1.5l2.6 1.9 3.2-.1 1 3 2.6 1.9-1 3 1 3-2.6 1.9-1 3-3.2-.1L12 22.5l-2.6-1.9-3.2.1-1-3L2.6 15.8l1-3-1-3 2.6-1.9 1-3 3.2.1z"/><path fill="none" stroke="#06141c" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M7.5 12.2l3 3 6-6.2"/></symbol>
+  <symbol id="shield" viewBox="0 0 24 24"><path fill="none" stroke="#25d366" stroke-width="2" stroke-linejoin="round" d="M12 2.5l8 3v6c0 5-3.4 8.8-8 10-4.6-1.2-8-5-8-10v-6z"/><path fill="none" stroke="#25d366" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M8.5 12.2l2.5 2.5 4.8-5"/></symbol>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#inicio" aria-label="Marc.I.A. para Clínicas, início">Marc<span>.</span>I<span>.</span>A<span>.</span><small>para Clínicas</small></a>
+    <a class="btn btn-primary js-wa" href="https://wa.me/5519998056642" data-msg="Olá! Quero saber sobre o Programa Cliente Fundador da Marc.I.A. para clínicas.">Quero uma vaga</a>
+  </div>
+</header>
+
+<main id="inicio">
+
+<!-- 1. HERO -->
+<section class="hero">
+  <div class="stars" aria-hidden="true"></div>
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <span class="clock"><span class="moon" aria-hidden="true"></span>22h47 · a recepção já foi embora</span>
+      <h1>Sua recepção fecha às 18h. <em>Seus pacientes, não.</em></h1>
+      <p class="lead">A Marc.I.A. atende o WhatsApp da sua clínica à noite, no fim de semana e nos horários de pico. Responde na hora, entende áudio, encaminha urgências para você e deixa os pedidos de consulta prontos para a sua recepcionista confirmar pela manhã.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary js-wa" href="https://wa.me/5519998056642" data-msg="Olá! Quero saber sobre o Programa Cliente Fundador da Marc.I.A. para clínicas."><svg aria-hidden="true"><use href="#wa"/></svg>Quero ser cliente fundador</a>
+        <a class="btn btn-ghost" href="#como-funciona">Como funciona</a>
+      </div>
+      <div class="badges">
+        <span class="badge official"><svg aria-hidden="true"><use href="#verified"/></svg>API oficial do WhatsApp</span>
+        <span class="badge">Seu número continua seu</span>
+        <span class="badge">No ar em até 7 dias úteis</span>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="phone-wrap">
+        <div class="phone" role="img" aria-label="Simulação: às 22h47 um paciente manda um áudio pedindo avaliação para implante. A Marc.I.A. responde em segundos, pergunta a unidade, oferece dois horários, registra o pedido e avisa a recepção para confirmar de manhã.">
+          <div class="screen" aria-hidden="true">
+            <div class="status"><span>22:47</span><span>●●● 5G ▮</span></div>
+            <div class="chat-head">
+              <div class="avatar">C</div>
+              <div><b>Clínica Sorriso Vivo</b><small>Conta comercial</small></div>
+            </div>
+            <div class="chat" id="chat"><span class="day">HOJE</span></div>
+            <div class="inputbar"><span>Mensagem</span><b><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 15a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3Zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.9V21h2v-2.1a7 7 0 0 0 6-6.9Z"/></svg></b></div>
+          </div>
+        </div>
+        <div class="float-note" aria-hidden="true"><b>8 s</b>tempo de resposta</div>
+        <div class="float-note n2" aria-hidden="true"><b>08:00</b>recepção confirma o horário</div>
+      </div>
+      <p class="mock-label">Simulação ilustrativa · clínica e conversa fictícias</p>
+    </div>
+  </div>
+</section>
+
+<!-- 2. NIGHT PROBLEM -->
+<section class="problem">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">O gargalo</p>
+      <h2>O paciente escreve quando a dor aperta, ou quando as crianças dormem.</h2>
+      <p class="lead">E quem não recebe resposta procura outra clínica. A Marc.I.A. cobre exatamente os horários em que ninguém pode atender.</p>
+    </div>
+    <div class="timeline">
+      <div class="slot day-slot"><div class="hr">8h–18h</div><h3>Horário comercial</h3><p>Recepção no balcão, telefone e convênios. O WhatsApp entra na fila.</p><span class="who h">Recepção + Marc.I.A. no pico</span></div>
+      <div class="slot"><div class="hr">18h–23h</div><h3>Depois do expediente</h3><p>O horário em que muita gente finalmente tem tempo de cuidar da própria saúde.</p><span class="who ai">Marc.I.A.</span></div>
+      <div class="slot"><div class="hr">23h–8h</div><h3>Madrugada</h3><p>Dúvidas e pedidos ficam registrados. Sinais de urgência vão direto para o seu WhatsApp.</p><span class="who ai">Marc.I.A.</span></div>
+      <div class="slot"><div class="hr">Sáb–Dom</div><h3>Fim de semana</h3><p>Segunda-feira começa com a agenda organizada, não com 40 mensagens sem resposta.</p><span class="who ai">Marc.I.A.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. RECEPTION AS ALLY -->
+<section id="recepcao">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Feita para a sua recepção</p>
+      <h2>A Marc.I.A. não substitui a sua recepcionista. Ela tira dela o que é repetitivo.</h2>
+      <p class="lead">Sua equipe volta a ter tempo para o que nenhuma IA faz: acolher o paciente que está na clínica e fechar o agendamento.</p>
+    </div>
+    <div class="ally-grid">
+      <div class="col ai">
+        <h3>Marc.I.A. cuida de</h3>
+        <p class="sub">O volume, a madrugada e as perguntas de sempre</p>
+        <ul>
+          <li>Responder na hora, a qualquer hora</li>
+          <li>Endereço, convênios, preparo, horários de funcionamento</li>
+          <li>Ouvir áudios e resumir o pedido</li>
+          <li>Separar paciente de novo contato</li>
+          <li>Coletar unidade, profissional e horário preferido</li>
+          <li>Avisar você na hora quando há sinal de urgência</li>
+        </ul>
+      </div>
+      <div class="col human">
+        <h3>Sua recepção cuida de</h3>
+        <p class="sub">O que pede uma pessoa</p>
+        <ul>
+          <li>Acolher quem está na clínica</li>
+          <li>Confirmar os agendamentos com um toque</li>
+          <li>Negociar, explicar orçamento, tratar exceções</li>
+          <li>Assumir qualquer conversa, quando quiser</li>
+          <li>Ligar para quem precisa de atenção especial</li>
+          <li>Manter o vínculo com o paciente</li>
+        </ul>
+      </div>
+    </div>
+    <p class="handoff">Toda conversa pode passar para uma pessoa em um toque, <b>com o resumo pronto</b>. O paciente nunca precisa repetir nada.</p>
+  </div>
+</section>
+
+<!-- 4. OFFICIAL API -->
+<section class="official-sec" id="whatsapp-oficial">
+  <div class="wrap off-grid">
+    <div>
+      <div class="shield"><svg aria-hidden="true"><use href="#shield"/></svg></div>
+      <p class="eyebrow" style="color:var(--wa-green)">WhatsApp oficial</p>
+      <h2 style="margin-top:10px">O número da sua clínica não corre risco.</h2>
+      <p class="lead" style="margin-top:16px">Somos desenvolvedores registrados na Meta e conectamos a Marc.I.A. pela API oficial do WhatsApp Business. Ferramentas não oficiais que "automatizam" o WhatsApp comum violam os termos do aplicativo e podem levar ao bloqueio do número.</p>
+    </div>
+    <div class="table-scroll">
+      <table class="compare">
+        <thead><tr><th scope="col"></th><th scope="col" class="ok">Marc.I.A. · API oficial</th><th scope="col">Automações não oficiais</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Permitido pela Meta</th><td class="ok">Sim</td><td class="no">Não</td></tr>
+          <tr><th scope="row">Risco de bloqueio do número</th><td class="ok">Uso dentro das regras</td><td class="no">Alto</td></tr>
+          <tr><th scope="row">Dono da conta</th><td class="ok">A clínica</td><td class="no">Depende de um celular conectado</td></tr>
+          <tr><th scope="row">Mensagens de confirmação e lembrete</th><td class="ok">Modelos aprovados pela Meta</td><td class="no">Disparos sem garantia</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 5. HOW IT WORKS -->
+<section id="como-funciona">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Como funciona</p>
+      <h2>Do primeiro “oi” à consulta marcada</h2>
+    </div>
+    <ol class="steps">
+      <li><h3>Conectamos o seu WhatsApp oficial</h3><p>Fazemos a conexão com a Meta junto com você, no número da clínica. A conta continua sendo sua.</p></li>
+      <li><h3>Ensinamos a Marc.I.A. sobre a sua clínica</h3><p>Serviços, convênios, unidades, profissionais, horários e o que é urgência para você.</p></li>
+      <li><h3>Ela atende 24 horas</h3><p>Responde, entende áudio, identifica o assunto e passa para uma pessoa sempre que precisa.</p></li>
+      <li><h3>A recepção recebe tudo pronto</h3><p>Pedidos de consulta organizados, urgências avisadas na hora e o histórico de cada contato.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 6. TRAFFIC -->
+<section class="traffic" id="trafego">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Para quem anuncia</p>
+      <h2>Veja de onde vêm os seus pacientes, e quanto custa cada consulta.</h2>
+      <p class="lead">Com o módulo de atribuição, você acompanha as campanhas ativas, o investimento e as conversas geradas com dados lidos direto da Meta, e enxerga o que nenhum painel de anúncios mostra sozinho: quantas dessas conversas viraram consulta.</p>
+    </div>
+
+    <div class="dash" role="img" aria-label="Painel ilustrativo de tráfego de uma clínica fictícia: investimento de R$ 1.840 no mês, 186 conversas, 41 consultas agendadas, custo de R$ 44,88 por consulta, três campanhas e a origem dos pacientes por canal.">
+      <div class="dash-top" aria-hidden="true">
+        <div><b>Clínica Sorriso Vivo · Tráfego e resultados</b><small>01/11 a 17/11 · Meta Ads + Google Ads + WhatsApp</small></div>
+        <span class="live"><i></i>Dados atualizados ao abrir</span>
+      </div>
+      <div class="kpis" aria-hidden="true">
+        <div class="kpi"><span>Investimento</span><strong>R$ 1.840</strong></div>
+        <div class="kpi"><span>Conversas</span><strong>186</strong></div>
+        <div class="kpi"><span>Consultas agendadas</span><strong>41</strong></div>
+        <div class="kpi hl"><span>Custo por consulta</span><strong>R$ 44,88</strong></div>
+      </div>
+      <div class="dash-body" aria-hidden="true">
+        <div class="panel">
+          <h4>Campanhas</h4>
+          <div class="camp-scroll">
+            <table class="camp">
+              <thead><tr><th>Campanha</th><th>Status</th><th class="n">Invest.</th><th class="n">Conversas</th><th class="n">Consultas</th><th class="n">R$/consulta</th></tr></thead>
+              <tbody>
+                <tr><td>Implantes · Americana</td><td><span class="st on">Ativa</span></td><td class="n">R$ 920</td><td class="n">88</td><td class="n">22</td><td class="n">R$ 41,82</td></tr>
+                <tr><td>Clareamento · Instagram</td><td><span class="st on">Ativa</span></td><td class="n">R$ 610</td><td class="n">71</td><td class="n">12</td><td class="n">R$ 50,83</td></tr>
+                <tr><td>Busca Google · Dentista</td><td><span class="st on">Ativa</span></td><td class="n">R$ 310</td><td class="n">27</td><td class="n">7</td><td class="n">R$ 44,29</td></tr>
+                <tr><td>Ortodontia · teste A</td><td><span class="st off">Pausada</span></td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n">—</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="panel">
+          <h4>De onde vêm os pacientes</h4>
+          <ul class="src">
+            <li><div class="row"><span>Instagram</span><b>44%</b></div><div class="bar"><i style="width:44%"></i></div></li>
+            <li><div class="row"><span>Facebook</span><b>21%</b></div><div class="bar"><i style="width:21%"></i></div></li>
+            <li><div class="row"><span>Google</span><b>18%</b></div><div class="bar"><i style="width:18%"></i></div></li>
+            <li><div class="row"><span>Indicação e orgânico</span><b>17%</b></div><div class="bar"><i style="width:17%"></i></div></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <p class="dash-label">Painel ilustrativo · clínica e números fictícios</p>
+
+    <div class="grid3 traffic-points">
+      <div class="card"><h3>Campanhas ativas, sem login na Meta</h3><p>O que está no ar, quanto já foi investido e o que cada campanha está gerando, num só lugar.</p></div>
+      <div class="card"><h3>Origem de cada paciente</h3><p>Conversas que chegam por anúncio já entram identificadas com a campanha de origem.</p></div>
+      <div class="card"><h3>Custo por consulta, não por clique</h3><p>O número que importa para decidir onde colocar a verba do mês seguinte.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. MODULES -->
+<section id="modulos">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Módulos</p>
+      <h2>Você contrata só o que faz sentido para a sua clínica</h2>
+      <p class="lead">O Atendimento Inteligente é a base. Os outros módulos são opcionais e independentes entre si: dá para ter agenda sem anúncios, ou relatório de anúncios sem trocar de agência.</p>
+    </div>
+    <div class="mod-grid">
+      <article class="mod core">
+        <span class="tag">Base · todo cliente</span>
+        <h3>Atendimento Inteligente</h3>
+        <p>A Marc.I.A. no WhatsApp oficial da sua clínica.</p>
+        <ul>
+          <li>Respostas 24h com as informações da sua clínica</li>
+          <li>Entende mensagens de áudio</li>
+          <li>Separa novos contatos de pacientes</li>
+          <li>Identifica o assunto: consulta, dúvida, convênio, financeiro</li>
+          <li>Alerta imediato no seu WhatsApp em sinal de urgência</li>
+          <li>Passa para uma pessoa com o resumo da conversa</li>
+          <li>Caixa de entrada e cadastro simples de contatos</li>
+          <li>Conexão com a Meta feita por nós</li>
+        </ul>
+      </article>
+      <article class="mod"><span class="tag">Opcional</span><h3>Agenda</h3><p>Consulta horários livres, propõe opções ao paciente e deixa o pedido pronto para a recepção confirmar com um toque. Várias unidades e profissionais.</p><p class="for">Para organizar a agenda, com ou sem anúncios.</p></article>
+      <article class="mod"><span class="tag">Opcional</span><h3>Relacionamento</h3><p>Confirmação 24h antes, lembrete de retorno, reativação de pacientes que sumiram e pesquisa pós-consulta. Quem pede para sair não recebe mais.</p><p class="for">Para reduzir faltas e trazer pacientes de volta.</p></article>
+      <article class="mod"><span class="tag">Opcional</span><h3>Atribuição de anúncios</h3><p>Painel de tráfego da clínica: campanhas ativas, investimento, conversas, consultas agendadas e custo por consulta. Meta Ads e Google Ads.</p><p class="for">Para quem anuncia, com a gente ou com outra agência.</p></article>
+      <article class="mod"><span class="tag">Opcional</span><h3>Gestão de tráfego</h3><p>Campanhas no Meta e no Google criadas e gerenciadas pela Ichthus Mkt, já medidas por consulta agendada.</p><p class="for">Para trazer mais pacientes novos.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- 8. FOUNDER -->
+<section id="fundador" style="background:var(--night-2);border-top:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Programa Cliente Fundador</p>
+      <h2>10 clínicas com condição de lançamento</h2>
+      <p class="lead">Estamos abrindo a Marc.I.A. para clínicas com um grupo pequeno, acompanhado de perto. Em troca de condições especiais, pedimos que você nos ajude a provar o resultado.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="founder">
+        <span class="ribbon">Fundador · 10 vagas</span>
+        <h3>Atendimento Inteligente</h3>
+        <div class="price"><strong>R$ 397</strong><span>/mês por 6 meses</span></div>
+        <p class="price-sub">+ implantação de R$ 900 (preço público: R$ 2.800)</p>
+        <ul class="checks">
+          <li>No ar em até 7 dias úteis após a conexão com a Meta, ou devolvemos a implantação</li>
+          <li>Depois dos 6 meses, 30% de desconto sobre o preço público, enquanto você for cliente</li>
+          <li>Módulos opcionais também com preço de fundador</li>
+          <li>Acompanhamento direto com a equipe que constrói o produto</li>
+        </ul>
+        <p class="small"><b>Sua contrapartida:</b> autorizar o uso do seu caso com números, gravar um depoimento curto, uma conversa de feedback por mês e indicar duas clínicas. Vagas até 31/01/2027 ou até preencher.</p>
+        <a class="btn btn-primary js-wa" style="margin-top:22px" href="https://wa.me/5519998056642" data-msg="Olá! Quero uma vaga no Programa Cliente Fundador da Marc.I.A. para clínicas.">Quero uma vaga de fundador</a>
+      </div>
+      <div class="table-card">
+        <div style="overflow-x:auto">
+          <table class="ptable">
+            <caption>Valores por módulo</caption>
+            <thead><tr><th scope="col">Módulo</th><th scope="col">Preço público</th><th scope="col">Fundador</th></tr></thead>
+            <tbody>
+              <tr><td>Atendimento Inteligente</td><td class="num" data-label="Público">R$ 2.800 + R$ 790/mês</td><td class="num f" data-label="Fundador">R$ 900 + R$ 397/mês</td></tr>
+              <tr><td>Agenda</td><td class="num" data-label="Público">R$ 600 + R$ 290/mês</td><td class="num f" data-label="Fundador">R$ 150/mês</td></tr>
+              <tr><td>Relacionamento</td><td class="num" data-label="Público">R$ 190/mês</td><td class="num f" data-label="Fundador">R$ 100/mês</td></tr>
+              <tr><td>Atribuição de anúncios</td><td class="num" data-label="Público">R$ 600 + R$ 390/mês</td><td class="num f" data-label="Fundador">R$ 200/mês</td></tr>
+              <tr><td>Gestão de tráfego</td><td class="num" data-label="Público">a partir de R$ 1.500/mês</td><td class="num" data-label="Fundador">sob proposta</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="small">Preços de fundador válidos por 6 meses; implantação dos módulos opcionais inclusa para fundadores. Os custos de mensagens cobrados pela Meta são informados na proposta. Valores sem verba de mídia.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. TRUST + FAQ -->
+<section class="faq" id="perguntas">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Perguntas frequentes</p>
+      <h2>Antes de você perguntar</h2>
+    </div>
+    <div class="faq-list">
+      <details><summary>Vou perder o número da clínica?</summary><p>Não. Conectamos o seu número à API oficial da Meta, que é o caminho permitido para empresas. A conta e o número continuam em nome da clínica. Se houver alguma restrição técnica com o seu número, avisamos antes de você pagar a implantação.</p></details>
+      <details><summary>Minha recepcionista vai perder o emprego?</summary><p>Não é essa a ideia. A Marc.I.A. cobre a noite, o fim de semana e as perguntas repetitivas. A recepção continua dona do agendamento, do acolhimento e de qualquer conversa que quiser assumir.</p></details>
+      <details><summary>A IA dá orientação médica?</summary><p>Não. A Marc.I.A. não diagnostica, não orienta tratamento e não interpreta exames. Ela cuida do administrativo. Quando aparece um sinal de urgência definido por você, a conversa vai na hora para uma pessoa.</p></details>
+      <details><summary>E os dados dos pacientes?</summary><p>Guardamos só dados administrativos (nome, telefone, unidade, motivo do contato), com contrato de tratamento de dados conforme a LGPD. Os dados são da clínica.</p></details>
+      <details><summary>Quanto tempo leva para começar?</summary><p>Até 7 dias úteis depois que a conexão com a Meta é concluída. Fazemos essa conexão junto com você, por videochamada.</p></details>
+      <details><summary>Funciona com o sistema de gestão que eu uso?</summary><p>Nesta primeira versão, a Marc.I.A. trabalha com a sua agenda do Google ou com a agenda que organizamos para você. Integrações com sistemas de gestão clínica são avaliadas caso a caso.</p></details>
+      <details><summary>Ela marca consultas sozinha?</summary><p>Nesta fase, ela propõe horários livres e deixa o pedido pronto; a recepção confirma com um toque. Nenhum horário é marcado sem alguém da clínica ver.</p></details>
+      <details><summary>Preciso fazer anúncios?</summary><p>Não. O Atendimento Inteligente funciona para qualquer contato que chega pelo WhatsApp. Os módulos de anúncios são opcionais.</p></details>
+      <details><summary>Tem fidelidade?</summary><p>Não há multa de cancelamento. Para fundadores, pedimos o compromisso de participar das conversas de feedback durante os 6 meses de condição especial.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <h2>Mande uma mensagem para a sua clínica hoje às 22h. Quem responde?</h2>
+    <p>Se a resposta for “ninguém até amanhã”, vale uma conversa de 20 minutos com a gente.</p>
+    <a class="btn btn-primary js-wa" href="https://wa.me/5519998056642" data-msg="Olá! Quero conversar sobre a Marc.I.A. para a minha clínica."><svg aria-hidden="true"><use href="#wa"/></svg>Falar no WhatsApp</a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Marc.I.A. para Clínicas · uma solução <a href="https://ichthusmkt.com.br">Ichthus Mkt</a></span>
+    <span>Tecnologia Proxy Technology · WhatsApp (19) 99805-6642</span>
+  </div>
+</footer>
+
+<a class="float-wa js-wa hidden" href="https://wa.me/5519998056642" data-msg="Olá! Vim pela página da Marc.I.A. para clínicas." aria-label="Falar no WhatsApp"><svg style="color:#fff" aria-hidden="true"><use href="#wa"/></svg></a>
+
+<script>
+  // Links do WhatsApp com mensagem e origem (utm) da visita.
+  (function(){
+    var base = "https://wa.me/5519998056642", src = "";
+    try {
+      var p = new URLSearchParams(window.location.search);
+      var u = p.get("utm_source"), c = p.get("utm_campaign");
+      if (u || c) src = " [origem: " + [u, c].filter(Boolean).join(" / ") + "]";
+    } catch (e) {}
+    document.querySelectorAll(".js-wa").forEach(function(a){
+      a.href = base + "?text=" + encodeURIComponent((a.getAttribute("data-msg") || "") + src);
+      a.target = "_blank"; a.rel = "noopener";
+    });
+  })();
+
+  // Botão flutuante aparece depois da primeira dobra.
+  (function(){
+    var f = document.querySelector(".float-wa"); if (!f) return;
+    function upd(){ f.classList.toggle("hidden", window.scrollY < window.innerHeight * 0.8); }
+    window.addEventListener("scroll", upd, {passive:true}); upd();
+  })();
+
+  // Simulação da conversa no topo.
+  (function(){
+    var chat = document.getElementById("chat");
+    if (!chat) return;
+    var waves = [6,10,14,8,16,12,7,15,11,6,13,9,16,10,7,12,8,14,6,10];
+    var audio = '<span class="audio"><span class="play"></span><span class="wave">' +
+      waves.map(function(h){ return '<i style="height:' + h + 'px"></i>'; }).join("") +
+      '</span><small style="color:#8696a0">0:21</small></span>' +
+      '<span class="tr">“Oi, boa noite… queria ver uma avaliação pra implante, tô com um dente quebrado faz tempo…”</span>';
+    var script = [
+      {who:"in",  html:audio, t:"22:47", wait:900},
+      {who:"typing", wait:1300},
+      {who:"out", html:"Boa noite! Sou a Márcia, da Clínica Sorriso Vivo 😊 Entendi: você quer uma avaliação para implante. Temos unidades em Americana e em Caconde. Qual fica melhor para você?", t:"22:47", wait:2200},
+      {who:"in",  html:"Americana. De manhã se der", t:"22:48", wait:1400},
+      {who:"typing", wait:1100},
+      {who:"out", html:"Perfeito. Para avaliação em Americana tenho <b>quinta, 9h</b> ou <b>sexta, 10h30</b>. Qual prefere?", t:"22:48", wait:1900},
+      {who:"in",  html:"Quinta 9h 🙏", t:"22:49", wait:1200},
+      {who:"typing", wait:1000},
+      {who:"out", html:"Anotado! Deixei seu pedido para quinta às 9h. Nossa recepção confirma com você amanhã cedo. Boa noite!", t:"22:49", wait:1500},
+      {who:"sys", html:"✓ Pedido registrado · recepção notificada para 08:00", wait:4200}
+    ];
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    function bubble(s){
+      var el = document.createElement("div");
+      if (s.who === "sys"){ el.className = "sys"; el.innerHTML = s.html; }
+      else { el.className = "msg " + s.who; el.innerHTML = s.html + "<time>" + s.t + (s.who === "out" ? " ✓✓" : "") + "</time>"; }
+      return el;
+    }
+    function reset(){ chat.innerHTML = '<span class="day">HOJE</span>'; }
+    if (reduce){
+      script.filter(function(s){ return s.who !== "typing"; }).forEach(function(s){ chat.appendChild(bubble(s)); });
+      return;
+    }
+    var i = 0, typingEl = null;
+    function trim(){ while (chat.scrollHeight > chat.clientHeight + 2 && chat.children.length > 2) chat.removeChild(chat.children[1]); }
+    function step(){
+      if (i >= script.length){ setTimeout(function(){ reset(); i = 0; step(); }, 500); return; }
+      var s = script[i++];
+      if (typingEl){ typingEl.remove(); typingEl = null; }
+      if (s.who === "typing"){
+        typingEl = document.createElement("div"); typingEl.className = "typing";
+        typingEl.innerHTML = "<i></i><i></i><i></i>"; chat.appendChild(typingEl);
+      } else { chat.appendChild(bubble(s)); }
+      trim();
+      setTimeout(step, s.wait);
+    }
+    step();
+  })();
+</script>
+</body>
+</html>
