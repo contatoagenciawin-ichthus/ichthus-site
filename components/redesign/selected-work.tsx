@@ -34,9 +34,9 @@ export function SelectedWork({ locale = 'pt-BR' }: { locale?: SiteLocale } = {})
       title: [t("Design em", "Design in"), t("movimento.", "motion.")],
       description: t("Uma experiência digital imersiva que traduz a estética e o posicionamento de um salão premium.", "An immersive digital experience translating the aesthetics and positioning of a premium hair salon."),
       tags: [t("DIREÇÃO DE ARTE", "ART DIRECTION"), 'UX/UI', t("DESENVOLVIMENTO WEB", "WEB DEVELOPMENT"), t("INTERAÇÃO", "INTERACTION")],
-      image: 'https://hiquias-hair.vercel.app/hair-scroll/poster.webp',
+      image: 'https://dehilquias.ichthusmkt.com.br/hair-scroll/poster.webp',
       alt: t("Sequência visual conceitual da modelo, com movimento dos cabelos.", "Conceptual visual sequence of a model with hair in motion."),
-      href: 'https://hiquias-hair.vercel.app',
+      href: 'https://dehilquias.ichthusmkt.com.br',
     },
     {
       number: '03',
