@@ -29,7 +29,7 @@ export function Capabilities({ locale = 'pt-BR' }: { locale?: SiteLocale } = {})
     <section id="atuacao" aria-labelledby="capabilities-title" data-cursor-surface="light" className="border-y border-line bg-paper py-[clamp(96px,12vw,180px)] text-ink">
       <div className="site-shell grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,3fr)] lg:gap-16">
         <h2 id="capabilities-title" className="font-sans text-[11px] font-medium uppercase tracking-[0.12em] text-graphite">
-          {t("05 / Capacidades", "05 / Capabilities")}
+          {t("Capacidades", "Capabilities")}
         </h2>
         <div className="border-t border-line">
           {capabilities.map((capability) => (
