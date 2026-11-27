@@ -614,3 +614,17 @@ body {
 
 .ichthus-redesign .font-mono, .ichthus-redesign .font-sans { font-family: var(--font-inter), sans-serif; }
 .ichthus-redesign section[id] { scroll-margin-top: 72px; }
+
+
+/* Editorial opening: native scroll, no wheel interception or autoplay. */
+.ichthus-redesign .editorial-scroll { min-height: 205svh; }
+.ichthus-redesign .editorial-sticky { position: sticky; top: 72px; min-height: calc(100svh - 72px); padding-block: 32px; }
+.ichthus-redesign .editorial-heading { font-size: clamp(2.8rem, 7.8vw, 8rem); }
+.ichthus-redesign .editorial-words { min-height: 2.1em; }
+.ichthus-redesign .editorial-static { display: none; }
+@media (max-width: 768px), (max-height: 620px), (prefers-reduced-motion: reduce) {
+  .ichthus-redesign .editorial-scroll { min-height: auto; }
+  .ichthus-redesign .editorial-sticky { position: static; min-height: auto; padding-top: 136px; padding-bottom: 80px; }
+  .ichthus-redesign .editorial-animated { display: none; }
+  .ichthus-redesign .editorial-static { display: block; }
+}
