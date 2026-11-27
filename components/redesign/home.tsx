@@ -1,3 +1,4 @@
+import { EditorialHero } from '@/components/redesign/editorial-hero'
 import { CustomCursor } from '@/components/redesign/ui/custom-cursor'
 import { AudienceDoors } from '@/components/redesign/audience-doors'
 import { Capabilities } from '@/components/redesign/capabilities'
@@ -17,6 +18,7 @@ export function SiteHome({ locale }: { locale: SiteLocale }) {
       <CustomCursor />
       <Header locale={locale} />
       <main>
+        <EditorialHero locale={locale} />
         <Hero locale={locale} />
         <Manifesto locale={locale} />
         <AudienceDoors locale={locale} />
