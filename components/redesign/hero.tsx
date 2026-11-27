@@ -10,8 +10,8 @@ import { getTranslator, type SiteLocale } from '@/lib/site-locale'
 
 export function Hero({ locale = 'pt-BR' }: { locale?: SiteLocale } = {}) {
   const t = getTranslator(locale)
-  const desktopHeadline = locale === 'en-US' ? ['We build brands', 'that sustain', 'growth.'] : ['Construímos marcas', 'que sustentam', 'crescimento.']
-  const mobileHeadline = locale === 'en-US' ? ['We build', 'brands that', 'sustain', 'growth.'] : ['Construímos', 'marcas que', 'sustentam', 'crescimento.']
+  const desktopHeadline = locale === 'en-US' ? ['Global vision.', 'Built to deliver.'] : ['Visão global.', 'Capacidade de execução.']
+  const mobileHeadline = locale === 'en-US' ? ['Global vision.', 'Built to deliver.'] : ['Visão global.', 'Capacidade', 'de execução.']
   const sectionRef = useRef<HTMLElement>(null)
   const reduceMotion = useReducedMotion()
   const [conceptAvailable, setConceptAvailable] = useState(true)
@@ -50,7 +50,7 @@ export function Hero({ locale = 'pt-BR' }: { locale?: SiteLocale } = {}) {
       <div className="site-shell site-grid relative z-10 mt-auto pb-6 pt-24 md:pb-8 md:pt-24">
         <div className="col-span-12 lg:col-span-10">
           <p className="mb-4 font-mono text-[11px] uppercase tracking-[0.14em] text-sand md:mb-4">
-            {t("Independente · Brasil · Reino Unido · EUA · Desde 2014", "Independent · Brazil · UK · US · Since 2014")}
+            {t("Independente · Desde 2014", "Independent · Since 2014")}
           </p>
 
           <h2
@@ -66,18 +66,17 @@ export function Hero({ locale = 'pt-BR' }: { locale?: SiteLocale } = {}) {
           </h2>
 
           <RevealOnScroll className="mb-5 max-w-[46ch] text-[17px] leading-[1.5] text-paper md:mb-5 md:text-[18px]">
-            <p>{t("Estratégia, marca, digital e tecnologia operando como um só sistema — do posicionamento à receita.", "Strategy, brand, digital, and technology working as one system, from positioning to revenue.")}</p>
+            <p>{t("Estratégia, marca, crescimento e tecnologia. Do Brasil para diferentes mercados.", "Strategy, brand, growth, and technology. From Brazil to markets around the world.")}</p>
           </RevealOnScroll>
         </div>
 
         <div className="col-span-12 mt-3 flex flex-wrap items-center justify-between gap-x-8 gap-y-4 md:mt-4">
           <a href="#projetos" className="site-link inline-flex items-center gap-1 pb-1 text-[14px] text-paper md:text-[15px]">
-            <span className="site-link-label">{t("Ver o trabalho selecionado", "View selected work")}</span>
+            <span className="site-link-label">{t("Conheça nosso trabalho", "Explore our work")}</span>
             <span aria-hidden="true" className="site-link-arrow">↗</span>
           </a>
           <div className="flex items-center gap-5 font-mono text-[11px] tracking-[0.14em] text-sand">
             {conceptLoaded && <span className="max-w-[25ch] text-right text-[10px] leading-tight">{t("Estudo conceitual da futura sede", "Concept study of a future headquarters")}</span>}
-            <span>01 — 04</span>
             <motion.span
               aria-hidden="true"
               className="hero-scroll-indicator text-[18px] leading-none"
