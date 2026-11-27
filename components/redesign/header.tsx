@@ -1,6 +1,6 @@
 'use client'
 
-import { AnimatePresence, motion, useMotionValueEvent, useReducedMotion, useScroll } from 'framer-motion'
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
 import { getTranslator, type SiteLocale } from '@/lib/site-locale'
 
@@ -20,14 +20,11 @@ export function Header({ locale = 'pt-BR' }: { locale?: SiteLocale } = {}) {
     { label: t("Ideias", "Insights"), href: locale === 'en-US' ? '/en/thinking' : '/pt/thinking' },
     { label: t("Contato", "Contact"), href: '#contato' },
   ]
-  const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const reduceMotion = useReducedMotion()
-  const { scrollY } = useScroll()
   const triggerRef = useRef<HTMLButtonElement>(null)
   const menuRef = useRef<HTMLDivElement>(null)
 
-  useMotionValueEvent(scrollY, 'change', (value) => setScrolled(value > 80))
 
   useEffect(() => {
     if (!menuOpen) return
@@ -64,12 +61,10 @@ export function Header({ locale = 'pt-BR' }: { locale?: SiteLocale } = {}) {
     }
   }, [menuOpen])
 
-  const darkSurface = menuOpen || !scrolled
+  const darkSurface = menuOpen
   const headerTone = menuOpen
     ? 'bg-ink text-paper'
-    : scrolled
-      ? 'border-b border-line bg-paper text-ink backdrop-blur-[12px]'
-      : 'bg-transparent text-paper'
+    : 'border-b border-line bg-paper text-ink backdrop-blur-[12px]'
 
   return (
     <>
