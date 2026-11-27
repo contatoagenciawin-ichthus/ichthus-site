@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { HairCaseMotion } from '@/components/redesign/hair-case-motion'
 import { RevealOnScroll } from '@/components/redesign/ui/reveal-on-scroll'
 import { SplitText } from '@/components/redesign/ui/split-text'
 import { getTranslator, type SiteLocale } from '@/lib/site-locale'
@@ -26,6 +27,16 @@ export function SelectedWork({ locale = 'pt-BR' }: { locale?: SiteLocale } = {})
       image: '/cases/innovclean-corporate-lobby.webp',
       alt: t("Imagem editorial ilustrativa de um lobby corporativo com equipamento profissional de limpeza e vista de Londres.", "Illustrative editorial image of a corporate lobby with professional cleaning equipment and a view of London."),
       href: '/pt/work/innovclean',
+    },
+    {
+      number: '05',
+      client: 'De Hilquias Hair',
+      title: [t("Design em", "Design in"), t("movimento.", "motion.")],
+      description: t("Uma experiência digital imersiva que traduz a estética e o posicionamento de um salão premium.", "An immersive digital experience translating the aesthetics and positioning of a premium hair salon."),
+      tags: [t("DIREÇÃO DE ARTE", "ART DIRECTION"), 'UX/UI', t("DESENVOLVIMENTO WEB", "WEB DEVELOPMENT"), t("INTERAÇÃO", "INTERACTION")],
+      image: 'https://hiquias-hair.vercel.app/hair-scroll/poster.webp',
+      alt: t("Sequência visual conceitual da modelo, com movimento dos cabelos.", "Conceptual visual sequence of a model with hair in motion."),
+      href: 'https://hiquias-hair.vercel.app',
     },
     {
       number: '03',
@@ -85,7 +96,7 @@ export function SelectedWork({ locale = 'pt-BR' }: { locale?: SiteLocale } = {})
                       ))}
                     </p>
                     <a href={locale === 'en-US' ? project.href.replace('/pt/', '/en/') : project.href} target="_blank" rel="noreferrer" data-cursor-label={t("VER", "VIEW")} className="site-link inline-flex items-center gap-1 text-[14px] text-ink">
-                      <span className="site-link-label">{t("Ver case", "View case study")}</span>
+                      <span className="site-link-label">{project.number === '05' ? t("Explorar experiência", "Explore experience") : t("Ver case", "View case study")}</span>
                       <span aria-hidden="true" className="site-link-arrow">↗</span>
                     </a>
                   </div>
@@ -100,7 +111,9 @@ export function SelectedWork({ locale = 'pt-BR' }: { locale?: SiteLocale } = {})
                     aria-label={`${t("Ver o case", "View case study")} ${project.client}`}
                     className="selected-case-image-link relative block h-full min-h-[78svh] overflow-hidden bg-paper-2"
                   >
-                    {project.number === '04' ? (
+                    {project.number === '05' ? (
+                      <HairCaseMotion alt={project.alt} note={t('Sequência visual conceitual gerada digitalmente', 'Digitally generated conceptual visual sequence')} />
+                    ) : project.number === '04' ? (
                       <div className="selected-case-image-media absolute inset-0 flex flex-col justify-between bg-[#0f3548] p-8 text-white md:p-12">
                         <div className="flex items-center justify-between border-b border-white/20 pb-5">
                           <p className="text-xl font-semibold">Marc.I.A.</p>
