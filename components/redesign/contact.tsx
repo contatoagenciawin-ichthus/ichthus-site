@@ -7,10 +7,11 @@ export function Contact({ locale = 'pt-BR' }: { locale?: SiteLocale } = {}) {
     <section id="contato" aria-labelledby="contact-title" data-cursor-surface="light" className="flex min-h-svh flex-col justify-end bg-paper pb-[clamp(48px,7vw,96px)] pt-28 text-ink">
       <div className="site-shell site-grid mt-auto w-full">
         <div className="col-span-12 min-[769px]:col-span-9">
-          <p className="mb-8 font-mono text-[11px] uppercase tracking-[0.14em] text-graphite">{t("06 / Contato", "06 / Contact")}</p>
+          <p className="mb-8 font-mono text-[11px] uppercase tracking-[0.14em] text-graphite">{t("Contato", "Contact")}</p>
           <h2 id="contact-title" className="mb-12 font-display text-[clamp(3rem,8vw,8rem)] font-semibold leading-[0.9] tracking-[-0.055em] md:mb-16">
-            <SplitText lines={[t("Tem algo importante", "Have something important"), t("para construir?", "to build?")]} />
+            <SplitText lines={[t("Vamos construir", "Let’s build"), t("o próximo passo", "the next step"), t("do seu negócio.", "for your business.")]} />
           </h2>
+          <p className="mb-8 text-[18px] text-graphite">{t("Projetos, parcerias e operações contínuas. No Brasil e internacionalmente.", "Projects, partnerships, and ongoing operations. In Brazil and internationally.")}</p>
         </div>
 
         <div className="col-span-12 grid grid-cols-1 gap-10 border-t border-line pt-8 min-[769px]:col-span-9 min-[769px]:grid-cols-2 min-[769px]:gap-8">
@@ -18,8 +19,7 @@ export function Contact({ locale = 'pt-BR' }: { locale?: SiteLocale } = {}) {
             <span className="site-link-label">contato@ichthusmkt.com.br</span>
           </a>
           <address className="not-italic font-mono text-[11px] uppercase leading-[1.9] tracking-[0.12em] text-graphite">
-            <span className="block">São Paulo</span>
-            <span className="block">{t("Londres", "London")}</span>
+            <span className="block">{t("Base no Brasil", "Based in Brazil")}</span>
             <span className="block">{t("Atuação internacional", "International reach")}</span>
           </address>
         </div>
