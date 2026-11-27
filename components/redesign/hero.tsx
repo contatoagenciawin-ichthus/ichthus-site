@@ -30,7 +30,7 @@ export function Hero({ locale = 'pt-BR' }: { locale?: SiteLocale } = {}) {
     >
       <motion.div className="hero-parallax absolute inset-x-0 top-0 h-[105%]" style={{ y: reduceMotion ? 0 : parallaxY }}>
         <Image
-          src={conceptAvailable ? "/ichthus-hero-concept.webp" : "/ichthus-hero-poster.png"}
+          src={conceptAvailable ? "/ichthus-hero-concept.webp" : "/ichthus-hero-concept.webp"}
           onLoad={() => { if (conceptAvailable) setConceptLoaded(true) }}
           onError={() => { setConceptAvailable(false); setConceptLoaded(false) }}
           alt=""
