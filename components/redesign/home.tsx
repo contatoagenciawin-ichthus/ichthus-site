@@ -1,3 +1,4 @@
+import { Insights } from '@/components/redesign/insights'
 import { EditorialHero } from '@/components/redesign/editorial-hero'
 import { CustomCursor } from '@/components/redesign/ui/custom-cursor'
 import { AudienceDoors } from '@/components/redesign/audience-doors'
@@ -28,7 +29,7 @@ export function SiteHome({ locale }: { locale: SiteLocale }) {
         <Proof locale={locale} />
         <div id="capabilities" className="scroll-mt-[72px]" />
         <Capabilities locale={locale} />
-        <div id="thinking" className="site-shell py-8 border-t border-line scroll-mt-[72px]"><a className="site-link inline-flex gap-2 font-semibold" href={locale === 'en-US' ? '/en/thinking' : '/pt/thinking'}><span className="site-link-label">{locale === 'en-US' ? 'Explore our insights' : 'Explore nossas ideias'}</span><span aria-hidden="true">↗</span></a></div>
+        <Insights locale={locale} />
         <div id="contact" className="scroll-mt-[72px]" />
         <Contact locale={locale} />
       </main>
