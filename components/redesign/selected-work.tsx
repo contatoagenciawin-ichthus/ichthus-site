@@ -52,12 +52,12 @@ export function SelectedWork({ locale = 'pt-BR' }: { locale?: SiteLocale } = {})
     <section id="projetos" aria-labelledby="selected-work-title" data-cursor-surface="light" className="bg-paper py-[clamp(96px,12vw,180px)] text-ink">
       <div className="site-shell site-grid mb-14 items-end md:mb-20">
         <div className="col-span-12 md:col-span-9">
-          <p className="mb-8 font-mono text-[11px] uppercase tracking-[0.14em] text-graphite">{t("04 / Trabalho selecionado", "04 / Selected work")}</p>
+          <p className="mb-8 font-mono text-[11px] uppercase tracking-[0.14em] text-graphite">{t("Projetos selecionados", "Selected work")}</p>
           <h2 id="selected-work-title" className="max-w-[15ch] font-display text-[clamp(2.6rem,4.2vw,3.6rem)] font-semibold leading-[1.02] tracking-[-0.035em]">
-            <SplitText lines={[t("Quatro projetos.", "Four projects."), t("Quatro provas diferentes.", "Four distinct outcomes.")]} />
+            <SplitText lines={[t("Estratégia aplicada", "Strategy applied"), t("a negócios reais.", "to real businesses.")]} />
           </h2>
         </div>
-        <p className="col-span-12 mt-6 font-mono text-[19px] font-semibold text-red md:col-span-3 md:mt-0 md:text-right">01 — 04</p>
+        <p className="col-span-12 mt-6 text-[16px] leading-[1.55] text-graphite md:col-span-3 md:mt-0">{t("Uma seleção de projetos que demonstra a diversidade dos nossos clientes, mercados e competências.", "A selection of projects reflecting the diversity of our clients, markets, and capabilities.")}</p>
       </div>
 
       <div>
@@ -72,8 +72,7 @@ export function SelectedWork({ locale = 'pt-BR' }: { locale?: SiteLocale } = {})
               <article id={`case-${project.number}`} className="selected-case grid min-h-[78svh] grid-cols-1 border-t border-line md:grid-cols-12">
                 <div className={`selected-case-copy ${textSpan} col-span-1 flex items-center px-[var(--site-margin)] py-12 md:px-10 md:py-16`}>
                   <div className="selected-case-sticky w-full">
-                    <p className="mb-5 font-mono text-[64px] leading-none text-red">{project.number}</p>
-                    <p className="mb-7 font-mono text-[11px] uppercase tracking-[0.12em] text-graphite">{project.number} / {project.client}</p>
+                    <p className="mb-7 font-mono text-[11px] uppercase tracking-[0.12em] text-graphite">{project.client}</p>
                     <h3 className="selected-case-title mb-6 font-display text-[clamp(2.2rem,4.6vw,4rem)] font-semibold leading-[0.98] tracking-[-0.04em]">
                       <SplitText lines={project.title} />
                     </h3>
