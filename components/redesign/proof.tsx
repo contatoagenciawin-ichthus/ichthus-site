@@ -8,10 +8,8 @@ import { getTranslator, type SiteLocale } from '@/lib/site-locale'
 export function Proof({ locale = 'pt-BR' }: { locale?: SiteLocale } = {}) {
   const t = getTranslator(locale)
   const proofPoints = [
-    { value: '150+', label: t("Clientes atendidos por mês", "Clients served per month") },
-    { value: '~60', label: t("Sites entregues", "Websites delivered") },
     { value: '2014', label: t("Operação independente", "Independent since") },
-    { value: 'BR · UK · US', label: t("Três mercados", "Three markets") },
+    { value: 'BR · UK · US', label: t("Presença internacional", "International presence") },
   ]
   
   const portfolioLinks: Record<string, string> = {
@@ -43,11 +41,11 @@ export function Proof({ locale = 'pt-BR' }: { locale?: SiteLocale } = {}) {
   return (
     <section id="resultados" aria-label={t("Resultados e relações", "Results and relationships")} data-cursor-surface="light" className="bg-paper-2 text-ink">
       <div className="proof-statistics flex min-h-[50svh] items-center py-16">
-        <div className="site-shell grid w-full grid-cols-2 md:grid-cols-4">
+        <div className="site-shell grid w-full grid-cols-2">
           {proofPoints.map((point, index) => (
             <motion.div
               key={point.value}
-              className="proof-stat flex min-h-36 flex-col justify-center border-b border-line px-4 py-7 first:pl-0 last:border-b-0 md:min-h-40 md:border-b-0 md:px-6 md:py-5 md:first:pl-0 md:last:pr-0"
+              className="flex min-h-36 flex-col justify-center border-b border-line px-4 py-7 first:pl-0 last:border-b-0 md:min-h-40 md:border-b-0 md:px-6 md:py-5 md:first:pl-0 md:last:pr-0"
               initial={reduceMotion ? false : { opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
@@ -70,7 +68,7 @@ export function Proof({ locale = 'pt-BR' }: { locale?: SiteLocale } = {}) {
           </RevealOnScroll>
         </div>
 
-        <ol aria-label={t("Dez relações selecionadas", "Ten selected relationships")} className="m-0 list-none border-t border-line p-0">
+        <ol aria-label={t("Relações selecionadas", "Selected relationships")} className="m-0 list-none border-t border-line p-0">
           {relationships.map(([number, client, sector, country]) => (
             <li key={number} className="relationship-row grid min-h-14 grid-cols-[42px_minmax(0,1.5fr)_minmax(0,1fr)_auto] items-center gap-x-5 border-b border-line px-3 transition-colors duration-[420ms] hover:bg-paper focus-within:bg-paper">
               <span className="font-mono text-[11px] text-graphite">{number}</span>
