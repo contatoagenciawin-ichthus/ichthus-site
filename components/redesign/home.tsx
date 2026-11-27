@@ -1,3 +1,4 @@
+import { Products } from '@/components/redesign/products'
 import { Insights } from '@/components/redesign/insights'
 import { EditorialHero } from '@/components/redesign/editorial-hero'
 import { CustomCursor } from '@/components/redesign/ui/custom-cursor'
@@ -29,6 +30,7 @@ export function SiteHome({ locale }: { locale: SiteLocale }) {
         <Proof locale={locale} />
         <div id="capabilities" className="scroll-mt-[72px]" />
         <Capabilities locale={locale} />
+        <Products locale={locale} />
         <Insights locale={locale} />
         <div id="contact" className="scroll-mt-[72px]" />
         <Contact locale={locale} />
