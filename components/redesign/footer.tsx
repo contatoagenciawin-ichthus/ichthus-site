@@ -8,6 +8,7 @@ export function Footer({ locale = 'pt-BR' }: { locale?: SiteLocale } = {}) {
     { label: t("Trabalho", "Work"), href: '#projetos' },
     { label: t("Práticas", "Capabilities"), href: '#atuacao' },
     { label: t("Sobre", "About"), href: '#manifesto' },
+    { label: t("Produtos", "Products"), href: '#produtos' },
     { label: t("Ideias", "Insights"), href: locale === 'en-US' ? '/en/thinking' : '/pt/thinking' },
     { label: t("Contato", "Contact"), href: '#contato' },
   ]
