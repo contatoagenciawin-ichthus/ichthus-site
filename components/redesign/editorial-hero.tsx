@@ -9,8 +9,8 @@ const stops = [0, 0.33, 0.66, 1]
 
 function ScrollWord({ word, index, progress }: { word: string; index: number; progress: ReturnType<typeof useScroll>['scrollYProgress'] }) {
   const center = stops[index]
-  const opacity = useTransform(progress, [center - 0.16, center - 0.065, center + 0.065, center + 0.16], [0, 1, 1, 0])
-  const y = useTransform(progress, [center - 0.16, center, center + 0.16], ['55%', '0%', '-55%'])
+  const opacity = useTransform(() => Math.max(0, Math.min(1, (0.21 - Math.abs(progress.get() - center)) / 0.105)))
+  const y = useTransform(() => `${Math.max(-1, Math.min(1, (center - progress.get()) / 0.21)) * 55}%`)
   return <motion.span aria-hidden="true" style={{ opacity, y }} className="col-start-1 row-start-1 self-center text-red">{word}</motion.span>
 }
 
