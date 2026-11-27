@@ -33,8 +33,8 @@ export function SelectedWork({ locale = 'pt-BR' }: { locale?: SiteLocale } = {})
       title: [t("Uma história", "A story"), t("vira marca.", "becomes a brand.")],
       description: t("Uma história iniciada em 1992, transformada em marca para uma nova linha de sucos integrais.", "A story that began in 1992, transformed into a brand for a new line of pure fruit juices."),
       tags: [t("ESTRATÉGIA", "STRATEGY"), t("MARCA", "BRAND"), t("CONSUMO", "CONSUMER")],
-      image: '/cases/vem-viver-juice.png',
-      alt: t("Imagem editorial ilustrativa de duas pessoas compartilhando uma refeição em um café.", "Illustrative editorial image of two people sharing a meal in a cafe."),
+      image: 'https://raw.githubusercontent.com/contatoagenciawin-ichthus/vem-viver-brandbook/main/src/assets/hero-grapes.jpg',
+      alt: t("Composição de marca da Vem Viver com uvas.", "Vem Viver brand composition featuring grapes."),
       href: '/pt/work/vem-viver',
     },
     {
@@ -43,7 +43,7 @@ export function SelectedWork({ locale = 'pt-BR' }: { locale?: SiteLocale } = {})
       title: [t("Uma linha,", "One journey,"), t("de ponta a ponta.", "end to end.")],
       description: t("A jornada inteira, da aquisição e conversa ao orçamento e serviço concluído.", "The entire journey, from acquisition and conversation to quote and completed service."),
       tags: [t("CRESCIMENTO", "GROWTH"), 'CX', 'CRM', t("IA", "AI"), t("TECNOLOGIA", "TECHNOLOGY")],
-      image: '/cases/la-marc-ia.png',
+      image: '',
       alt: t("Imagem editorial ilustrativa de um técnico de climatização em uma casa contemporânea.", "Illustrative editorial image of an HVAC technician in a contemporary home."),
       href: '/pt/work/la-marcia',
     },
@@ -101,6 +101,25 @@ export function SelectedWork({ locale = 'pt-BR' }: { locale?: SiteLocale } = {})
                     aria-label={`${t("Ver o case", "View case study")} ${project.client}`}
                     className="selected-case-image-link relative block h-full min-h-[78svh] overflow-hidden bg-paper-2"
                   >
+                    {project.number === '04' ? (
+                      <div className="selected-case-image-media absolute inset-0 flex flex-col justify-between bg-[#0f3548] p-8 text-white md:p-12">
+                        <div className="flex items-center justify-between border-b border-white/20 pb-5">
+                          <p className="text-xl font-semibold">Marc.I.A.</p>
+                          <span className="h-3 w-3 rounded-full bg-[#14bf63]" />
+                        </div>
+                        <div className="grid grid-cols-2 gap-3">
+                          {[t("Lead", "Lead"), t("Conversa", "Conversation"), t("Orçamento", "Quote"), t("Serviço", "Service")].map((step, i) => (
+                            <div key={step} className="border border-white/20 p-4">
+                              <p className="mb-4 text-xs text-white/70">0{i + 1}</p>
+                              <p className="font-semibold">{step}</p>
+                            </div>
+                          ))}
+                        </div>
+                        <p className="text-2xl font-semibold leading-tight">{t("Operação conectada, de ponta a ponta.", "Connected operations, end to end.")}</p>
+                      </div>
+                    ) : project.number === '03' ? (
+                      <img src={project.image} alt={project.alt} loading="lazy" decoding="async" className="selected-case-image-media absolute inset-0 h-full w-full object-cover" />
+                    ) : (
                     <Image
                       src={project.image}
                       alt={project.alt}
@@ -109,6 +128,7 @@ export function SelectedWork({ locale = 'pt-BR' }: { locale?: SiteLocale } = {})
                       unoptimized={preserveImageDetail}
                       className="selected-case-image-media object-cover"
                     />
+                    )}
                   </a>
                 </RevealOnScroll>
               </article>
