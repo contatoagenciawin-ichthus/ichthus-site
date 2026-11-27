@@ -23,7 +23,7 @@ export function Hero({ locale = 'pt-BR' }: { locale?: SiteLocale } = {}) {
   return (
     <section
       ref={sectionRef}
-      id="inicio"
+      id="visao"
       aria-labelledby="hero-title"
       data-cursor-surface="dark"
       className="hero-section site-dark relative isolate flex min-h-svh overflow-hidden bg-ink text-paper"
@@ -53,7 +53,7 @@ export function Hero({ locale = 'pt-BR' }: { locale?: SiteLocale } = {}) {
             {t("Independente · Brasil · Reino Unido · EUA · Desde 2014", "Independent · Brazil · UK · US · Since 2014")}
           </p>
 
-          <h1
+          <h2
             id="hero-title"
             className="mb-4 font-display font-extrabold leading-[0.92] tracking-[-0.045em] md:mb-4"
           >
@@ -63,7 +63,7 @@ export function Hero({ locale = 'pt-BR' }: { locale?: SiteLocale } = {}) {
             <span className="block min-[769px]:hidden text-[clamp(2.55rem,8vw,4.9rem)]">
               <SplitText lines={mobileHeadline} />
             </span>
-          </h1>
+          </h2>
 
           <RevealOnScroll className="mb-5 max-w-[46ch] text-[17px] leading-[1.5] text-paper md:mb-5 md:text-[18px]">
             <p>{t("Estratégia, marca, digital e tecnologia operando como um só sistema — do posicionamento à receita.", "Strategy, brand, digital, and technology working as one system, from positioning to revenue.")}</p>
