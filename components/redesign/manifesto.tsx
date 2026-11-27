@@ -8,14 +8,15 @@ export function Manifesto({ locale = 'pt-BR' }: { locale?: SiteLocale } = {}) {
     <section id="manifesto" aria-labelledby="manifesto-title" data-cursor-surface="light" className="bg-paper-2 py-[clamp(96px,12vw,180px)] text-ink">
       <div className="site-shell site-grid">
         <div className="col-span-12 lg:col-span-10 lg:col-start-2">
-          <p className="mb-8 font-mono text-[11px] uppercase tracking-[0.14em] text-graphite">01 / Manifesto</p>
+          <p className="mb-8 font-mono text-[11px] uppercase tracking-[0.14em] text-graphite">{t("Quem somos", "About us")}</p>
           <h2 id="manifesto-title" className="mb-8 font-display text-[clamp(2.6rem,5.4vw,5.2rem)] font-semibold leading-[0.98] tracking-[-0.04em]">
-            <SplitText lines={[t("Marca, digital e crescimento", "Brand, digital, and growth"), t("no mesmo sistema.", "in one system.")]} />
+            <SplitText lines={[t("Independentes por natureza.", "Independent by nature."), t("Integrados por estratégia.", "Integrated by strategy.")]} />
           </h2>
           <RevealOnScroll className="max-w-[62ch] text-[18px] leading-[1.55] text-graphite">
-            <p id="ideias">
-              {t("Somos uma empresa independente de estratégia, marca e digital. Trabalhamos com companhias em movimento — crescendo, reposicionando-se, modernizando ou construindo novas capacidades — da estratégia à execução, no mesmo time.", "We are an independent strategy, brand, and digital company. We work with businesses in motion, whether growing, repositioning, modernizing, or building new capabilities, with one team from strategy through execution.")}
+            <p>
+              {t("A Ichthus é uma empresa independente de estratégia, marca, marketing e tecnologia. Atuamos junto a empresas que precisam crescer, se modernizar, fortalecer seu posicionamento ou expandir para novos mercados.", "Ichthus is an independent strategy, brand, marketing, and technology company. We work with businesses looking to grow, modernize, strengthen their positioning, or expand into new markets.")}
             </p>
+            <p className="mt-5">{t("Conectamos competências estratégicas, criativas e tecnológicas em uma única operação.", "We bring strategic, creative, and technological capabilities together in one operation.")}</p>
           </RevealOnScroll>
         </div>
       </div>
